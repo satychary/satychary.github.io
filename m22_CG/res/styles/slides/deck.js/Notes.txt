@@ -1,0 +1,13 @@
+Looks GREAT, EASY, COMPLETE!!! Better than my slidy, and even remarkjs etc.. Seems PDFable and so on, can do EMBEDDING (iframe!), images too, and links of course.. Question: touch swipable? Finding out :) YES!!
+
+Going to use this for EVERYTHING (starting w/ CS103 and CS585, in spring 2016 [now!])..
+
+Templates/intros:
+* boilerplate.html
+* presentation.
+* saty_1.
+* introduction/deck.
+* introduction/introduction_customizable.
+* CS103, CS585 notes from spring '16
+
+

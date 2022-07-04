@@ -1,0 +1,53 @@
+Dear Professor Raghavachary,
+
+It's really nice to meet you the other day. Attached are the sample syllabus, draft contract, and slides for your reference. Feel free to let me know if you have any questions or more info is needed. We would really appreciate it if could send us several topics that you are most interested in teaching. Thanks for sparing your time to read the message.
+
+Regards,
+Katrina
+
+---
+Dear Saty,
+
+Thanks for your email. Please do take some time to have a good rest as well even though under this extremely busy schedule. The start date could be adjusted to 9th July, the 7 sessions will be on 7/9, 7/16, 7/23, 7/30, 8/6, 8/13, 8/20. It could be on your Friday nights, then it will be on Saturday morning at Beijing time. As for the topic, could we start computer graphics first, since we already have a program on data science scheduled to open in the coming summer? There are several students who came to us mentioning that they are extremely interested in the topic of computer graphics. We would really appreciate it if you could send us the syllabus on that topic. 
+
+Thanks for sparing your time to read the message. I will send you the formal contract through hello sign for you to sign later today.
+
+Regards,
+Katrina
+---
+
+
+6/21/22
+Brainstorming topics!!
+Need:
+4+2+1 lecture+seminar+presentation
+
+So, 4+2 lectures...
+
+Topics: 3D math, 3D CG basics (CS580 etc!), THREE, Pixi, OGL, webgl, shaders, shadertoy, MDP, CindyJS, JS Boy's surf etc; 3D pr, AR ☺ [JS a LOT; xem etc; sceneJS]; anim!! USES for CG!
+
+Incorp/look at EVERYTHING I have, incl smartcg broken homepage (lol), Michaelson etc math-cg bks, Gno math, talks I have given, my RMan bks, CAF talk, THREE, JS, xem... GO NUTS! Make MANY things be EASILY modifiable - even THREE examples as xem?!!! And, place xems in my github.io area... 
+
+
+
+https://bytes.usc.edu/~saty/talks/Microseminar2021/
+
+
+https://www.google.com/search?q=+%22interactive%22+math&rlz=1C1CHBF_enUS723US723&biw=1175&bih=550&ei=EK6xYtD5CYrCkPIPwaWemAk&ved=0ahUKEwjQwfjxur74AhUKIUQIHcGSB5MQ4dUDCA4&uact=5&oq=+%22interactive%22+math&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAESgQIQRgASgQIRhgAUABYAGCZBWgAcAF4AIABhAGIAYQBkgEDMC4xmAEAoAEBwAEB&sclient=gws-wiz
+
+Can use CodePen etc, for some 3D demos!
+
+
+WOW!!!!!!!!!!! Show Q4 from CS455 fn-ex [https://bytes.usc.edu/cs455saty/m22_Coding-Rocks/hw/fn-0-ex/] - CODE colorful Minecraft chars, convert to stl, 3D print them!!
+
+Look EVERYWHERE for my syll topics!:
+* my bks
+* talks incl to colleges, CAF, math, 3D pr, AR/VR, CG intro etc etc
+* Gno courses, DW, USC
+* online - JS, WebGL, dataflow, BBG etc etc! And DCC ones too
+* ...
+
+
+Need 4 lectures, 2 project preps, 1 project attending!
+
+

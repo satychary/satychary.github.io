@@ -1,0 +1,20 @@
+2/2016: tester goes w/ bts/myslides.css, tester_plain, with bts/myslides_plain.css.
+
+The PLAIN css is nicer, makes each slide FILL the frame! The 'a' and 'c' btns work wonderfully as well, so it's a nice,. modern alt to myslides.css.
+
+USE tester_plain.html as *THE* slideshow template (for ALL my courses and talks and workshos etc) from now on (2/2016)!
+
+2/15/2016 - SHELVING slidy, but KEEPING & USING the scrollable 'slides' thingie! Reason - on my iPh, when I zoom into anything, I get thrown back to the top :( :( OH WELL.. Looks and works and prints GREAT otherwise :)
+
+
+2/17/16: slides_starter.html needs a pics/s***.png dir, with that it's ready to go!
+
+3/8/16: another_starter.html has pretty formatting to 'contain' each slide..
+
+3/29/16: bts/slidyPrivateUse.js is an alt for slidy.js, to use WHILE I create slides (it brings up slides in clickable/space-barable 'a' mode when I reload each time, while bts/slidy.js does not).
+
+8/2/16: use THIS template from now on: starter_Aug2016/https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/slidesStarter.html - reason: pretty fonts are EASY (d'load from online!), nice nav even on iPhones etc.. Update existing slides pages by swapping out their top part w/ what's in this page, also, swap out the bottom slidy.js for the setUpSlides.js in here..
+
+8/7/16: GREAT news - ELIMINATED the annoying 'snap to top' PROBLEM that occurred while scrolling upwards 
+in 'all' mode!! Result: I now have a GREAT slides creator where I can put in ANY font, make the ss be responsive, nicely scrollable even in phones, etc, etc!! GO TO TOWN..
+

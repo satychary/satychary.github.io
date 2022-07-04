@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<link rel="shortcut icon" href="http://www.usc.edu/favicon.ico" />
+<title style='font-size:60px;'>Blurb :)</title>
+    <script src="../res/styles/js/MathJax/MathJax.js"></script> 
+    <script>
+     //http://docs.mathjax.org/en/latest/model.html
+     MathJax.Hub.Config({
+      config: ["MMLorHTML.js"],
+      jax: ["input/AsciiMath","output/HTML-CSS","output/NativeMML", "output/CommonHTML"],
+      extensions: ["asciimath2jax.js"],
+     });
+    </script>
+
+<style>
+table {
+//writing-mode: vertical-rl;
+}
+</style>
+    
+</head>
+
+
+<body>
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse">
+        
+    </div><!-- navbar -->
+
+
+
+
+<!-- only ONE xmp section will render, so don't have multiples; ONLY customization is the 'theme' - look in 0.2/themes for alt names, eg. united (this came as the demo one), amelia, journal, readable -->
+<!-- what look good:
+* flatly - probably 2nd best..
+* cosmo - clean
+* readable - simple, pretty b/w, makes H1 ALL uppercase!!
+* simplex - tall and thin
+* slate: sort of like my 'forever' smartcg css!!
+* spacelab - clean, elegant, minimal, pretty - Becky's fav!
+* united - modern - probably the best :)
+* yeti - thinnish; yucky top-menu
+* cyborg - pretty but navbar can't be 'right'
+
+* bootstrap: chunky but good, no 'right' navbar
+* default: nice text but black menubar (not 'bad' though)
+-->
+
+<!-- Inside the xmp, *can* have classic md, html, links (see 'page2' for such mixed markup), etc. -->
+<!-- ********************************** -->
+<xmp theme="theme" style="display:none;">
+<!-- ********************************** -->
+
+#### &nbsp;
+
+#**Course description**
+
+##3D computer graphics ("CG") is a practical, exciting, color-filled, profitable area of computer science - it is the technology behind animated movies, videogames, visual effects, augmented reality (VR), virtual reality (VR), 3D-printing, scientific visualization, etc. CG is useful for entertainment, education, communication, commerce - which together make up the bulk of human activity.
+
+##This course will teach you timeless CG principles from the ground up - the knowledge you will gain, is sure to be helpful to you, for decades to come. Throughout the course, we will complement the theory of CG, with use of the following free, and free-for-personal-use, software: Blender, Maya, RenderMan, THREE.js, OpenJSCAD, aframe.io. You will be using some of this software for at-home exercises, as well as for your project which you will present during the 7th (last) week of the course. 
+
+##In one word, here is what this course is about: **fun**!
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+#**Topics/schedule**
+
+##Week1: Introduction and overview; mathematical foundations (linear algebra)
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week2: The 'classic' 3D graphics pipeline
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week3: Extensions to the 3D pipeline - global illumination
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week4: Modeling, animation, simulation
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week5: Mathematical/generative/procedural art 
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week6: AR, VR, 3D-printing 
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+##Week7: Project presentations, 'graduation'
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+ 
+
+<!-- **************************** -->
+<!-- ********************************** -->
+</xmp >
+<!-- ********************************** -->
+<!-- DO NOT MODIFY WHAT'S BELOW - IT RENDERS THE MD CONTENT! -->
+<script>
+ var markdownEl = document.getElementsByTagName('xmp')[0]  || document.getElementsByTagName('textarea')[0];
+   var theme = markdownEl.getAttribute('theme') || 'bootstrap';
+   theme = theme.toLowerCase();
+  // alert(theme);
+  var originBase = "../res";
+   var linkEl = document.createElement('link');
+   linkEl.href = originBase + '/themes/'+theme+'.css';
+   linkEl.rel = 'stylesheet';
+   document.head.appendChild(linkEl);
+</script>
+<script src="../res/styles/js/strapdown/0.2/strapdown.js"></script>
+<!-- DO NOT MODIFY WHAT'S ABOVE - IT RENDERS THE MD CONTENT! -->
+
+<style>
+p,h1,h2,h3 {
+
+line-height: normal;
+}
+
+</style>
+
+</body>
+</html>

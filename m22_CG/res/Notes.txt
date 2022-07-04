@@ -1,0 +1,33 @@
+The overall page's theme is in themes/theme.css, which points to moi.min.css in here
+[or can point to its ../../res/styles/js/strapdown/0.2/themes/moi.min.css, etc]. 
+Edit moi.min.css to change the pages' style [menubar col, overall font].
+
+
+Slides' font is in fonts_only.css, edit it to spec slide font; slides' layout is in layout_only.css, NO NEED to edit this!
+
+Summary: edit fonts_only.css for slide font spec, moi.min.css for all other pages' font and menu color spec.
+
+3/2019 summary - from now on, ONLY need to edit:
+* fonts_only.css in HERE
+* moi.min.css in HERE 
+* [maybe layout_only.css, if/when nec]
+:)
+
+6/2020
+Now I have enabled the use of LOCAL .woff etc fonts!
+* local fonts live in fonts/, and are referenced in localfonts.css
+* I can grab LOTS of .woff etc from cufonfonts etc (or from Index of/ searches!) (or https://fontsgeek.com/fonts etc)
+* ../themes/theme.css includes localfonts.css, then moi.min.css - this means, in moi.min.css, I can s&r with a LOCAL font (eg 'metric'), just as I would, a Google CDN font!!
+* fonts_only.css also includes localfonts.css - so again, I can spec a local font, like I would, a Google one!
+* GREAT :) I can now start to have clean, lovely fonts for both the course pages AND slides, eg. 'metric' for both!
+
+1/2021
+UPDATE - POINTING {fonts_only,layout_only,moi.min}.css to ~saty/res/!!!!! So, NO MORE LOCAL UPDATING, instead, update at shared_res/ in ../.., upload THAT to ~saty/res!
+Translation - DON'T EDIT {fonts_only,layout_only,moi.min}.css here, don't even add to localfonts (do THAT in shared_res/ and upload to ~saty/res!!!).
+
+
+
+
+
+
+
