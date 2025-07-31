@@ -1,0 +1,24 @@
+https://render.com/pricing
+
+https://www.google.com/search?q=Flask-based+app+output+by+a+coding+LLM&sca_esv=f6cb87a6dc41573d&rlz=1C1CHBF_enUS723US723&ei=_v6EaLWEC_-Qur8PkbyXuAw&ved=0ahUKEwi1-4ff9dqOAxV_iO4BHRHeBccQ4dUDCBA&uact=5&oq=Flask-based+app+output+by+a+coding+LLM&gs_lp=Egxnd3Mtd2l6LXNlcnAiJkZsYXNrLWJhc2VkIGFwcCBvdXRwdXQgYnkgYSBjb2RpbmcgTExNMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUjtWVAAWMRXcAV4AZABAJgBYaAB2BCqAQIzMLgBA8gBAPgBAZgCI6ACghLCAgQQABgewgIGEAAYCBgewgILEAAYgAQYhgMYigXCAggQABiABBiiBMICBRAAGO8FwgIGEAAYFhgewgIFECEYqwLCAgcQIRigARgKwgIEECEYCsICBxAhGAoYqwKYAwDiAwUSATEgQJIHBDM0LjGgB4V9sgcEMjkuMbgH7xHCBwkwLjE2LjE4LjHIB3s&sclient=gws-wiz-serp
+
+https://www.google.com/search?q=where+can+I+host+a+small+Flask+app+for+free%3F&rlz=1C1CHBF_enUS723US723&oq=where+can+I+host+a+small+Flask+app+for+free%3F&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAjIHCAIQIRiPAtIBCTE1NTMzajBqOagCALACAQ&sourceid=chrome&ie=UTF-8
+
+https://mlfrontiers.substack.com/p/building-deploying-and-hosting-an - cool
+
+https://stackoverflow.com/questions/46563885/running-firestore-local-e-g-for-testing?rq=3
+
+
+.....
+
+https://www.youtube.com/watch?v=0pHJOzNDdOo - stock price webapp
+
+
+How can I download the app source, and run it locally on my laptop?
+
+--------------------------------------------------------------------------
+
+Decided to spec these:
+* ReplIt - Streamlit
+* FBS - Tailwind, NextJS, React 
+

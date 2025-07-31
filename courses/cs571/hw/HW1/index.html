@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<link rel="shortcut icon" href="https://bytes.usc.edu/~saty/USC-ico.png" />
+<title style='font-size:60px;'>HW1: HTML+CSS+JS</title>
+  
+    
+<!-- carousel(slidesDiv,0,transitionTimeInMilliSec); -->
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"></script>
+</head>
+
+<!-- what, how, when -->
+
+<body>
+
+  <div class="navbar navbar-inverse"> </div>
+
+<!-- only ONE xmp section will render, so don't have multiples; ONLY customization is the 'theme' - look in 0.2/themes for alt names, eg. united (this came as the demo one), amelia, journal, readable -->
+<!-- what look good:
+* flatly - probably 2nd best..
+* cosmo - clean
+* readable - simple, pretty b/w, makes H1 ALL uppercase!!
+* simplex - tall and thin
+* slate: sort of like my 'forever' smartcg css!!
+* spacelab - clean, elegant, minimal, pretty - Becky's fav!
+* united - modern - probably the best :)
+* yeti - thinnish; yucky top-menu
+* cyborg - pretty but navbar can't be 'right'
+
+* bootstrap: chunky but good, no 'right' navbar
+* default: nice text but black menubar (not 'bad' though)
+-->
+
+<!-- Inside the xmp, *can* have classic md, html, links (see 'page2' for such mixed markup), etc. -->
+<!-- ********************************** -->
+<xmp theme="theme" style="display:none;">
+<!-- ********************************** -->
+
+#### &nbsp;
+
+# HW1: web pages creation, using LLMs :)
+
+###In this HW, you are going to do this: create three web pages, using 'ollama' to locally (ie. on your laptop) run a pair of LLMs.
+
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+###Install Ollama from https://ollama.com/ - it lets you download and run LLMs locally! After it's installed, do this [to install Meta's llama3 model] - <b>ollama run llama3</b>:
+<br><img style="width:800px;" src="pics/pulling-llama3.png">
+###Similarly, get 'gemma2:2b' [do 'ollama run' or 'ollama pull' on it]. 
+###After both models are installed, you are ready to start sending prompts to them :) 
+
+###pip install these: streamlit, ollama, litellm
+
+###Save the following as a .py (eg. invokeMultipleLLMs.py):
+
+<pre style="font-size:15px;width:800px;">
+import streamlit as st
+from litellm import completion
+
+# set up the Streamlit app
+st.title("Multi-LLM prompting")
+
+# create a text input for user messages
+user_input = st.text_input("Prompt:")
+
+if st.button("Send"):
+        if user_input:
+            messages = [{"role": "user", "content": user_input}]
+            
+            # columns for side-by-side display
+            col1, col2 = st.columns(2)
+            
+            # first
+            with col1:
+                st.subheader("llama3")
+                try:
+                    response = completion(model="ollama/llama3", messages=messages)
+                    st.write(response.choices[0].message.content)
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
+            
+            # second
+            with col2:
+                st.subheader("gemma 2:2b")
+                try:
+                    response = completion(model="ollama/gemma2:2b", messages=messages)
+                    st.write(response.choices[0].message.content)
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
+
+            st.divider()
+            
+            st.write("Exercise for later - install two more models from https://ollama.com/library [including https://ollama.com/library/llama2-chinese!], add two more columns above, put in code to send your prompt to FOUR LLMs and display their responses.")
+
+            st.divider()
+        else:
+            st.warning("Please enter a prompt.")
+
+
+# information about the app
+st.sidebar.title("About")
+
+st.sidebar.write("This app, derived from https://github.com/Shubhamsaboo/awesome-llm-apps, shows how to invoke (multiple) LLMs via LiteLLM [https://docs.litellm.ai/] - FUN!")
+
+st.sidebar.write(
+    "HTML+CSS+JS creation!"
+)
+</pre>
+
+###Run the program, by doing this: '<b>streamlit run invokeMultipleLLMs.py</b>' - that should pop up your default browser that will display the streamlit app :) Now you can put in prompts that are sent to both LLMs, and look at their outputs side by side - cool!
+
+<br><img style="width:800px;" src="pics/s-b-s.png">
+
+###Put in three prompts, one at a time, to have the LLMs output a complete web page (containing HTML, CSS, JS). Pick either output, save to an HTML file. Edit the html to add extra content where necessary, bring up the file in your browser, MAKE SURE it's correct. 
+
+###1. Your web page should display 5 paragraphs, in font sizes 10px, 12px, 15px, 20px, 30px. For content, they should all contain 'Lorem ipsum' (eg see https://bytes.usc.edu/~saty/tools/xem/run.html?x=bare). Each paragraph should have a 10px solid border - the 5 border colors should be ordered by 'rainbow' - pick from <a href="pics/rnbw.png">these.</a>
+
+###2. You page should display a slideshow, of 10 images, using only CSS (no JS). Edit the html to put in 10 images' links so that the page is functional (ie the slideshow is visible).
+
+###3. Again, your page should display a slideshow of 10 images - this time using JS (not using CSS). Again, edit the page to put in image links.
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+###Please post your qns (and their answers!) on the 'hw1' Piazza page.
+
+###**What to submit** (as a single .zip): 
+####&bull; a screenshot of one of the three prompts, and the LLM's outputs
+####&bull; three web pages: HW1-a.html, HW1-b.html, HW1-c.html
+
+###**HAVE FUN!**
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************************** -->
+</xmp >
+<!-- ********************************** -->
+<!-- DO NOT MODIFY WHAT'S BELOW - IT RENDERS THE MD CONTENT! -->
+<script>
+ var markdownEl = document.getElementsByTagName('xmp')[0]  || document.getElementsByTagName('textarea')[0];
+   var theme = markdownEl.getAttribute('theme') || 'bootstrap';
+   theme = theme.toLowerCase();
+  // alert(theme);
+  var originBase = "../../res";
+   var linkEl = document.createElement('link');
+   linkEl.href = originBase + '/themes/'+theme+'.css';
+   linkEl.rel = 'stylesheet';
+   document.head.appendChild(linkEl);
+</script>
+<script src="../../res/styles/js/strapdown/0.2/strapdown.js"></script>
+<!-- DO NOT MODIFY WHAT'S ABOVE - IT RENDERS THE MD CONTENT! -->
+
+
+
+</body>
+</html>

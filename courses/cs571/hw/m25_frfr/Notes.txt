@@ -1,0 +1,3 @@
+"for real for real", lol.
+
+IMPORTANT - in the exam filenames, regardless of filetype (html, pdf, doc etc), USE 'obfusc' chars, eg. mt-5Rfddx.doc - this is to prevent the file being accessible if someone guesses m25_frfr/, lol. Can strip out this extra part to send to the TAs :)
