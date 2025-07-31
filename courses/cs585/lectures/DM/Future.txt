@@ -1,0 +1,206 @@
+
+FOR SURE: https://aigents.co/learn
+
+MUST MUST use: https://mlu-explain.github.io/linear-regression/
+
+Logistic regr details: https://towardsdatascience.com/the-meaning-behind-logistic-classification-from-physics-291774fda579
+
+NICE: https://developers.google.com/machine-learning/decision-forests
+And: https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205
+
+For unsup learning, mention
+https://blogs.nvidia.com/blog/2016/10/12/nyu-using-nvidia-dgx-1/?ncid=pa-fac-dxps-786
+
+Time series [full bk]: https://otexts.com/fpp3/
+
+--------------------------------------------------
+
+* Error surface exciting epoch [HUH?!]
+
+
+
+* WHAT is DM
+** Data mining is the science of extracting useful information from large data sets. It is a relatively new discipline, lying at the intersection of statistics, machine learning, database technology, pattern recognition, artificial intelligence, and other areas.
+** pic: pics/DMM_5_areas.jpg
+
+** 
+
+Data mining is about discovering hidden patterns or unknown knowledge, which can be used for decision making by people.
+
+Machine learning is about learning a model to classify new objects.
+
+
+** MY take: DM is about RELATIONSHIPS, ML is about REL+future
+
+
+* WHY DM
+** pics/DDD and DDD_2: data -> discover -> deploy -> more data..
+* examples
+** A common use of data mining and machine-learning techniques
+is to automatically segment customers by behavior,
+demographics or attitudes – to better understand needs of
+specific groups and serve them in a more targeted way. This
+analytical segmentation, or unsupervised modeling, helps to
+identify groups of customers that are similar and might react to
+certain offers or activities in a similar way. Using these segments,
+you can create models for each group to predict the next-best
+offer or activity to which they’re most likely to respond. To ensure
+that you only engage desired customers, you can further complement
+the customer acquisition model with a risk-scoring model
+to find out who is a good credit risk and actually worth the investment
+to acquire or retain.
+
+** Another important use for data mining and machine learning is
+to help detect fraud, which is important as fraudsters become
+more sophisticated in their tactics. Models can be built to crossreference
+data from a variety of sources, correlating nonobvious
+variables with known traits to identify new patterns of fraudulent
+activities.
+
+
+** pics/DM_appl1, DM_appl2
+
+* HOW - categories
+** pics/DM_4_categs
+
+Sports: http://www.slideshare.net/salfordsystems/data-mining-for-baseball-new-ppt-11489806
+
+Kernels: https://www.quora.com/What-are-Kernels-in-Machine-Learning-and-SVM
+
+* EXAMPLES in each category (eg. 5 categs, 3 ex in each)
+* http://stats.stackexchange.com/questions/5026/what-is-the-difference-between-data-mining-statistics-machine-learning-and-ai: common data mining techniques would include cluster analyses, classification and regression trees, and neural networks.
+* Various algorithms and techniques like Classification,
+Clustering, Regression, Artificial Intelligence, Neural
+Networks, Association Rules, Decision Trees, Genetic
+Algorithms, Nearest Neighbor method etc., are used for
+knowledge discovery from databases.
+
+
+* http://stats.stackexchange.com/questions/5026/what-is-the-difference-between-data-mining-statistics-machine-learning-and-ai :  There are some tasks however, in particular "unsupervised", where there is no "learning" involved, but also no data management, these are still called "data mining" (clustering, outlier detection). 
+* SAS site: DM Uses: 
+
+
+* DM: detect RELATIONSHIPS (patterns; trends), loosely, 'patterns'; ML: detect relationships (patterns) in existing data, apply to new data
+* Clustering (or unsupervised modeling), Association-rule learning
+* DM_A_to_Z: SAS Enterprise Miner provides dozens of advanced
+statistical and machine-learning algorithms for descriptive and
+predictive modeling, including clustering, link and market
+basket analysis, principal component analysis, decision trees,
+bagging and boosting, Bayesian networks, neural networks,
+random forests, linear regression, logistic regression, support
+vector machine, time series data mining
+* DM_A_to_Z: Modeling techniques included in SAS Factory
+Miner are:
+• Bayesian networks.
+• Decision trees.
+• Gradient boosting.
+• Neural networks.
+• Random forests.
+• Support vector machines.
+• Generalized linear models.
+• Linear regression.
+• Logistic regression.
+* DM_A_to_Z: Decision trees, bagging and boosting, time series data mining, neural networks, memory-based reasoning, hierarchical clustering, linear and logistic regression, associations, sequence and web path analysis are all included.
+
+* for DM, a demo vid: http://www.sas.com/en_us/software/analytics/enterprise-miner.html#m=patrick-hall-demo
+* DM: link anal vid: http://www.sas.com/en_us/software/analytics/enterprise-miner.html#m=demo1
+* DM, Factory Miner: http://www.sas.com/en_us/software/analytics/factory-miner.html#m=demo
+
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Sources:
+* DM/, ML/, DM/New
+** ML/: Chris Jermaine's lectures classif
+** New: DM for Proc Impr: has a nice 4-part 
+* mdwiki entries: Data, 585
+
+* BigFD/
+* ML: Extra reading: http://www.techinsider.io/machine-learning-as-important-as-the-internet-2016-3
+* ML demo: http://www.sas.com/en_us/software/analytics/enterprise-miner.html#m=patrick-hall-demo
+
+
+EM: https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Clustering/Expectation_Maximization_%28EM%29
+
+AdaBoost and other ens learning methods: https://books.google.com/books?id=2hwcFSxQ1CAC&pg=PA238&lpg=PA238&dq=how+does+the+AdaBoost+DM+algo+work?&source=bl&ots=eM_GC18p1T&sig=XYVGCOQLxvh4Ul7d4NyN5Cjb6uA&hl=en&sa=X&ved=0ahUKEwjg1uf1oIrMAhUCKGMKHS0zBc8Q6AEIMTAD#v=onepage&q=how%20does%20the%20AdaBoost%20DM%20algo%20work%3F&f=false
+
+----
+
+* more algo:
+AdaBoost
+LDA
+Random Forests
+Regression
+Time series
+graph mining
+
+* DNN, GPUs!
+
+* dim reduc: PCA, Sammon
+
+<!--
+More:
+LDA/All list/Proj
+DNN
+-->
+
+
+
+
+Yes, Dhiti's explanation is excellent. I'm just adding some extra, clarifying notes below.
+
+Applied to clustering, it (EM) uses fuzzy membership, where each data point has a probability value (based on its distance), to EVERY one of the 'k' centroids - in other words, a probability distribution. For each data point, we update membership assignments based on (random initial) probability (ie we assign the data point to the highest probable centroid), then update probabilities (because the centroids move via a tiny iterated step), update assignments, probabilities... till there is no change in membership (the centroids stop moving).
+
+
+
+Specifically - computing probabilities (initial creation based on random centroid locations, then updating) would be the 'E' step, updating (starting with random creation) of assignments would be the 'M' step. 
+
+----
+
+Firstly, understand the difference between a discriminative model and a generative model.
+
+Discriminative models like KMeans, KNN, SVM learn a function f() on a dataset and output the most likely y on unseen x i.e. there is some decision boundary and having f() we know how to discriminate unseen x's from different classes. 
+
+Generative models like Naive Bayes, on the other hand, are probabilistic models. Unlike the discriminative models, we know how the data is being generated for generative models from the parameters of the probabilistic distributions that they follow.
+
+The EM algorithm is used to learning such probabilistic models.
+
+For the KMeans clustering algorithm, one particular data point can belong to only one cluster. But take into consideration that we have such an algorithm in which there is a probability that a data point can belong to all the clusters i.e P(point x belongs to cluster 1) = 0.6 and  P(point x belongs to cluster 2) = 0.4 considering 2 clusters. Such an algorithm has no hard assignment unlike the KMeans which could assign P(point x belongs to cluster 1) = 1 and  P(point x belongs to cluster 2) = 0.
+
+Thus, for such an algorithm with a soft assignment, we introduce the concept of a latent variable (z) which indicates such a cluster membership i.e. P(data point x belongs to z=k) for all clusters k. Thus, our data point x is the observed variable and the membership variable z is the hidden or latent variable which gives us the probability that a point belongs to a cluster. 
+
+Now the EM algorithm can be used to learn this (in a nut shell):
+
+The expectation step will learn such a soft assignment i.e. fill in the missing/hidden values.
+
+The maximization step will update the model parameters to complete data.
+
+This is explained by taking an example of KMeans with a soft assignment (GMM). But EM is applied in this way generally.
+
+In general, EM is used to solve MLE with latent variables i.e. find maximizer of some probability distribution. It's an optimization strategy to solving these likelihoods with missing data.
+
+Rest, I leave it to Prof to improvise :)
+
+----
+
+Another EM explanation [from me]:
+It's a two-step iterative process, to fit a model to some given data [the model fitting part is in common with all other DM/ML techniques].
+
+In addition to given ("observed") data, we also presume hidden columns (latent vars) for which we don't have data - so to start off, we have available real data, unavailable latent data, an undetermined model (parameters, to be specific). 
+
+By guessing initial model parameters, we can create probable latent values, use those to update model parameters, use them to update latent values... iterate till convergence - at that point we will have the model we were after :)
+
+----
+
+How to lie w/ statistics: https://www.youtube.com/watch?v=bVG2OQp6jEQ
+
+Line, parab fitting: https://medium.com/@shuklapratik22/complete-guide-on-linear-regression-vs-polynomial-regression-with-implementation-in-python-964c64c28aa8
+
+
+EM for clusters - the cluster memb pies are the latent vars, the centroid's x,y are the model params!
+
+EXCELLENT: https://bdtechtalks.com/2020/11/12/what-is-ensemble-learning/
+
+Nice: http://vincentfpgarcia.github.io/kNN-CUDA/?
+
+

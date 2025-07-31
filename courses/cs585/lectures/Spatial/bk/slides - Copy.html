@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ----------------------- -->
+<title>Spatial databases</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+<!-- mine! -->
+<link rel="stylesheet"  href="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/myslides_plain.css"/>
+<link rel="stylesheet" media="print" href="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/print.css"/>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/SSS.js"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/strokeText.js"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/DigitalClock.js"></script>
+
+<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/default.min.css">
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/highlight.min.js"></script>
+</head>
+
+<body>
+<div style="opacity:0.35;width:100px;height:20px;position:absolute;border:0px solid black;margin-left:10px;margin-top:99px;" id="slideNum"></div>
+<canvas style="margin-left:-115px;margin-bottom:-149px;opacity:0.35;" id='clockHolder' ></canvas>
+<script>setInterval("animateClock()", 1000);</script>
+
+
+<!-- ************************ -->
+<!-- SLIDES SLIDES SLIDES -->
+<!-- ************************ -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- *************** -->
+Spatial DBs
+</h1>
+<h1 class="subtitleC"></h1>
+<!-- *************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- ******************************************** -->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Ch.12</h1></div>
+<!----------------------------------->
+<p><img src="pics/s001.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">TOC</h1></div>
+<!----------------------------------->
+<p><img src="pics/s002.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">TOC</h1></div>
+<!----------------------------------->
+<p><img src="pics/s003.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Distributed DBs: past</h1></div>
+<!----------------------------------->
+<p><img src="pics/s004.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Centralized DB </h1></div>
+<!----------------------------------->
+<p><img src="pics/s005.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">'Centralized' - no longer popular/useful</h1></div>
+<!----------------------------------->
+<p><img src="pics/s006.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">What led to DDBMS' rise and popularity? </h1></div>
+<!----------------------------------->
+<p><img src="pics/s007.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Problems w/ centralized DBMSs [that also led to change] </h1></div>
+<!----------------------------------->
+<p><img src="pics/s008.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">DDBMS: summary of pros and cons</h1></div>
+<!----------------------------------->
+<p><img src="pics/s009.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Distributed *processing* vs distributed *databases*</h1></div>
+<!----------------------------------->
+<p><img src="pics/s010.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">What qualifies to be 'distributed'?</h1></div>
+<!----------------------------------->
+<p><img src="pics/s011.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Fully distributed DBMSs: functions</h1></div>
+<!----------------------------------->
+<p><img src="pics/s012.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Fully distributed DBMSs: transparent access</h1></div>
+<!----------------------------------->
+<p><img src="pics/s013.png">
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">What should a DDBMS have?</h1></div>
+<!----------------------------------->
+<p><img src="pics/s014.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">SP/SD </h1></div>
+<!----------------------------------->
+<p><img src="pics/s015.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">SP/SD</h1></div>
+<!----------------------------------->
+<p><img src="pics/s016.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">MP/SD</h1></div>
+<!----------------------------------->
+<p><img src="pics/s017.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">MP/SD</h1></div>
+<!----------------------------------->
+<p><img src="pics/s018.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">MP/MD</h1></div>
+<!----------------------------------->
+<p><img src="pics/s019.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">DDBMS restrictions</h1></div>
+<!----------------------------------->
+<p><img src="pics/s020.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">"What distribution? We have NO distribution!"</h1></div>
+<!----------------------------------->
+<p><img src="pics/s021.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Transaction transparency</h1></div>
+<!----------------------------------->
+<p><img src="pics/s024.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Remote/distributed requests/transactions</h1></div>
+<!----------------------------------->
+<p><img src="pics/s025.png">
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Distributed concurrency control</h1></div>
+<!----------------------------------->
+<p><img src="pics/s026.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Problem!</h1></div>
+<!----------------------------------->
+<p><img src="pics/s027.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Two-phase commit ("2PC") protocol</h1></div>
+<!----------------------------------->
+<p><img src="pics/s028.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">2PC</h1></div>
+<!----------------------------------->
+<p><img src="pics/s029.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Performance transparency, failure transparency</h1></div>
+<!----------------------------------->
+<p><img src="pics/s030.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Performance transparency, failure transparency</h1></div>
+<!----------------------------------->
+<p><img src="pics/s031.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Distributed DB design</h1></div>
+<!----------------------------------->
+<p><img src="pics/s032.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Fragmentation (partitioning)</h1></div>
+<!----------------------------------->
+<p><img src="pics/s033.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Replication</h1></div>
+<!----------------------------------->
+<p><img src="pics/s034.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Full replication vs partial replication</h1></div>
+<!----------------------------------->
+<p><img src="pics/s035.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Storage of fragments/replicas</h1></div>
+<!----------------------------------->
+<p><img src="pics/s036.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">The CAP 'theorem' for distributed DBs</h1></div>
+<!----------------------------------->
+<p><img src="pics/s037.png">
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">DDBMSs - a spectrum</h1></div>
+<!----------------------------------->
+<p><img src="pics/s038.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!-- ************************ -->
+<!-- END SLIDES SLIDES SLIDES -->
+<!-- ************************ -->
+
+</body>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</html>
+
+
+
+
+
+

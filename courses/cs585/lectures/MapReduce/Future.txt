@@ -1,0 +1,21 @@
+
+DO mention: https://blog.quastor.org/p/uber-optimized-hadoop-clusters
+
+Get more info for slides, from the Preface of 'Data Algorithms' (in my BD/ dir :)).
+
+https://nyu-cds.github.io/python-bigdata/02-mapreduce/ nice
+
+https://sparkbyexamples.com/pyspark-tutorial/#rdd-operations nice
+
+
+Spark, Flink, Storm, Samza, all on AWS:
+https://aws.amazon.com/emr/features/spark/
+https://aws.amazon.com/about-aws/whats-new/2019/11/you-can-now-run-fully-managed-apache-flink-applications-with-apache-kafka/#:~:text=You%20can%20now%20run%20Apache,easily%20run%20sophisticated%20streaming%20applications.
+https://aws.amazon.com/blogs/aws/marry-kinesis-and-storm-using-the-new-kinesis-storm-spout/
+https://samza.apache.org/learn/documentation/latest/aws/kinesis.html
+
+Beam pipeline: https://beam.apache.org/get-started/wordcount-example/
+
+NiFi! https://www.google.com/search?q=Apache+NiFi.&rlz=1C1CHBF_enUS723US723&sxsrf=AOaemvJkksIM7-q_Znn5awXF9vADh63f0Q:1640032159768&tbm=isch&source=iu&ictx=1&fir=MRSkv8FloHf1uM%252C3ZNRJBFl-iNm8M%252C_%253Ba6iyCP6CBpUgtM%252C3ZNRJBFl-iNm8M%252C_%253BbzcZXbEMiftPnM%252C3ZNRJBFl-iNm8M%252C_%253BKGrRKupQ_uTs9M%252CzZSvtvXixB5S3M%252C_%253B9Q3MAXTbbbkhbM%252CI6bO-qove2o9GM%252C_%253BY6_DPyFaT6vPYM%252C4FbZ5vYyu351_M%252C_%253B4gMu96mUxneiFM%252CgGpc6F6LEdeS3M%252C_&vet=1&usg=AI4_-kRbs1Zo-qmFpzP4GwQRw6NZOqiQpw&sa=X&ved=2ahUKEwiJ8bXym_P0AhVSbs0KHeWrDhIQ_h16BAgmEAE#imgrc=KGrRKupQ_uTs9M
+
+

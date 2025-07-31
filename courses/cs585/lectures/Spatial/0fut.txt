@@ -1,0 +1,64 @@
+
+https://mail.google.com/mail/u/0/#inbox/FMfcgzQZTCpQWpTHBJHjqlnzjxKQSPsz - LA wildfires geospat!
+
+https://www.propelleraero.com/map-measure-manage/#phase-map -- nice products
+
+https://glowy-earthquakes.glitch.me/
+
+
+Walkelangelo! https://www.boredpanda.com/frida-kahlo-running-art-lenny-maughan
+
+
+Vector data editor! https://www.maptiler.com/news/2024/10/vector-data-editor-revamped/
+
+Ooh - COLORFUL, MUST incl: https://cityhubla.github.io/LA_Building_Age/
+
+Interac: https://public.tableau.com/views/LACrime_5/LACrimeStatistics?:showVizHome=no
+
+
+MUST ADD - LOTS of stds! https://www.ogc.org/standards/
+
+https://www.iqair.com/us/world-air-quality-report - polluted cities :(
+
+GeoJSON etc: https://community.esri.com/t5/arcgis-geoevent-server-blog/json-data-structures-working-with-hierarchy-and/ba-p/889509
+
+Nice: https://www.digitalocean.com/community/tutorials/an-introduction-to-json
+
+MUST: https://thenewstack.io/from-a-fan-on-the-ascendance-of-postgresql/
+
+Add this: https://github.com/neocarto/bertin#drawing-a-map
+
+
+http://www.rosebt.com/blog/r-hadoop
+
+DO add: https://www.thisiscolossal.com/2022/10/bird-migration-explorer-audubon/ and https://explorer.audubon.org/home
+
+http://www.gitta.info/SpatialQueries/en/html/TopoBasedOps_learningObject1.html
+Hello, 
+Could you please explain the difference between AOverlappedIntersectB and AOverlappedDisjointB in the following screenshot? (Occurs in spatial DBs)
+Hi there... In both cases, there is overlap (between polygon and polygon in the first case, polygon and line in the second). In the first, the boundaries also intersect (the polygon boundaries being lines). In the second, the boundaries are disjoint (no overlap), because the polygon has a line boundary, while the line has two point boundaries - and those points don't intersect the polygon boundary.
+Make sense? :)
+
+https://spatialanalysisonline.com/HTML/index.html - nice!
+
+xtown.la - neat! [Annenberg+IMSC]
+
+MUST get stuff from here (GREAT content!):
+spatial-databases-a-tour.pdf
+
+Cool: https://github.com/plv8/plv8 [JS in Postgres]
+
+Great: https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/pre-trained-deep-learning-models-update-july-2021/?adumkts=social&utm_source=social&aduc=social&adum=external&aduca=social_technical&adusf=facebook&adut=95d78a69-bdeb-4fa3-ab38-dbe3daf0f04a
+
+Must show :) Data retr, using a GET query :)
+https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=GT0058
+
+https://deck.gl/ - colorful examples!
+For a hw maybe? https://github.com/visgl/deck.gl/tree/8.4-release/examples/website/line
+LIKE SO, OMG: https://bytes.usc.edu/~saty/tools/xem/run.html?x=DeckGL
+
+Cool: https://earthexplorer.usgs.gov/
+
+NICE: https://www.cnn.com/interactive/2021/us/census-race-ethnicity-map/
+
+Cool: https://medium.com/@yankuan/the-4-most-common-geometries-in-kml-ef9096231e59

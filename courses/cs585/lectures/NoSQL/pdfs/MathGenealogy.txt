@@ -1,0 +1,48 @@
+[https://www.technologyreview.com/2016/04/01/161205/data-mining-algorithm-reveals-the-stormy-evolution-of-mathematics-over-700-years/]
+
+The history of mathematics is in some ways a study of the human mind and how it has understood the world. That’s because mathematical thought is based on concepts such as number, form, and change, which, although abstract, are fundamentally linked to physical objects and the way we think about them.
+
+Some prehistoric artefacts show attempts to quantify things like time. But the first formal mathematical thinking probably dates from Babylonian times in the second millennium B.C.
+
+Since then, mathematics has come to dominate the way we conceptualize the universe and understand its properties. In particular, the last 500 years has seen a veritable explosion of mathematical work in a wide variety of disciplines and subdisciplines.
+
+But exactly how the process of mathematical discovery has evolved is poorly understood. Scholars have little more than an anecdotal understanding of how disciplines are related to each other, of how mathematicians move between them, and how tipping points occur when new disciplines emerge and old ones die.
+
+Today that looks set to change thanks to the work of Floriana Gargiulo at the University of Namur in Belgium and few pals who have studied the network of links between mathematicians from the 14th century until today.
+
+Their results show how some schools of mathematical thought can be traced back to the 14th century, how some countries have become global exporters of mathematical expertise, and how recent tipping points have shaped the present-day landscape of mathematics.
+
+This kind of analysis is possible thanks to global data-gathering program known as the Mathematical Genealogy Project, which holds data on some 200,000 scientists dating back to the 14th century. It lists each scientist’s dates, geographical location, mentors, students, and discipline. In particular, the information about mentors and students allows the construction of “family trees” showing the links between mathematicians going back centuries.
+
+Gargiulo and co use the powerful tools of network science to study these family trees in detail. They began by checking and updating the data against other sources of information such as Scopus profiles and Wikipedia pages.
+
+This is a nontrivial step requiring a machine-learning algorithm to spot and correct errors or omissions. But at the end of it, the vast majority of scientists on the database have a decent entry.
+
+They then construct a network from the data in which each scientist is a node and links exist when one was a mentor or student of another. The network also contains the attributes associated with each researcher, such as their discipline, country of origin, and so on. The team then uses the well-established tools of network science to analyze the resulting webs to spot clusters within the networks, tipping points, influential nodes, and so on.           
+
+The results make for interesting reading. For a start, standard clustering algorithms reveal how mathematics can be divided into 84 family trees and that 65 percent of the scientist in the database are from just 24 of these.
+
+The largest, with 100,000 descendants, originated in 1415 under the auspices of Sigismondo Polcastro, a medical doctor in Italy. The second largest was founded by the Russian mathematician Ivan Petrovich Dolby at the end of the 19th century.
+
+The data also reveals the roles of different countries in producing mathematicians and how this has changed over time.  It shows that countries such as Greece, France, and Italy once had central roles in the network but that this centrality has decreased in recent centuries. It shows the emerging importance of countries like Japan and India since the Second World War and countries like Brazil and China more recently.
+
+The analysis reveals transition points when certain countries and regions fell from grace or came to the fore. For example, after the First World War, Austria and Hungary both became less important presumably because of the collapse of the Austro-Hungarian empire.
+
+“Another transition is connected with the European political reshaping during the Second World War,” say the team. This when the U.S. first overtook Germany in the rankings. And another transition occurred in the 1960s when the Soviet Union blossomed as global force in mathematics.
+
+The data makes it possible to track the migration of mathematicians. Some countries, like the U.S., tend to produce mathematicians who stay there. Others produce mathematicians who tend to move around the world. Inevitably, countries with weak scientific history tend be net importers of mathematicians, while countries with a stronger mathematical tradition tend to be exporters. “The most important exporters are Russia and the U.K.,” they conclude.
+
+The team takes a similar approach to the clustering of mathematical disciplines and subdisciplines. They show that during the Industrial Revolution up to 1900, the most central disciplines were closely linked with physics, such as thermodynamics, mechanics, and electromagnetism. A more abstract group of disciplines became more important between 1900 and the 1950s, albeit with links to applications such as telecommunications and quantum physics.
+
+More recently, applied mathematics has come to dominate the field. “The last decades have witnessed the emerging dominance of applied mathematics (e.g. statistics, probability) and computer science,” say Gargiulo and co.
+
+An interesting subplot in all this is how fields in mathematics have broken apart or merged. Gargiulo have identified two important transitions in the 20th century.  The first occurred between 1930 and 1940, when the disciplines of statistics and probability merged and began to attract other applied fields, such as information theory, game theory, and statistical mechanics. The result was the emergence of the field of applied mathematics.
+
+The second transition occurred between 1970 and 1980, when computer science and statistics merged to form one community.
+
+That’s fascinating work that shows the ebb and flow of mathematical knowledge over the last 700 years. It shows that mathematical evolution by no means consists of a gentle flow of ideas from one generation the next. Instead, it is a maelstrom in which ideas and practices emerge, thrive, and evolve, sometimes dying out completely. This maelstrom is characterized by tipping points in which fields change dramatically in just a few years.
+
+That’s a complex history. But in that way, mathematics is no different than any other cultural phenomenon. Indeed, an interesting project would be to compare the evolution of mathematical ideas with other cultural phenomena such as the evolution of words, the evolution of memes on social networks such as Twitter, and perhaps even things linked with physical networks such as the origin and spread of disease. Perhaps this will give some insight into the way new ideas emerge and become important to human minds.
+
+Clearly, there’s work ahead. And interesting it will be!
+

@@ -1,0 +1,181 @@
+body {
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+background:#EFF8EE;
+}
+
+a {
+color:#99CC00;
+}
+
+a:hover {
+color:#C7DD5E;
+}
+
+.form {
+margin-top: 10px;
+border:1px solid #C1E0A3;
+padding: 3px;
+}
+
+code {
+font-size:1.2em;
+}
+
+div#rightcol {
+padding-left:32em;
+}
+
+fieldset {
+display:block;
+margin:0.5em 0;
+padding:1em;
+border:7px solid #C1E0A3;
+background:url(images/bg2.gif) repeat-x bottom;
+}
+
+h1 {
+font-size:2em;
+}
+
+small {
+font-size:0.7em;
+}
+
+fieldset#field_input {
+float:left;
+margin:0 0.5em 1em 0;
+}
+
+fieldset#options,fieldset#code_layout {
+width:31em;
+}
+
+input#submit {
+clear:both;
+display:block;
+margin:1em;
+}
+
+label.block {
+display:block;
+}
+
+legend {
+	padding:2px 4px;
+	border:1px dashed #99CC00;
+	background-color: #EDFFB7;
+	background-image: url(images/bg-1.gif);
+	background-repeat: repeat-x;
+}
+
+span.at {
+color:darkblue;
+}
+
+span.format {
+color:gray;
+}
+
+span.property {
+color:green;
+}
+
+span.selector {
+color:blue;
+}
+
+span.value {
+color:red;
+}
+
+span.comment {
+color:orange;
+}
+
+textarea#css_text {
+width:27em;
+height:370px;
+display:block;
+margin-right:1em;
+}
+
+.help {
+cursor:help;
+}
+
+p.important {
+border:solid 1px red;
+font-weight:bold;
+padding:1em;
+background:white;
+}
+
+p {
+margin:1em 0;
+}
+
+dl {
+padding-left:0.5em;
+}
+
+dt {
+font-weight:bold;
+margin:0;
+float:left;
+clear:both;
+height:1.5em;
+}
+
+dd {
+margin:0 0 0 4em;
+height:1.5em;
+}
+
+fieldset#messages {
+background:white;
+padding:0 0 0 1em;
+}
+
+fieldset#messages div {
+height:10em;
+overflow:auto;
+}
+
+dd.Warning {
+color:orange;
+}
+
+dd.Information {
+color:green;
+}
+
+div#googleright {
+padding-left:64em;
+}
+
+#nav {
+padding-left: 30px;
+}
+
+	#carbonads-container {margin-left: 18px; margin-bottom: 25px;}
+
+.carbonad {border: 1px solid #c1e0a3!important; background: #EAF3E9 !important;}
+
+.carbonad-image
+    Used for positioning the image
+.carbonad-text
+    Used for styling the text: font, font-size, color
+.carbonad-text a
+    Used for styling the text link: font, font-size, color
+.carbonad-tag
+    Used for styling the ads via Carbon text
+.carbonad-tag a
+    Used for styling the Carbon link
+    
+
+
+.wraplong {
+white-space: normal;
+word-wrap: break-word;
+}

@@ -1,0 +1,606 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ------PAGE TITLE------- -->
+<title>
+R
+</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+<!-- CSS, JS -->
+<link rel="stylesheet"  href="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/fonts_only.css"/>
+<link rel="stylesheet"  href="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/layout_only.css"/>
+<link rel="stylesheet" media="print" href="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/default.min.css">
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/highlight.min.js"></script>
+
+<!-- ------ -->
+</head>
+
+<body>
+<!-- time, slide#, full-screen toggle, nav L.R -->
+<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' ></canvas>
+<script>setInterval("animateClock()", 1000);</script>
+<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" > </span>
+<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >***</span>
+<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >&larr;</span>
+<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >&rarr;</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="verybigtitle">
+<!-- ****************************** -->
+R
+</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Why R? 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p><b>abcdefghijklmnopqrstuvwxyz; ABCDEFGHIJKLMNOPQRSTUVWXYZ</b>
+<ul>
+
+<li>R is based on S, which is a statistics programming language - so for R, statistics runs in its blood :) Python, Java etc. can do what R can do, but they are general-purpose languages
+
+<li>very feature-rich, including statistics operations,  graphics output..
+
+<li>provides a suite of operators for calculations on arrays, lists, vectors and matrices
+
+<li>provides a large, coherent and integrated collection of tools for data analysis
+
+<li>rich I/O: supports R  importing data from CSV files, SAS, and SPSS, or directly from Microsoft Excel, Microsoft Access, Oracle, MySQL, and SQLite; can produce graphical output in PDF, JPG, PNG, and SVG formats, and table output for LaTeX and HTML
+
+<li>offers a mix of OO and functional programming constructs
+
+<li>data sets are autosaved between sessions
+
+<li>cross-platform
+
+<li>extensible
+
+<li>open source, PLENTY of add-ons (libraries) [~5000!!];  great user community
+</ul>
+
+<p>Fun!
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Where is R?
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>R's main page ("homepage") is <a href="https://www.r-project.org/">https://www.r-project.org/</a>
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+History
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Wikipedia: 'S is a statistical programming language developed primarily by John Chambers and (in earlier versions) Rick Becker and Allan Wilks of Bell Laboratories. The aim of the language, as expressed by John Chambers, is "to turn ideas into software, quickly and faithfully".'
+
+<p>Scheme is an elegant language, derived from Lisp (an AI language) - Scheme's  has clear and simple semantics, and offers many ways to form expressions.
+
+<p>R owes its origins to both S and Scheme - its interpreter is Scheme-based, and its purpose is similar to that of S, to serve as a language for statistics.
+
+<p>You can read more about R's origins <a href="https://cran.r-project.org/doc/html/interface98-paper/paper_1.html">here</a>.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+IDE(s)
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>You can choose between several IDEs (Integrated Development Environments) and GUI front ends:
+
+<ul>
+<li>RStudio: http://www.rstudio.org/ [and optionally/additionally, <a href="http://shiny.rstudio.com/">Shiny</a>, a web application framework] - IDE
+
+<li>Tinn-R (for Windows only): https://sourceforge.net/projects/tinn-r/ - IDE
+
+<li>R Commander:  http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/ - GUI 
+
+<li>Rattle: http://rattle.togaware.com/ - GUI, tab-oriented (<a href="https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf">here</a> is a note on it)
+
+<li>JGR (Java GUI for R): https://cran.r-project.org/web/packages/JGR/index.html - GUI
+
+<li>StatET: http://www.walware.de/goto/statet/ - Eclipse plugin
+
+<li>ESS (Emacs Speaks Statistics): http://ess.r-project.org/ - Emacs R package
+</ul>
+
+<p>If you want just one to start with, pick RStudio. Note that you need to first install R (from https://cran.r-project.org/src/base/R-3/) before installing RStudio [or any other IDE or GUI front-end].
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Syntax, semantics
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+
+<p>So what does R actually look like, what datatypes does it have, what operators? How are functions declared and called?
+
+<p>R particularly shines when it comes to operations on vectors, arrays, matrices and tables - all of which are built-in ('native') datatypes.
+
+<p>R code can be executed interactively in a shell, or be run from a .R source file (script).
+
+
+<pre style="font-size:25px;">
+# create a vector called x
+x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
+
+typeof(x)
+
+objects()
+
+# alternative
+assign("x", c(10.4, 5.6, 3.1, 6.4, 21.7))
+
+c(10.4, 5.6, 3.1, 6.4, 21.7) -> x # !!!
+1/x
+
+y <- c(x, 0, x) # y will have 11 entries
+
+v <- 2*x + y + 1 
+# generates a new vector v of length 11 constructed by adding together, 
+# element by element, 2*x repeated 2.2 times, y repeated just once, 
+# and 1 repeated 11 times
+</pre>
+
+<p>Here are sample operations (in RStudio):
+<p><img src="pics/rs1.png">
+
+<p>Several functions operate on a vector, eg. range(), min(), max(), sum(), prod(), mean(), sort().. 
+
+<p>Sequences are easy to create:
+
+<pre style="font-size:25px;">
+# c(1,2,3,4.....30)
+> m <- 1:30
+> m
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
+[20] 20 21 22 23 24 25 26 27 28 29 30
+
+> n <- seq(2,5)
+> n
+[1] 2 3 4 5
+> 
+</pre>
+
+<p>Logical vectors (comprised of T,F) are created via conditions, eg.
+
+<pre style="font-size:25px;">
+> temp <- x>13
+> temp
+[1] FALSE FALSE FALSE FALSE  TRUE
+> 
+</pre>
+
+<p>Matrices/arrays are muti-dim versions of vectors.
+
+<p>Lists can have elements of unequal types.
+
+<p>Data frames  are matrix-like structures, in which the columns can be of different types - this is how we can create/read in relations!
+
+<p>Functions are objects as well.
+
+"The function tapply() is used to apply a function, here 'mean()', to each group of components
+of the first argument, here 'incomes', defined by the levels of the second component, here 'statef'":
+
+<pre style="font-size:25px;">
+> incmeans <- tapply(incomes, statef, mean)
+</pre>
+
+<p>Easy to write vector-oriented functions:
+
+<pre style="font-size:25px;">
+> stderr <- function(x) sqrt(var(x)/length(x))
+</pre>
+
+<p>Arrays can be created from vectors, via dim():
+<pre style="font-size:25px;">
+# if z has 1500 elements, here is how it can be turned 
+# into a 3D array:
+
+> z = 1:1500
+> dim(z) <- c(3,5,100)
+> z
+, , 1
+
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    4    7   10   13
+[2,]    2    5    8   11   14
+[3,]    3    6    9   12   15
+
+, , 2
+
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   16   19   22   25   28
+[2,]   17   20   23   26   29
+[3,]   18   21   24   27   30
+
+, , 3
+
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   31   34   37   40   43
+[2,]   32   35   38   41   44
+[3,]   33   36   39   42   45
+
+....
+....
+</pre>
+
+<p>data() lists sample datasets:
+
+<p><img src="pics/rs2.png">
+
+<p>edit() is used to edit data, spreadsheet-fashion:
+<pre style="font-size:25px;">
+xnew <- edit(xold)
+
+xnew <- edit(data.frame())
+</pre>
+
+<p>R has a lot of probability distribution functions built-in:
+<p><img src="pics/stats.png">
+
+
+<p>A stem-and-leaf plot of data is easy to generate:
+
+<pre style="font-size:20px;">
+> attach(faithful) # READ in a dataset
+> summary(eruptions)
+Min. 1st Qu. Median Mean 3rd Qu. Max.
+1.600 2.163 4.000 3.488 4.454 5.100
+> fivenum(eruptions)
+[1] 1.6000 2.1585 4.0000 4.4585 5.1000
+> stem(eruptions)
+The decimal point is 1 digit(s) to the left of the |
+16 | 070355555588
+18 | 000022233333335577777777888822335777888
+20 | 00002223378800035778
+22 | 0002335578023578
+24 | 00228
+26 | 23
+28 | 080
+30 | 7
+32 | 2337
+34 | 250077
+36 | 0000823577
+38 | 2333335582225577
+40 | 0000003357788888002233555577778
+42 | 03335555778800233333555577778
+44 | 02222335557780000000023333357778888
+46 | 0000233357700000023578
+48 | 00000022335800333
+50 | 0370
+</pre>
+
+
+<p>There is more to learn! If you are interested, go through the books/sites listed at the end of this lecture. Meanwhile, <a href="code/test0.R">here</a> is a .R script filled with practice commands.
+
+
+
+<p><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">Here</a> is a nice reference card that summarizes all the aspects of R.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Examples
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p><a href="http://www.cwu.edu/~wassellc/data/Forecasting/Example%20similar%20to%20FPP%20question%204_2.R">Here</a> is a 'real world' R script.
+
+<p><a href="https://rstudio-pubs-static.s3.amazonaws.com/31867_8236987cf0a8444e962ccd2aec46d9c3.html">Here</a>, R is used for text mining.
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Packages
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Just like Python has modules and Java has class libraries, R has packages, which are collections of useful functions - these effectively help extend R (by introducing new input and output types, and new functions).
+
+<p>Here are some popular R packages:
+
+
+<ul>
+<li>ggplot2: http://had.co.nz/ggplot2/ - high-level package for creating statistical graphics (compare with matplotlib, LaTeX etc). 
+<br><img src="pics/ggplot.png">
+<li><a href="https://plot.ly/r/">plotly</a> - another plotting package
+<li><a href="docs/PlyrIntro.pdf">plyr</a>: SAC (split-apply-combine) dataflow; <a href="https://blog.rstudio.org/2014/01/17/introducing-dplyr/">dplyr</a> - next-gen plyr
+<li><a href="https://rpubs.com/davoodastaraky/lubridate">lubridate</a> - to process dates 
+<li><a href="http://yihui.name/knitr/">knitr</a> - for report generation
+<li><a href="http://rcharts.io/">rCharts</a> - for creating interactive, JavaScript-based visualizations (eg. look at the <a href="http://rcharts.io/gallery/">rCharts gallery</a> samples)
+
+</ul>
+
+<p>Want to discover and utilize even more packages? Look <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">here</a> :)
+
+<p><a href="http://r-pkgs.had.co.nz/">http://r-pkgs.had.co.nz/</a> is the page for a book on (writing) R packages - the site is quite informative (as is the book).
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+R + Python
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p><a href="https://pypi.python.org/pypi/PypeR/1.1.0">PypeR</a> is a Python interface to R.
+
+<p><a href="http://rpy2.bitbucket.org/">rPy2</a> is another module that also provides access to R from inside Python. 
+
+<p><a href="http://jupyter.org/">Jupyter</a> is a programming workbench that supports mixing and matching multiple languages, including Python and R. 
+
+<p>Python or R? <a href="http://www.kdnuggets.com/2015/05/r-vs-python-data-science.html">Hard</a> to choose :)
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+R + Java
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Using the <a href="http://statmath.wu.ac.at/~zeileis/papers/Hornik+Buchta+Zeileis-2009.pdf">RWeka</a> package, it is possible to hook into the Weka runtime, via R commands..
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+R user groups: LA, USC :)
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+More
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>There is a *wealth* of material out of there for you to explore further!
+
+<p><b>Books</b></p>
+
+<p>There are numerous books on R. Here are ten that I recommend:
+
+<ul>
+<li>The Art of R Programming, by Norman Matloff : if you want to read just one book on R, read this one!
+<li>Data Mashups in R : contains numerous ideas to use R along with other tools/programs
+
+<li>R for the Impatient:  http://www.burns-stat.com/documents/tutorials/impatient-r/
+<li><a href="http://www.amazon.com/Beginners-Guide-Use-Alain-Zuur/dp/0387938362">A Beginner's Guide to R</a>
+
+<li>https://cran.r-project.org/doc/manuals/R-intro.pdf
+
+<li><a href="http://www.amazon.com/Cookbook-OReilly-Cookbooks-Paul-Teetor/dp/0596809158/ref=sr_1_1?s=books&ie=UTF8&qid=1395348033&sr=1-1&keywords=r+cookbook">R Cookbook</a> - with specific 'recipes' (how-tos)
+
+<li> ....
+
+<li><a href="https://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf">Econometrics in R</a>
+<li>Statistics with R ("SwR"): http://zoonek2.free.fr/UNIX/48_R/all.html - this is a MASSIVE BOOK!
+
+<li> ....
+
+
+
+
+<li><a href="http://www.amazon.com/R-Graphics-Cookbook-Winston-Chang/dp/1449316956/ref=pd_sim_b_2?ie=UTF8&refRID=13M988CR4VBW209F52D8">R Graphics Cookbook</a> and <a href="http://www.cookbook-r.com/">associated site</a>
+
+<li>Another <a href="https://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html">R Graphics</a> book
+
+
+</ul>
+
+
+<p><b>Notes [sites devoted to R]</p></b>
+
+<ul>
+
+<li>Quick-R: http://www.statmethods.net/
+
+<li>The R Journal: https://journal.r-project.org/index.html
+
+<li>RDataMining: http://www.rdatamining.com/
+
+<li>RNotes: http://sphaerula.com/legacy/R/index.html
+
+<li>RTips: http://pj.freefaculty.org/R/Rtips.html
+
+<li>OnePageR: http://togaware.com/onepager/ - short and sweet notes on R topics 
+
+<li>R Tutorial: http://www.r-tutor.com/
+
+<li>R Examples: http://www.rexamples.com/
+
+</ul>
+
+
+
+<p><b>Courses</p></b>
+
+<ul>
+
+<li>https://www.edx.org/course/mitx/mitx-15-071x-analytics-edge-1416
+
+<li>https://www.edx.org/course/explore-statistics-r-kix-kiexplorx-0#.U7reOf6HaR8
+
+<li>https://www.coursera.org/learn/r-programming
+
+<li>R for Data Science: http://r4ds.had.co.nz/
+
+<li>https://www.codeschool.com/courses/try-r
+
+<li>http://swirlstats.com/ ['swirl' is a package that lets you learn R, right inside R :)] [from within RStudio, do '> install.packages("swirl")', then '>library("swirl")', then '>swirl()', to bring up swirl]
+
+</ul>
+
+
+
+<p><b>Misc</p></b>
+
+<ul>
+<li><a href="http://tolstoy.newcastle.edu.au/R/">mailing list</a>
+
+<li><a href="http://rseek.org/">RSeek</a>
+
+<li>A complete <a href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-quickstart/">Microsoft tutorial</a> in a single web page
+</ul>
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</body>
+
+</html>
+
+
+
+
+

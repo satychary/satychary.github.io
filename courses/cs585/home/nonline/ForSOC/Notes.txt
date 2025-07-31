@@ -1,0 +1,13 @@
+Edit the HTML, add in pics (eg schedule snapshot) etc... ALWAYS include these 5 sections, in order:
+* overview, incl a note on 'extras'
+* prereq desc
+* topics [incl textbk]
+* course structure [grading %s, delivery etc]
+* qns?
+
+
+Tips:
+* rotate lec sched sideways for a nice scrgrab
+* after including it here, adjust the width % to look nice - eg 40%
+* play w/ SCALE (NOT margins!) to make sure a sched topic won't get sliced :)
+

@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ------PAGE TITLE------- -->
+<title>
+MapReduce (etc.)
+</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+<script src="../../res/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- ****************************** -->
+"Map(Shuffle)Reduce"
+</h1>
+<h1 class="subtitleC">
+[(big) data processing 'at scale']
+</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Comp. machinery to process large volumes of data
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Modern databases store data as key/value pairs, resulting in explosive growth when it comes to number of rows and file sizes. 
+
+<p>Traditional, sequential, single machine oriented access does NOT work at all - what is needed is a massively parallel way to process the data. 
+
+<p>Note that we are talking about SIMD form of parallelism. 
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Aside: functional constructs
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Before we look at 'MapReduce' etc., let us take a side trip and look at some functional programming features.
+
+<p>In functional programming, functions are first-class objects that can be passed into a function as arguments; a function can also be returned from a function as output. <a href="https://bytes.usc.edu/~saty/tools/xem/run.html?x=bare#PGhlYWQ+CjxzY3JpcHQgc3JjPSJodHRwczovL2J5dGVzLnVzYy5lZHUvfnNhdHkvdG9vbHMveGVtL2MvcHJ0dC5qcyI+ICAgPC9zY3JpcHQ+CjxwIHN0eWxlPSJmb250LXNpemU6MTBweDsiPkNsaWNrIDxidXR0b24gb25jbGljaz0iY2FwdCgpIj5oZXJlPC9idXR0b24+IHRvIGNyZWF0ZSBhICdzY3JlZW5zaG90JyBvZiB0aGlzIChyaWdodCBzaWRlKSBwYWdlIC0gaXQgd2lsbCBnZXQgYXBwZW5kZWQgdG8gdGhlIGJvdHRvbSBvZiB0aGlzIHBhZ2UgKHNvIHlvdSBjYW4gUk1CIHRvIHNhdmUgaXQpLjwvcD4KPGhyPgo8L2hlYWQ+CjwhLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tPgo8IS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLT4KPGJvZHk+CiA8cD4uLi48L3A+CiA8cHJlIHN0eWxlPSJmb250LXNpemU6MTVweDsgd2lkdGg6OTklOyBoZWlnaHQ6MjAwcHg7IGJvcmRlcjoxcHggc29saWQgYmxhY2s7IG92ZXJmbG93OmF1dG8iIGlkPSJ0ZXN0ZXIiPjwvcHJlPgogPGhyPgogPHNjcmlwdD4KIC8vIG5vdGUgdGhhdCB0aGUgbGFzdCBpbnB1dCBpcyBhIGZ1bmN0aW9uIChub3QgZGF0YSkhCiBmdW5jdGlvbiBydW5NZShhLGIsbSkgewogIHJldHVybiBtKGEsYik7CiB9Ly8gcnVuTWUoKQoKIC8vIHdlIGFyZSBwYXNzaW5nIHRvIHJ1bk1lKCksIGRhdGEsIEFORCBhIGZ1bmN0aW9uIHRvIHByb2Nlc3MgdGhlIGRhdGEKIHBydHQocnVuTWUoMyw0LCBmdW5jdGlvbih4LHkpIHsKICByZXR1cm4gKHgqeSk7fSkpOwogPC9zY3JpcHQ+CjwvYm9keT4KPCEtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0+CjwhLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tPg==">JavaScript</a>, Python etc. are languages that provide functional programming facilities.
+
+<p>In Python, the built-in functions map(), filter() and reduce(), all accept a function as input.
+
+<p><b>lambda</b>
+
+<p>A lambda operator lets us define anonymous, JIT functions, eg.
+
+<pre style="font-family:Consolas">
+>>> f = lambda x, y : x + y # f is a var that receives an anonymous fn assignment
+
+>>> f(1,1)
+2
+</pre>
+<p>We can use lambda to define a function inside another function's parameter list, as shown below.
+
+<p><b>map</b>
+
+<pre style="font-family:Consolas">
+r = map(func, seq)
+</pre>
+
+<p>map() applies the function func, to a sequence (eg. a list) seq.
+
+<pre style="font-family:Consolas">
+>>> Celsius = [39.2, 36.5, 37.3, 37.8]
+
+>>> Fahrenheit = map(lambda x: (float(9)/5)*x + 32, Celsius)
+>>> print Fahrenheit
+[102.56, 97.700000000000003, 99.140000000000001, 100.03999999999999]
+
+>>> Centigrade = map(lambda x: (float(5)/9)*(x-32), Fahrenheit)
+>>> print Centigrade
+[39.200000000000003, 36.5, 37.300000000000004, 37.799999999999997]
+</pre>
+
+<p><b>filter</b>
+<pre style="font-family:Consolas">
+r = filter(func, l) 
+</pre>
+
+<p>filter() filters (outputs) all the elements of a list l, for which the passed-in Boolean-valued function func returns True. 
+
+
+<pre style="font-family:Consolas">
+>>> fib = [0,1,1,2,3,5,8,13,21,34,55]
+
+>>> # for an odd number x, x%2 is 1, ie. True; so the following filters odd numbers
+>>> result = filter(lambda x: x % 2, fib)
+>>> print result
+[1, 1, 3, 5, 13, 21, 55] # odd nums
+
+>>> # to filter out even numbers, make it true that the mod has 0 remainder
+>>> result = filter(lambda x: x % 2 == 0, fib)
+>>> print result
+[0, 2, 8, 34] # only evens
+</pre>
+
+
+
+
+
+<p><b>reduce</b>
+<p>reduce() applies func repeatedly to the elements of l, to generate a single value and output it. 
+
+<pre style="font-family:Consolas">
+r = reduce(func, l) 
+</pre>
+
+<pre style="font-family:Consolas">
+>>> reduce(lambda x,y: x+y, [47,11,42,13])
+113
+</pre>
+
+<p>In the above, reduce() repeatedly calls the lambda function with the 'current' result ('x'), along with the next element in the list ('y'); the starter value of the current result is initialized to the first element of the incoming list (47, in our example), so the function is called with (47,11), (58,42), (100,13). 
+
+
+
+<p><a href="https://bytes.usc.edu/~saty/tools/xem/run.html?x=PyScript#PCFET0NUWVBFIGh0bWw+CjxodG1sPgogIAo8aGVhZD4KICA8dGl0bGU+UHlTY3JpcHQ6IEFTQ0lJIGFydCA6KTwvdGl0bGU+CiAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL3B5c2NyaXB0Lm5ldC9hbHBoYS9weXNjcmlwdC5jc3MiIC8+CiAgPHNjcmlwdCBkZWZlciBzcmM9Imh0dHBzOi8vcHlzY3JpcHQubmV0L2FscGhhL3B5c2NyaXB0LmpzIj48L3NjcmlwdD4KPC9oZWFkPgogIAo8Ym9keT4KCjxweS1lbnY+CjwvcHktZW52PgoKCjxweS1zY3JpcHQ+IApwcmludCgiSGVsbG8sIFB5U2NyaXB0IFdvcmxkISIpCiAgCmYgPSBsYW1iZGEgeCwgeSA6IHggKyB5ICMgZiByZWNlaXZlcyBhbiBhbm9ueW1vdXMgZm4gYXNzaWdubWVudApwcmludChmKDIsNikpCiAgCkNlbHNpdXMgPSBbMCwgMzkuMiwgMzYuNSwgMzcuMywgMzcuOF0KI3ByaW50KENlbHNpdXMpCkZhaHJlbmhlaXQgPSBtYXAobGFtYmRhIHg6IChmbG9hdCg5KS81KSp4ICsgMzIsIENlbHNpdXMpCkZhaHJlbmhlaXQgPSBsaXN0KEZhaHJlbmhlaXQpCnByaW50KEZhaHJlbmhlaXQpCkNlbnQgPSBtYXAobGFtYmRhIHg6IChmbG9hdCg1KS85KSooeC0zMiksIEZhaHJlbmhlaXQpCnByaW50KGxpc3QoQ2VudCkpIAogIApmaWIgPSBbMCwxLDEsMiwzLDUsOCwxMywyMSwzNCw1NV0KcmVzdWx0ID0gZmlsdGVyKGxhbWJkYSB4OiB4ICUgMiwgZmliKQpwcmludChsaXN0KHJlc3VsdCkpCnJlc3VsdCA9IGZpbHRlcihsYW1iZGEgeDogeCAlIDIgPT0gMCwgZmliKQpwcmludChsaXN0KHJlc3VsdCkpCiAgCmZyb20gZnVuY3Rvb2xzIGltcG9ydCByZWR1Y2UKcHJpbnQocmVkdWNlKGxhbWJkYSB4LHk6IHgreSwgWzQ3LDExLDQyLDEzXSkpCjwvcHktc2NyaXB0PiAgIAogIAogIAo8L2JvZHk+Cgo8L2h0bWw+">Here</a> are the above examples, in PyScript ("Python in the browser").
+
+
+
+<p>Out of map(), filter() and reduce() triplet functions, map() and reduce() together in particular have become a <b>potent data processing combination</b> (aka "MapReduce"!) in recent years, when applied in a <b>parallel</b> fashion to Big Data. 
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+MapReduce 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p><a href="http://research.google.com/archive/mapreduce.html">MapReduce</a> is a programming paradigm invented at Google, one which has become <b>wildly popular</b> since it is designed to be applied to Big Data in NoSQL DBs, in data and disk parallel fashion - resulting in <b>**dramatic**</b> processing gains.
+
+<p>MapReduce works like this:
+
+<ul>
+<li>0. [big] data is split into file segments, held in a compute cluster made up of nodes (aka partitions)
+<li>1. a mapper task is run in parallel on all the segments (ie. in each node/partition, in each of its segments); each mapper produces output in the form of multiple (key,value) pairs
+<li>2. key/value output pairs from all mappers are forwarded to a shuffler, which consolidates each key's values into a list (and associates it with that key)
+<li>3. the shuffler forwards keys and their value lists, to multiple reducer tasks; each reducer processes incoming key-value lists, and emits a single value for each key
+</ul>
+
+<p>Optionally, before forwarding to shufflers, a 'combiner' operation in each node can be set up to perform a local per-key reduction - if specified, this would be 'step 1.5', in the above workflow.
+
+<p>The cluster user (programmer) only needs to supply a mapper task and a reducer task, the rest is automatically handled!
+
+<p>The following diagrams illustrate this elegant, embarrassingly simple idea.
+
+<p><img src="pics/MSR.jpg">
+
+<p><img src="pics/MR_Model.jpg">
+<p><img src="pics/MR_Model2.jpg">
+<p><img src="pics/MR_Model3.jpg">
+<p><img src="pics/MR_Model4.jpg">
+
+
+<p>Summary: "MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key."
+
+
+<hr>
+<p>Since MapReduce involves accessing (reading, writing) distributed (in clusters) data in parallel, there needs to be a high-performance, distributed file system that goes along with it - Google created <a href="http://research.google.com/archive/gfs.html">GFS</a> to fill this need. 
+
+<p>GFS abstracts details of network file access so that remote reads/writes and local reads/writes are handled (in code) identically. 
+
+<p>GFS differs from other distributed file systems such as (Sun's) NFS, in that the file system is implemented as a process in each machine's OS; striping is used to split each file and store the resulting chunks on several 'chunkservers', details of which are handled by a single master.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Hadoop: backstory
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Doug Cutting and Mike Cafarella started 'Nutch' (a search engine project) in 2002.
+
+<p>Nutch had severe scalability problems.
+
+<p>Even as Doug and Mike were struggling, Google published a paper on GFS, and a year later, another on MapReduce [links to the papers are in previous slides, you can find them <a href="http://research.google.com/pubs/papers.html">here</a> as well]; Doug and Mike gave up on their own work-in-progress, and implemented BOTH! Result: "Hadoop"..
+
+
+<p>Why "Hadoop"? Doug's son's toy elephant's name was "Hadoop" :) Read more <a href="http://www.cnbc.com/id/100769719">here</a>.
+
+
+<p>Here he is!
+
+<p><img src="pics/hadoop-logo-square.jpg">
+
+<p>And in 3D too?!
+
+<p><img style="width:590px" src="pics/Hadoop3D.png">
+
+<hr>
+<p>Hadoop is modeled after the MapReduce paradigm, and is utilized identically (by having users run mappers and reducers on (big) data).
+
+<p><img src="pics/Hadoop_Ent.gif">
+
+<p><a href="https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf">HDFS</a> is modeled after Google's GFS, but with some important differences [read the paper to find out if you are interested] - as for similarities, there is a single master NameNode, and multiple DataNodes. 
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+MR example[s]
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>WordCount is the 'Hello World' of Hadoop [counts the number of occurrences of each word in a given input set]. 
+
+<p>Following is the Java code for WordCount - note that it has both the mapper and reducer specified in it:
+
+<pre style="font-family:Consolas">
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class WordCount {
+
+  public static class TokenizerMapper
+       extends Mapper<Object, Text, Text, IntWritable>{
+
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+      StringTokenizer itr = new StringTokenizer(value.toString());
+      while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
+      }
+    }
+  }
+
+  public static class IntSumReducer
+       extends Reducer<Text,IntWritable,Text,IntWritable> {
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values,
+                       Context context
+                       ) throws IOException, InterruptedException {
+      int sum = 0;
+      for (IntWritable val : values) {
+        sum += val.get();
+      }
+      result.set(sum);
+      context.write(key, result);
+    }
+  }
+
+  public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    Job job = Job.getInstance(conf, "word count");
+    job.setJarByClass(WordCount.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+    FileInputFormat.addInputPath(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+  }
+}
+</pre>
+
+
+<p>Below are the results of running this on a small two-file dataset.
+
+<pre style="font-family:Consolas">
+Input:
+$ bin/hadoop fs -cat /user/joe/wordcount/input/file01
+Hello World Bye World
+$ bin/hadoop fs -cat /user/joe/wordcount/input/file02
+Hello Hadoop Goodbye Hadoop
+
+Run:
+$ bin/hadoop jar wc.jar  WordCount  /user/joe/wordcount/input   /user/joe/wordcount/output
+
+Output:
+$ bin/hadoop fs -cat /user/joe/wordcount/output/part-r-00000`
+Bye 1
+Goodbye 1
+Hadoop 2
+Hello 2
+World 2
+</pre>
+
+<p>You can get more details <a href="http://www.tutorialspoint.com/map_reduce/map_reduce_combiners.htm">here</a>.
+
+<hr>
+
+<pre style="font-family:Consolas">
+#mapper:
+#!/usr/bin/env python
+
+import sys
+
+# input comes from STDIN (standard input)
+for line in sys.stdin:
+    # remove leading and trailing whitespace
+    line = line.strip()
+    # split the line into words
+    words = line.split()
+    # increase counters
+    for word in words:
+        # write the results to STDOUT (standard output);
+        # what we output here will be the input for the
+        # Reduce step, i.e. the input for reducer.py
+        #
+        # tab-delimited; the trivial word count is 1
+        print '%s\t%s' % (word, 1)
+
+
+
+# reducer:
+#!/usr/bin/env python
+
+from operator import itemgetter
+import sys
+
+current_word = None
+current_count = 0
+word = None
+
+# input comes from STDIN
+for line in sys.stdin:
+    # remove leading and trailing whitespace
+    line = line.strip()
+
+    # parse the input we got from mapper.py
+    word, count = line.split('\t', 1)
+
+    # convert count (currently a string) to int
+    try:
+        count = int(count)
+    except ValueError:
+        # count was not a number, so silently
+        # ignore/discard this line
+        continue
+
+    # this IF-switch only works because Hadoop sorts map output
+    # by key (here: word) before it is passed to the reducer
+    if current_word == word:
+        current_count += count
+    else:
+        if current_word:
+            # write result to STDOUT
+            print '%s\t%s' % (current_word, current_count)
+        current_count = count
+        current_word = word
+
+# do not forget to output the last word if needed!
+if current_word == word:
+    print '%s\t%s' % (current_word, current_count)
+
+</pre>
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+The  Hadoop 'ecosystem' 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Because the core Hadoop system has been so popular, a whole bunch of associated projects have resulted, leading to a thriving <a href="http://hadoopecosystemtable.github.io/"> 'ecosystem'. </a> - don't feel overwhelmed though, you don't need to learn to use all these all at once!
+
+<p><img src="pics/HadoopStack.jpg">
+
+<p>Another view:
+<p><img src="pics/HadoopEco.png">
+
+
+<p>The following databases are most commonly used inside a Hadoop cluster:
+<ul>
+ <li>MongoDB
+ <li>Cassandra
+ <li>HBase
+ <li>Hive
+ <li>Spark
+ <li>Blur
+ <li>Accumulo
+ <li>Memcached
+ <li>Solr
+ <li>Giraph
+</ul>
+
+<p><img src="pics/HadoopDBs.png">
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Hadoop: Hive
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Hive provides a SQL-like scripting language called HQL. "Better than SQL" - eg. no need to create relational table schemas and populate with data.
+
+<p>"Hive translates most queries to MapReduce jobs, thereby exploiting the scalability of Hadoop, while presenting a
+familiar SQL abstraction."
+
+<p>Below is the WordCount task expressed in HiveQL - just 8 lines, compared to the standard MR Java code (shown earlier) of 53 lines!
+
+<pre style="font-family:Consolas">
+CREATE TABLE docs (line STRING);
+LOAD DATA INPATH 'docs' OVERWRITE INTO TABLE docs;
+CREATE TABLE word_counts AS
+SELECT word, count(1) AS count FROM
+  (SELECT explode(split(line, '\s')) AS word FROM docs) w
+GROUP BY word
+ORDER BY word;
+</pre>
+
+<p>Facebook was a major early contributor.
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Hadoop: Pig
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>"Pig provides an engine for executing data flows in parallel on Hadoop. It includes a
+language, Pig Latin, for expressing these data flows. Pig Latin includes operators for
+many of the traditional data operations (join, sort, filter, etc.), as well as the ability for
+users to develop their own functions for reading, processing, and writing data."
+
+<p>Pig Latin scripts are compiled into MR jobs that are then run on the cluster.
+
+<p>Here is a Pig Latin script for doing word counting [only 5 lines of code!], on the first stanza of Mary Had A Little Lamb:
+
+<pre style="font-family:Consolas">
+-- Load input from the file named Mary, and call the single
+-- field in the record 'line'.
+input = load 'mary' as (line);
+-- TOKENIZE splits the line into a field for each word.
+-- flatten will take the collection of records returned by
+-- TOKENIZE and produce a separate record for each one, calling the single
+-- field in the record word.
+words = foreach input generate flatten(TOKENIZE(line)) as word;
+-- Now group them together by each word.
+grpd = group words by word;
+-- Count them.
+cntd = foreach grpd generate group, COUNT(words);
+-- Print out the results.
+dump cntd;
+</pre>
+
+<p>Note that with Pig Latin, there is no explicit spec of mapping and reducing phases - the Pig=>MR compiler figures this out by analyzing the specified dataflow.
+
+<p>For completeness, here is how we picture the underlying MR job running:
+
+<p><img src="pics/Mary_Pig.png">
+
+<p>"Pig Latin is a dataflow language. This means it allows users to describe how data from
+one or more inputs should be read, processed, and then stored to one or more outputs
+in parallel. These data flows can be simple linear flows like the word count example
+given previously. They can also be complex workflows that include points where multiple
+inputs are joined, and where data is split into multiple streams to be processed by
+different operators. To be mathematically precise, a Pig Latin script describes a directed
+acyclic graph (DAG), where the edges are data flows and the nodes are operators that
+process the data."
+
+
+<p>Yahoo! Research was a major developer of Pig.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Hadoop: Musketeer
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Currently, front end workflows (eg. written using Hive) are *coupled* with back-end engines (such as Hadoop), making them less usable than if these could be decoupled.
+
+<p>Musketeer is an experimental approach to do the decoupling. Three benefits:
+
+<p>1. Users write their workflow once, in a way they choose,
+but can easily execute it on alternative systems;
+<p>2. Multiple sub-components of a workflow can be executed
+on different back-end systems; and
+<p>3. Existing workflows can easily be ported to new systems.
+
+<p><img src="pics/Musk1.png">
+<p><img src="pics/Musk2.png">
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+MRv2: YARN 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>YARN is "MapReduce v2".
+
+<p>The first version of MR/Hadoop was 'batch oriented', meaning that static, distributed data was processed via mapping, shuffling and reducing steps.
+
+<p>YARN (Yet Another Resource Negotiator) on the other hand makes non-MR applications (eg. graph processing, iterative modeling) possible (but is fully backwards compatible with v.1.0, ie. can run MapReduce jobs), and offers better scalability and cluster utilization (compared to MRv1). It also makes it possible to create (near) real-time applications.
+
+
+
+<p>MRv1:
+
+<p><img src="pics/MRv1.png">
+
+<p>MRv2, ie. YARN:
+<p><img src="pics/MRv2.png">
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+EC2, Azure, GCP..
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Cloud infrastructure
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Amazon's EC2/S3, Microsoft's Azure, Google's GCP, etc. offer a 'cloud platform' on which to build apps and services.
+
+<p><img src="pics/EC2S3.jpg">
+
+<p><img src="pics/Azure.jpg">
+
+<p><img src="pics/GCP.png">
+
+
+
+
+<p>Such cloud services offer 'elastic scaling' (of resources, ie. computing power, storage), guaranteed uptime, speedy access, etc.
+
+<p>Also, Google has plans to offer <a href="https://www.google.com/about/stories/scientists-could-make-oceans-drinkable">exascale computing</a> capability in the future, to analyze Big(ger) Data. 
+
+<hr>
+
+<p>One hassle-free (somewhat!) way to set up a Hadoop compute cluster is to do so inside <a href="https://aws.amazon.com/elasticmapreduce/">EC2</a> or <a href="https://azure.microsoft.com/en-us/services/hdinsight/">Azure</a> or <a href="https://cloud.google.com/">GCP</a>. 
+
+<p>Note - setting these up can be quite <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-hadoop-script.html">tedious</a> (and is thankfully a one shot thing!). <a href="https://weidongzhou.wordpress.com/2017/09/13/create-hadoop-cluster-on-google-cloud-platform/">Here</a> is how to do this in GCP.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+VM infrastructure
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>A virtual machine (VM) is a piece of software that runs on a host machine, to enable creating self-contained 'virtual' machines inside the host - these virtual machines can then serve as platforms on which to run programs and services.
+
+<p><img src="pics/Virt.jpg">
+
+<hr>
+
+<p>So, another way (not cloud based) to experiment with Hadoop is to download implementations meant for virtual machines, and load them into the VMs.
+
+<p>Here are a couple you can try [these are the most used ones, compared to the ones listed below]: HortonWorks' <a href="http://hortonworks.com/products/hortonworks-sandbox/#install">Hadoop Sandbox</a> and MapR's <a href="https://mapr.com/try-mapr/sandbox/">MapR Sandbox</a>. 
+
+<p>In addition, you can also experiment with Oracle's <a href="http://www.oracle.com/technetwork/database/bigdata-appliance/oracle-bigdatalite-2104726.html">'Big Data Lite'</a> VM, Cloudera's <a href="https://www.cloudera.com/downloads/cdh/5-10-0.html">CDH</a> VM, IBM's <a href="https://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.product.doc/doc/readmeIntro.html">BigInsights QSE</a> VM and Talend's <a href="http://www.talend.com/sites/default/files/talend_big_data_sandbox_en.pdf">Big Data Sandbox</a> [<a href="https://info.talend.com/trial-talend-big-data-sandbox.html">here</a> is the download info] VM - this one packages an existing VM along with a custom platform and sample data. 
+
+<p>There is also a <a href="http://sqlstream.com/download/#!blaze_vm_appliance">Blaze</a> VM for performing 'streaming analytics', ie. for analyzing live ("streaming") data in real time. This is Forrester Research's definition of streaming analytics: 'software that provides analytical operators to orchestrate data flow, calculate analytics, and detect patterns on event data from multiple, disparate live data sources to allow developers to build applications that sense, think, and act in real time.' In other words, streaming data (from sensors, databases, applications, people...) is continuously analyzed via streaming queries [with the sqlstream products, this is done via SQL operators], leading to insights in real time. 
+
+<p>FYI - you might enjoy reading <a href="https://www.crn.com/news/virtualization/240002674/vmware-cto-sets-sights-on-hadoop-network-virtualization-challenges.htm">this</a> note about VMWare's virtualizing Hadoop.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+MRQL 
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Beyond MR: Spark
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Spark [developed AMPLab at Cal [UC Berkeley] in 2009, and open sourced] makes Big Data real-time and interactive - it is an <b>in-memory data processing engine</b> (so it is FAST), specifically meant for iterative processing of data. It is considered an alternative to MapReduce, and runs on top of HDFS. 
+
+<p>Better efficiency: general execution graphs, in-memory data storage.
+
+<p>Being used at Yahoo!, Intel, Adobe, Quantifind, Conviva, Ooyala, Bizo, etc.
+
+<p>Query lang is SparkSQL (used to be called Shark; Shark itself was an alternative to Hive).
+
+<p>MR could not deal with complex (multi-pass) processing, interactive (ad-hoc) queries or real-time (stream) processing. Spark addresses all these.
+
+<p>A Spark application consists of a <b>'driver'</b> that converts high level queries into tasks, which <b>'executors'</b> run in parallel. 
+
+
+<p>Big idea: resilient distributed datasets (RDDs)
+<ul>
+<li>distributed collections of objects that can be cached in memory across cluster
+<li>manipulated through parallel operators
+<li>automatically recomputed on failure
+</ul>
+
+<p>Impressive performance during iterated computations!
+
+<p><img src="pics/Spark_usage1.png">
+<p><img src="pics/Spark_usage2.png">
+<p><img src="pics/Spark_usage3.png">
+
+<p>APIs exist in Python, Java, etc..
+
+<pre style="font-family:Consolas">
+# Python:
+lines = sc.textFile(...) lines.filter(lambda x: "ERROR" in x).count()
+
+// Java:
+JavaRDD<String> lines = sc.textFile(...); lines.filter(new Function<String, Boolean>() { Boolean call(String s) { return s.contains("error"); } }).count();
+</pre>
+
+<p>Spark's modular architecture has been instrumental in enabling the following add-on functionalities:
+<ul>
+<li>Spark Streaming
+<li>Spark SQL
+<li>Spark MLib
+<li>Spark GraphX
+</ul>
+
+<p>Here is another view of the various Spark modules:
+<br><img style="width:50%" src="pics/SparkIs.png">
+
+<p>This is a standard MR (Java) vs Spark (Python) comparison, of WordCount:
+<br><img style="width:60%" src="pics/JavaMR.jpeg">
+<br><img style="width:60%" src="pics/PyMR.png">
+
+<hr>
+
+<p>"Beyond" Spark, there's Dask (esp. for data science work):
+<p><img style="width:80%" src="pics/Dask.png">
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+FlinkSQL
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Beyond MR: Flink
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Similar to MR, Flink is a parallel data processing platform.
+
+
+<p>"Apache  <a href="https://flink.apache.org/">Flink</a>'s programming model is based on concepts of the MapReduce programming model but generalizes it in several ways. Flink offers Map and Reduce functions but also additional transformations like Join, CoGroup, Filter, and Iterations. These transformations can be assembled in arbitrary data flows including multiple sources, sinks, and branching and merging flows. Flink's data model is more generic than MapReduce's key-value pair model and allows to use any Java (or Scala) data types. Keys can be defined on these data types in a flexible manner.
+
+<p>Consequently, Flink's programming model is a super set of the MapReduce programming model. It allows to define many programs in a much more convenient and concise way. I also want to point out that it is possible to embed unmodified Hadoop functions (Input/OutputFormats, Mapper, Reducers) in Flink programs and execute them jointly with native Flink functions."
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Beyond MR: Storm 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>"Apache Storm is a free and open source distributed realtime computation system. Storm makes it easy to reliably process unbounded streams of data, doing for realtime processing what Hadoop did for batch processing. Storm is simple, can be used with any programming language, and is a lot of fun to use!
+
+<p>Storm has many use cases: realtime analytics, online machine learning, continuous computation, distributed RPC, ETL, and more. Storm is fast: a benchmark clocked it at over a million tuples processed per second per node. It is scalable, fault-tolerant, guarantees your data will be processed, and is easy to set up and operate."
+
+<p>Complementing Storm, Kafka is a distributed pub-sub real-time messaging system that provides strong durability and fault tolerance guarantees. Kafka nodes are called brokers, and are used by producers/publishers (who write data, into 'topics'), and consumers/subscribers (who read data off topics). 
+
+<p>Storm does stream processing. A stream is a sequence of tuples. Streams are originated at spouts, that read data (from live sources, files...), and are passed on to bolts for processing (streams in, streams out). 
+
+<p><img src="pics/StormKafka.png">
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Beyond MR: Samza
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Apache Samza (developed at LinkedIn in 2013, then open sourced in 2014) is a processing engine that handles batch data and streaming data in a unified manner (ie. identically).
+
+<p><img src="pics/samza1.png">
+
+<p><img src="pics/samza2.png">
+
+<p>Both streams and batch data are stored in partitions, which are then read by 'tasks' which comprise the application. 
+
+<p>Samza SQL can be used to create pipelined jobs that can utilize stream or batch data, eg. 
+<br><img src="pics/samza3.png">
+
+<!--
+http://samza.apache.org/learn/documentation/latest/core-concepts/core-concepts.html
+https://engineering.linkedin.com/blog/2018/11/samza-1-0--stream-processing-at-massive-scale
+https://www.slideshare.net/Hadoop_Summit/unified-batch-stream-processing-with-apache-samza
+-->
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Spark vs Storm vs Flink vs Samza 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>On the surface of it, they all appear to be identical - in a way, they are - they offer distributed processing of Big Data, without requiring explict mapper/reducer specifications.
+
+<p>Spark, Flink and Samza, can handle batch as well as streaming data.
+
+<p>Storm does stream processing. 
+
+
+<p>So to summarize, we have Hadoop+Yarn for batch processing, Spark, Flink and Samza for batch+stream processing, Storm for stream processing, and Kafka for handling messages. <a href="pics/DPP.png">Here</a> is one way how it could all fit together.
+
+<!--
+https://softwareengineeringdaily.com/2015/08/09/big-data-fundamental-answers/
+-->
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+
+
+
+
+
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+BSP: MR alternative
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>The Bulk Synchronous Parallel (<a href="https://en.wikipedia.org/wiki/Bulk_synchronous_parallel" target="_blank">BSP</a>) model is an alternative to MR.
+
+<p>A BSP computation is executed on a set of processors which are connected in a communication
+network but work independently by themselves. The BSP computation consists of a sequence of iterations,
+called supersteps. In each superstep, three actions occur: 
+<ul>
+<li>(i) concurrent computation performed LOCALLY by a set of processors. Each processor has its own local memory and uses local variables to independently
+complete its computations. This is the asynchronous part. 
+<li>(ii) communication, during which processors send and receive messages (exchange/access data). 
+<li>(iii) synchronization which is achieved by setting a barrier - when
+a processor completes its part of computation and communication, it reaches this barrier and waits for
+the other processors to finish. 
+</ul>
+
+<p>In other words, there are three steps (phases) in each superstep:
+
+<p>Local computation: every processor performs computations using
+data stored in local memory - independent of what happens at other
+processors; a processor can contain several processes (threads)
+
+<p>Communication: exchange of data between processes (put and
+get); one-sided communication
+
+<p>Barrier synchronization: all processes wait until everyone has
+finished the communication step
+
+
+
+The following figure illustrates the actions applied in one superstep.
+
+<p><img src="pics/BSP.png">
+
+
+<hr>
+
+<p>"Think like a vertex"..
+
+<p>User-defined vertex update ops (that can happen in parallel), local edge updates. 
+
+<p>Google's <a target="_blank" href="pics/pregel_paper.pdf">implementation</a> of BSP is called Pregel.
+
+<p>Trivia: why did they name it Pregel? This <a href="http://googleresearch.blogspot.com/2009/06/large-scale-graph-computing-at-google.html" target="_blank">blog post</a> has the answer [read the last sentence!] :)
+
+<p>Aside: <a href="https://www.al.com/life_and_culture/erry-2018/06/4060fad8fb839/alabama_is_home_to_the_real_se.html">this</a>  and <a href="https://www.youtube.com/watch?v=hufU6MIS2vw">this</a> :)
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Pregel -> Giraph,HAMA
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Giraph is an open source version of Pregel, so is Hama, Golden Orb,
+Stanford GPS.
+
+<p>Specifically designed for iterative graph computations (and nothing else!).
+
+<p><img src="pics/Giraph.png">
+
+<hr>
+
+<p>Apache HAMA is a general-purpose Bulk Synchronous Parallel (BSP)
+computing engine on top of Hadoop. It provides a parallel processing framework
+for massive iterative algorithms (including ones for scientific computing, ie. <a target="_blank" href="https://www.google.com/search?biw=1133&bih=519&tbm=isch&sa=1&q=HPC+high+performance+scientific+computing&oq=HPC+high+performance+scientific+computing&gs_l=img.3...21229.28439.0.29066.19.18.1.0.0.0.225.1644.16j1j1.18.0....0...1c.1.64.img..1.0.0.6PxrMON5xkc">'HPC' applications</a>). 
+
+<p>HAMA performs a series of supersteps based on BSP - it is suitable for iterative computation, since it is possible that input data which can be saved in memory, is able to get transfered between supersteps (unlike MR).
+
+<p>HAMA's vertex-centric graph computing model is suggestive of MapReduce in that users focus on a local action, processing each
+item independently, and the system (HAMA runtime) composes these actions to run over a large dataset.
+
+<p>But HAMA is not merely a graph computing engine - instead it is a general purpose BSP platform, so on top of it, any arbitrary computation (graph processing, machine learning, MRQL, matrix algorithms, network algorithms..) can be implemented; in contrast, Giraph is ONLY for graph computing.
+
+
+<hr>
+
+<p><a target="_blank" href="pics/1T.pdf">Here</a> is a paper on the processing of one TRILLION (!) edges at Facebook. Three applications (that run on Facebook's friendships graph) are presented:
+
+<ul>
+<li>label propagation
+<li>PageRank
+<li>'friends of friends' score
+</ul>
+
+<p>Please read the paper to learn the details.
+
+<p>Also, <a href="http://www.datanami.com/2014/04/11/faceboook_gets_smarter_with_graph_engine_optimization/">here</a> is a writeup on Facebook's use of Giraph (to enable graph searching by users).
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</body>
+</html>
+
+
+

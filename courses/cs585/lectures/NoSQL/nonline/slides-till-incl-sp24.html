@@ -1,0 +1,1762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ------PAGE TITLE------- -->
+<title>
+NoSQL!
+</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+<script src="../../res/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- ****************************** -->
+NoSQL
+</h1>
+<h1 class="subtitleC">
+WHAT? Why NoSQL? Why not SQL? Is SQL going away??
+</h1><h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+SQL is dead! Long live SQL!
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Relational DBs held sway for almost 3 DECADES: 80s, 90s, 00s. 
+
+<p>What started to change was this - the Internet (a <a href="http://www.youtube.com/watch?v=dUZoK20_KYQ&t=0m22s">BFD!!!</a>), coupled with storage and processing revolution has enabled:
+<ul>
+<li>BigUsers - LOTS of people using databases
+<li><a href="http://www.youtube.com/watch?v=dUZoK20_KYQ&t=0m22s">BigData</a> - LOTS of data being generated
+<li>BigVariety - there is a huge VARIETY in the types of data being stored and searched 
+<li>BigFlux - there is rapid ADDITION, and CHANGE, in a lot of data being handled
+</ul>
+
+<p>The last three items above, constitute the 3 Vs of Big Data: volume, variety, velocity
+
+<p>Big Data comes from a variety of sources:
+<ul>
+<li>people: web browsing 'clickstreams'
+<li>people: purchasing etc. habits - shopping, dining..
+<li>people: social media [communications]
+<li>people: surveys, polls, census, court docs, employment histories, credit ratings..
+<li>people etc: genomic data
+<li>people: entertainment/education..
+<li>people + devices: medical, fitness etc. data
+<li>people + devices: transportation [cameras, sensors, GPS..]
+<li>devices: scientific instruments
+<li>devices: sensors ("IoT")
+</ul>
+
+
+<p>Big Data can lead to, or result from, 'datafication'.
+
+<p>Wikipedia: Datafication is a modern technological trend turning many aspects of our life into computerised data and transforming this information into new forms of value. Examples of datafication as applied to social and communication media are how Twitter datafies stray thoughts or datafication of HR by LinkedIn and others.
+
+<p>In other words, it is the notion that people, our built envrironment (eg. number of freeways in the US), etc. can lead to data generation. 
+
+<p>"Once we datafy things, we can transform their purpose and turn the
+information into new forms of value."
+
+<p>RDBMSs are simply unsuitable for the above (for handing Big Data)! A different kind of NON-RELATIONAL database scheme was needed - enter 'NoSQL' DBs.
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Need for NoSQL 
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Again - what is happening is this:
+
+<ul>
+<li>lots of new data, new types of data, are being rapidly generated
+<li>developers are finding it hard to 'shoehorn' all this data into a relational model
+<li>also hard to scale up to fit more data, more users
+<li>and, hard to keep up performance too
+</ul>
+
+<p>So we need the following [ie. 'one-size-fits-all' was wrong (Stonebraker)]: 
+<ul>
+<li>avoidance of complexity [eg. no need to worry about immediate consistency]
+<li>high throughput
+<li>easy, quick scalability
+<li>ability to run on commodity hardware
+<li>avoidance of need for O-R mapping
+<li>avoidance of complexity associated with cluster setup
+<li>ability to use DB APIs for various programming languages, that mirror the languages' own structures
+</ul>
+
+<p>Need a <b>flexible,  efficient, available,  scalable</b>  solution/DB design! THAT is what NoSQL provides - <b>high performance, high availability at a large scale</b>.
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+NoSQL - history
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>The term NoSQL was used as early as.. 1998! 
+
+<p>The term started to become reused in 2009, by Last.fm's developer, and subsequently by a Rackspace employee blogger who popularized it.
+
+<p>Today, NoSQL refers to an umbrella of technologies that are all non-relational-DB-oriented.
+
+
+<p>So - what does 'No' stand for? NoSQL DB means/meant:
+
+<ul>
+<li>Non relational, non SQL
+<li>NO SQL
+<li>NotOnly SQL
+<li>..
+</ul>
+
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+NoSQL DBs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>A NoSQL DB is:
+
+<ul>
+<li>schema-less: no tables, no relations!
+<li>flexible: easy to add new types of data - which are <a href="pics/semistruc.png">semi-structured</a> (aka unstructured) [as opposed to being structured]
+<li>(data) scalable: specifically, ability to 'scale out', ie. do 'horizontal scaling' - both terms means that we can simply add more nodes (eg. servers) to an existing cluster, to accommodate more users, or to add more data to existing users. 
+<li>fast: easy to process large (massive) volumes of data
+</ul>
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+JSON (or XML) for storing an ENTIRE db!!
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>db == JSON []array of {}objects, where each object ('row') is a set of a key-value pairs.
+
+<p><img src="pics/JSONdb.png">
+
+<p><a href="http://www.data.gov">http://www.data.gov</a> has almost 200,000+ datasets, 50,000+ of which are in JSON.
+
+
+
+<p>Examples: https://api.publicapis.org/random, <a href="https://health.data.ny.gov/api/views/es3k-2aus/rows.json">https://health.data.ny.gov/api/views/es3k-2aus/rows.json</a>
+
+<p>JSON viewer: https://bytes.usc.edu/~saty/tools/jsoned or http://jsonviewer.stack.hu/ etc.
+
+<p>The simplicity of the <a href="http://www.json.org/">JSON</a> scheme also makes it possible/easy to add extra data (eg metadata) to the files.
+
+<p>JSON can also be returned by webservers, which can even call a client function with the returned data - this is called JSON-P.
+
+<p>JSON can used to describe structured data in a specific format - this is called <a href="https://developers.google.com/search/docs/guides/intro-structured-data#search-appearance">JSON-LD.</a>
+
+
+
+
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+RDB -> JSON
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>It is very straightforward to represent table data as JSON:
+
+<p><img src="pics/RDBToJSON.png">
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+RDB to JSON, a couple more examples
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p><img src="pics/JoinToJSON.png">
+
+<hr>
+
+<p>Note - we also have the choice of using a 'related model' (where a JSON value is contained in a related (pointed-to) structure), instead of a 'nested model' (representing joined data):
+
+<p><img src="pics/RelatedVsNested.png">
+
+<p>Big idea: since a JSON value can be a string, a number, a boolean, an array, or another object [a key is ALWAYS a string], <b>this makes for a powerful representation!</b>
+
+<p><a href="data/JSON.txt">Here</a> is a JSON file, not 'pretty printed' - we can always format such data, using an <a href="https://bytes.usc.edu/~saty/tools/jsoned/">online formatter</a>. 
+
+<p><a href="https://www.google.com/search?q=%22Index+of+%2F+%22+.json&rlz=1C1CHBF_enUS723US723&oq=%22Index+of+%2F+%22+.json&aqs=chrome..69i57j0i22i30l9.7304j1j7&sourceid=chrome&ie=UTF-8">Here</a> are MANY more JSON files!!
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+An XML db example
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Compared to JSON, XML is more verbose (on account of opening and closing tags), but is a popular alternative format for creating DBs. <a href="data/rows.xml">Here</a> is an example file (in addition to viewing the data here in the browser, you can use a viewer such as <a href="http://xmlgrid.net/">this</a> one to view the XML file, or you can save locally and open with a text editor).
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+BASE, not ACID
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>The NoSQL DBs are characterized by their 'BASE' property, in contrast with RDBMS' 'ACID' property.
+
+<p>BASE stands for BAsic availability (db is up most of the time), Soft state (of consistency - consistency is not guaranteed while data is written to a node, or between replicas), Eventual consistency (at a later point in time, by push or pull, data will become consistent across nodes and replicas). 
+
+<p><img src="pics/ACIDvBASE.jpg">
+
+
+
+<p>A NoSQL database does not have an explicit schema that describes the relationships between its data items - it is said to be 'schema-less'
+
+<p>But, calling this situation 'schema-less' is not quite appropriate - rather, the schema is **implicit** - the schema resides in the application code that reads [and writes] data - so, 'scheme-on-read' is a better way to describe how we handle such data [in comparison, RDBMS is 'schema-on-write'].
+
+<p>To put it differently, the DB itself "doesn't care" about what it is storing, it is the application code that imparts meaning to the data. As a result, changing the data model (eg. adding or deleting an attribute) is trivial - just write and run (application) code to make the change in the DB!
+
+<p>In a schema-less environment, developers use intuitive data structures (well supported by underlying host languages) to do data manipulation (including querying and updating).
+
+<p>Eg. JSON is very easy/intuitive to grasp, comprising of just <b>six</b> underlying datatypes (number, string, boolean, array, object, null). It is also quite easy to parse.
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Types of NoSQL databases (based on underlying data model)
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>There are [only] FOUR types of NoSQL DBs, based on their underlying data representation:
+
+<p><img src="pics/NoSQL_types.png">
+
+<ul>
+<li>key-value store: DynamoDB (Amazon), Project Voldemort, Redis, Tokyo Cabinet/Tyrant..
+<li>column-family store: Cassandra, HBase..
+<li>document store: MongoDB, CouchDB, MarkLogic..
+<li>graph store: Neo4j, HyperGraphDB, Seasame..
+</ul>
+
+<p><img src="pics/NoSQLExDBs.jpg">
+
+<p>Another classification of all DB types [note the 4 NoSQL types above]:
+<p><img src="pics/Types_ByteByteGo.jpg">
+<p>Additionally, there are now, 'vector DBs':
+<p><img src="pics/VecSearch_DataStax.png">
+<p><img src="pics/VecVecVec.png">
+
+
+
+
+<p>Let's take a look at the above in more detail..
+
+<p><a href="http://nosql-database.org/">HOW MANY</a> of these (NoSQL DB implementations)  are there? :)
+
+
+
+<p>Martin Fowler (of 'Code Refactoring' fame) has an <a href="pdfs/polyglot.pdf">overview article</a> on post-RDBMS alternatives, at http://martinfowler.com.
+
+<p><b>Polyglot persistence</b> means the use of different storage technologies (ie. NoSQL DBs) to store different parts (data) of a single application. These individual data stores are then tied together by the application, using DB APIs or web services APIs. 
+
+
+<p>In other words, a single application can "speak" several different storage technologies, each one leveraging its strength (eg. a key-value DB can be used for storing transient user session data). Here is a visual, from Martin's article linked above:
+<br><img src="pics/polyglot.jpg">
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Key-value DBs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>"A key-value store, or key-value database, is a data storage paradigm designed for storing, retrieving, and managing associative arrays, a data structure more commonly known today as a dictionary or hash."
+
+<p>So the whole db is a dictionary, which has records ("rows") which have fields (columns). 
+
+<p>Because there is no schema, the records all don't have to contain identical fields!
+
+
+<p>The 'key' in a key-value DB, is comparable to a PK in a relation (table); the 'value' is an aggregate of all the dependent (non-PK) columns.
+
+<p>Querying occurs only on keys. When querying on a key, the entire value (aggregate) (for matching keys) is returned. Likewise, the entire value needs to be updated when necessary (no per-field updating). 
+
+
+<p>Rapid querying of keys is possible, on account of k-v stores employing disk-based Log Structured Merge Trees (LSMs) for search - more <a href="https://yetanotherdevblog.com/lsm/">here.</a>
+
+
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Key-value DBs: Memcached
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p><a href="http://memcached.org/">Memcached</a> [aka memcached - all lowercase] is a high-performance, in-memory, data caching system, with a VERY simple API:
+
+<ul>
+<li>store (SET) a value, given a key (eg. $memcache->set($key,$val))
+<li>retrieve (GET) the value, given the key (eg. $val = $memcache->get($key))
+</ul>
+
+<p>The value that is stored does not have to be atomic, it can even be an associative array (k-v pairs, aka dictionary, or hash) - that said, stored values are usually rather small (~1M). Eg. the following PHP snippet shows how an array of 6 different elements [int, float.. object] is stored in memcached, as 6 k-v pairs [note that we could have stored the entire array as a single value, but that would make it inefficient to access an individual element such as the boolean]:
+<br><img src="pics/Memcached_PHP.png">
+
+<p>Memcached is commonly used with a 'backend' SQL store (relational DB) - a COPY of the frequently accessed data is held in memcached, for fast retrieval and update.
+
+<P>Quite a few languages are supported:  C/C++, Java, JavaScript, Python, PHP, Ruby, Perl, .NET, Erlang, Lua, Lisp, Ocaml.. 
+
+<p>If you have access to a Linux server (including being able to run one locally on your machine), you can experiment with memcached <a href="https://davidwalsh.name/memcached-intro">like so.</a>
+
+
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Key-value DBs: Redis
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+
+
+
+<p>Redis is an extremely popular k-v database, used by a variety of (social media etc.) companies to hold vast amounts of data.
+
+<p>For values, rather than just atomic datatypes (number, string, boolean), Redis offers richer types such as list, set, dictionary.
+
+
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Key-value DBs: Amazon's Dynamo
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p>Dynamo is what is internally used at Amazon (as distinct from S3, offered to cloud services users).
+
+<p>From the <a href="pdfs/Dynamo.pdf">Dynamo paper</a> that they published:
+
+<ul>
+<li>the infrastructure is made up by tens of thousands of servers and network components located in
+many datacenters around the world.
+<li>commodity hardware is used.
+<li>component failure is the 'standard mode of operation'.
+<li>'Amazon uses a highly decentralized, loosely coupled, service oriented architecture consisting of
+hundreds of services'.
+</ul>
+
+<p>"Dynamo is used to manage the state of services that have very high reliability requirements and
+need tight control over the tradeoffs between availability, consistency, cost-effectiveness and performance."
+
+
+<p>In Dynamo, values are stored as BLOBS (opaque bytes of binary data). Operations are limited to a single k/v pair at a time.
+
+<p>Only two API ops are supported:
+<ul>
+<li>get(key) - returns a list of objects and a context
+<li>put(key, context, object) - no return value
+</ul>
+
+<p>In the above, 'context' is used to store metadata about the BLOB values, eg. version numbers (this is used during 'eventual consistency' DB updating).
+
+<p>Keys are hashed using the MD5 hashing algorithm, to result in appropriate storage locations (nodes). 
+
+<p>To ensure availability and durability, each k/v pair is replicated N times (N=3, commonly) and stored in N adjacent nodes starting from the key's hash's node. 
+
+<p><a href="pdfs/DynamoTut.pdf">Here</a> is a short tutorial on Dynamo - please go through it (just read it), for usage examples of the simple API [in section 3.3: putItem(), getItem(), deleteItem()]. 
+
+
+<hr>
+
+<p>Summary - k/v DBs are lightweight (simple), schema-less, transaction-less. 
+
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Column family DBs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>After k/v DBs, column (aka column family) DBs are the next form of data storage.
+
+<p>Examples: BigTable(Google), BigQuery(Google), HBase(Apache), Cassandra(Apache), SimpleDB(Amazon), RedShift(Amazon). 
+<p>Rather than dealing with rows of data, we deal with columns of them. So such databases are good for aggregate queries (eg. average age of employees in a company), and queries involving just a subset of all columns (eg. retrieve a student's academic info [but not personal info]).
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Column family DBs - terminology
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>As the name signifies, data is stored as groups of columns (column family), as opposed to an RDBMS where data is stored as rows. 
+
+<p>In a column family DB, data is stored using 'row keys' (each row (picturing the data as a classic relational table) is assigned a unique key, analogous to a PK). 
+
+<p><b>Column</b>: consists of a name (key) and a value; there is such a name:value pair for each row key, giving us a single column's worth of data for all rows (eg. GPAs of all students at USC).
+
+
+
+<p><b>Column family</b>: contains columns of related data (eg. for a 'Users' DB, the columns might be Name, Age, DOB, Address, Email), for all rows.  A column family would have many rows of data, where for each row, there would be multiple columns and values. Eg:
+<pre style="font-family: 'Courier New';font-size:24px;">
+ 
+Cath:{
+         firstname:'Cath',
+         lastname:'Yoon'
+     }
+,
+Terry:{
+          firstname:'Terry',
+          lastname:'Cho'
+      }
+
+</pre>
+
+
+<p><b>Supercolumn</b>: is a named grouping of columns; consists of a key-value pair, where the key (which would be the supercolumn's name) is used to index values consisting of raw column data, itself in the form of key-value pairs [in other words, the value looks like column family data]. Supercolumns are how we group related columns.  Eg. here is a supercolumn called username, used to group the firstname and lastname columns (rather confusingly, shown just for a single, implied, rowkey, of a column family):
+<pre style="font-family: 'Courier New';font-size:24px;">
+username:{firstname:'Cath', lastname:'Yoon'}
+</pre>
+
+<p>In other words, a supercolumn is a k:v pair where the key is the name of the supercolumn, and value would be column family data. 
+
+<p><b>Supercolumn family</b>: a collection of supercolumns. As noted above, a supercolumn has a name (key), and contains as its value, a group of actual column names and their values (ie a column family). So a supercolumn family can be thought of as a 'namespace' for a group of supercolumns (it is also a k:v pair). <b>Note that a supercolumn family is ALSO equivalent to a table, but with extra info (which would be the names of its supercolumns).</b> Eg. here is a supercolumn family (called UserList, with the "extra info" being supercolumn names 'username', 'address', 'account'):
+
+<pre style="font-family: 'Courier New';font-size:24px;">
+UserList={ 
+   Cath:{
+     username:{firstname:'Cath',lastname:'Yoon'}
+     address:{city:'Seoul',postcode:'1234'}
+   },
+   Terry:{
+     username:{firstname:'Terry',lastname:'Cho'}
+     account:{bank:'hana',accountID:'5678'}
+   }
+ }
+</pre>
+<p>In the above, 'UserList' is the supercolumn family name, pointing to supercolumns called 'username' and 'address'. 
+
+
+
+<p>Supercolumn families are meant for <a href="pics/InvertedIndexing.png">'inverted indexing'</a> [which is an index of terms that point to possibly multiple documents where they occur; in contrast, in a regular document index, we simply store the locations (eg. page numbers) of terms occurring in that document], we don't always *need* to use them in a column family DB [they are optional]. 
+
+<p>Here is another example of a column family (two column families, actually - Musician, Band) - note that ColumnFamily1 (Musician) has 'jagged' (uneven) data:
+<br><img src="pics/CassColFam.png">
+
+
+
+<p>Summary: in a column family, row keys directly contain (as values) column data, similar to a rectangular table; in contrast, in a supercolumn family, row keys contain (as values), k:v pairs, with supercolumn ("column group") keys, and 'column_name:column_value' values [so there is an extra level of indirection, provided by the supercolumn names]. Column family -> column data; supercolumn family -> supercolumns -> column data.  
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Column family DBs - storing tweets
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p>Here is how we'd store tweets, using a column family DB [example from https://ayende.com/blog/4500/that-no-sql-thing-column-family-databases]. We create two column families - Users, Tweets. We also create a supercolumn family - UsersTweets.
+
+<p>Here are Users and Tweets:<br>
+
+<img src = "pics/Users.png">
+<br>
+<img src="pics/Tweets.png">
+
+<p>And here is the UsersTweets supercolumn family (with Timeline as the supercolumn name, which groups two regular columns [those names are not shown, just their values are], 'guid' and 'tweetid'):<br>
+<img src = "pics/UsersTweets.png">
+
+<p>To query the above, we'd do this:
+<pre style="font-family: 'Courier New';font-size:24px;">
+var tweetIds = 
+      cfdb.UsersTweets.Get('@ayende')
+             .Fetch('timeline')
+             .Take(25)
+             .OrderByDescending()
+             .Select(x=>x.Value);
+
+var tweets = cfdb.Tweets.Get(tweetIds);
+</pre>
+
+<p>Note that we execute queries at two levels - from the UsersTweets super column family we get tweetIds as VALUES, which we then use as KEYS in the Tweets family. 
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Column family DBs - Google's BigTable
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p><a href="pdfs/BigTable.pdf">BigTable</a> - "a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers".
+
+
+<p>Used in Google Earth, Google Analytics, Google Docs, etc.
+
+<p>"BigTable has achieved several goals: wide applicability, scalability, high performance, and high availability."
+
+
+<p>The storage data structure is "a sparse, distributed,
+persistent multidimensional sorted map". Example:
+
+<br><img src="pics/BigTable.png">
+
+<p>Values are addressed by (row-key, column-key, <a href="pics/timeAsContext.png">timestamp</a>).
+
+<p>In the above, we have two column families: content (one column), anchor (two columns).
+
+<hr>
+
+<p><b>Hypertable</b></p>
+
+<p>Written in C++, based on HDFS and distributed lock managing.
+
+<p>Can have column-families with an arbitrary number of distinct columns. 
+
+<p>Tables are partitioned by ranges of row keys (like in BigTable) and the resulting partitions get replicated between servers.
+
+<p>Features HQL, a C++ native API and the 'Thrift' API.
+
+<p><b>HBase</b></p>
+
+<p>BigTable clone written in Java, as part of the Hadoop implementation.
+
+<p>An HBase db can be the source or target for a MapReduce task running on Hadoop. 
+
+
+<p>Has a native Java API, Thrift API and REST web services. 
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Column family DBs - Cassandra
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+<p>Was originally developed by Facebook and open-sourced in 2008. 
+
+<p>Also used by Twitter, Digg, Rackspace.
+
+<p>Data model is as follows:
+
+<p>Rows - which are identified by a string-key of arbitrary length. Operations on rows are atomic per replica
+no matter how many columns are being read or written.
+
+<p>Column Families - which can occur in arbitrary number per row. 
+
+<p>Columns have a name and store a number of values per row which are identified by a timestamp (like in
+Bigtable). Each row in a table can have a different number of columns, so a table cannot be thought
+of as a rectangle. Client applications may specify the ordering of columns within a column family
+and supercolumn which can either be by name or by timestamp.
+
+<p>Supercolumns have a name and an arbitrary number of columns associated with them. Again, the number
+of columns per super-column may differ per row.
+
+<p>Cassandra's core API is very simple:
+
+<ul>
+<li>get()
+<li>insert()
+<li>delete()
+</ul>
+
+<p>Thrift API, plus language bindings for Ruby, Python, C#, Java.
+
+
+<p>Cassandra's query language is "CQL" - somewhat like SQL, but no WHERE, JOIN, GROUP BY, ORDER BY; also, results are returned as JSON. UPDATE: "these days", Cassandra DOES implement <a href="https://cassandra.apache.org/doc/latest/cassandra/cql/dml.html">full</a> SQL-like functionality.
+
+<pre style="font-family: 'Courier New';font-size:24px;">
+CREATE KEYSPACE animalkeyspace
+WITH REPLICATION = { 'class' : 'SimpleStrategy' ,
+ 'replication_factor' : 1 };
+
+use animalkeyspace;
+
+CREATE TABLE Monkey (
+  identifier uuid,
+  species text,
+  nickname text,
+  population int,
+  PRIMARY KEY ((identifier), species));
+
+INSERT INTO monkey (identifier, species, nickname, population)
+VALUES ( 5132b130-ae79-11e4-ab27-0800200c9a66,
+'Capuchin monkey', 'cute', 100000);
+
+Select * from monkey;
+
+./sstable2json $YourDataDirectory/data/animalkeyspace/monkey/animalkeyspace-monkey-jb-1-Data.db
+
+[
+  {
+    // The row/partition key
+    "key": "5132b130ae7911e4ab270800200c9a66", 
+    // All Cassandra internal columns
+    "columns": [                               
+      [
+        // The Cluster key. Note the cluster key does not have any data associated with it. The key and the data are same
+        "Capuchin monkey:",                    
+        "",
+        // Time stamp which records when this internal column was created.
+        1423586894518000                       
+      ],
+      [
+        // Header for the nickname internal column. Note the cluster key is always prefixed for every additional internal column.
+        // Actual data
+        "Capuchin monkey:nickname",           
+        "cute",                               
+        1423586894518000
+      ],
+      [
+        // Header for the population internal column
+        "Capuchin monkey:population",   
+        // Actual Data     
+        "100000",                           
+        1423586894518000
+      ]
+    ]
+  }
+]
+</pre>
+
+
+<p>Cassandra uses <a href="pics/SSTable.png">SSTables</a> to persist data, which is implemented using LSM.
+
+
+
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Document DBs: terminology
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>A document DB is a 'collection' of 'documents' (analogy with an RDMS: documents are equivalent to rows, and a collection is equivalent to a table).
+
+<p>The basic unit of storage in a document DB is, well, a document - this can be JSON, XML, etc. There can be an arbitrary number of fields (columns and values, ie. k/v pairs) in each document. 
+
+
+
+<p>A document DB can be considered to be a more sophisticated version of a k-v store. 
+
+<p>In a document DB, a key is paired with a document (which is its 'value'), where the document itself can contain multiple k/v pairs, key-array pairs, or even key-document pairs (ie nested documents).
+
+<p>Here are leading document-oriented DBs:
+
+<ul>
+<li>Couchbase
+<li>CouchDB ['Cluster of unreliable commodity hardware' :) :)]
+<li>MongoDB
+<li>OrientDB
+</ul>
+
+<p>You might enjoy this Couchbase <a href="http://blog.couchbase.com/2016/october/pokemon-go-scaling-profile-services-with-couchbase--nosql?utm_source=MKTG-Social&utm_medium=FB&utm_content=english&utm_campaign=pokemon&utm_keyword=blog">application note</a> :)
+
+<!-- contentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Who uses document DBs?
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>LOTS of organizations, including eBay, ADP, MetLife, MTV, BuzzFeed..
+
+<p>Because entire documents are stored, there is no need to perform (expensive) JOIN operations.. Also, queries can be parallelized using MapReduce. 
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Document DB: example representation
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Consider the following diagram, which shows how blog posts could be organized:
+
+<br><img src="pics/BlogDM.jpg">
+
+<p>The corresponding document store would look like this:
+
+<br><img src="pics/BlogDS.jpg">
+
+<p>Note that document contents are saved as BSON (Binary JSON) in order to save disk space. As a reminder, values can be atomic data, arrays or objects; fields can vary from document to document (no set schema).
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Document DBs: querying
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Queries are non-SQL, of course, and offer richness and flexibility. For example, MongoDB offers the following query types:
+
+<ul>
+
+<li>simple k/v queries - can return a value for any field in the stored documents; usually, we do a simple PK search (given the doc's key, retrieve the entire doc)
+<li>range queries: return values based on >, <=, BETWEEN..
+<li>geo-spatial queries
+<li>text queries - full text search, using AND, OR, NOT
+<li>aggregation framework: column-oriented operations such as count, min, max, avg
+<li>MapReduce queries - get executed via MapReduce
+</ul>
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Document DB: sample query commands
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>The following snippets are for MongoDB.
+
+<pre style="font-family: 'Courier New';font-size:22px;"><code>// create a collection ("table")
+db. createCollection (<name >, {< configuration parameters >})
+
+
+// a sample doc
+{
+title : " MongoDB ",
+last_editor : "172.5.123.91" ,
+last_modified : new Date ("9/23/2010") ,
+body : " MongoDB is a..." ,
+categories : [" Database ", " NoSQL ", " Document Database "] ,
+reviewed : false
+}
+
+// add a doc into a coll
+db.< collection >. insert ( { title : " MongoDB ", last_editor : ... } );
+
+// retrieve
+db.< collection >. find ( { categories : [ " NoSQL ", " Document Databases " ] } );
+
+db.< collection >. find ( { title : " MongoDB " );
+
+db.< collection >. find ( { $where : " this .a ==1" } );
+
+// array size comparison [num categories == 2]
+{ categories : { $size : 2} }
+
+// results processing
+db.< collection >. find ( ... ). sort ({< field >: <1| -1 >}). limit (<number >). skip (<number >);
+
+// potentially DANGEROUS!
+db. eval ( function (< formal parameters >) { ... }, <actual parameters >);
+
+// MapReduce
+db.< collection >. mapreduce ( map : < map - function >,
+reduce : < reduce - function >,
+query : < selection criteria >,
+sort : < sorting specificiation >,
+limit : < number of objects to process >,
+out: <output - collection name >,
+outType : <" normal "|" merge "|" reduce ">,
+keeptemp : < true |false >,
+finalize : < finalize function >,
+scope : < object with variables to put in global namespace >,
+verbose : < true |false >
+);
+</code></pre>
+
+
+<p><a href="pics/NoSQL_CAP.png">Here</a> are the three types of NoSQL DBs we just looked at (k-v, document, column) in terms of the CAP theorem.
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+
+
+<p>A graph is a data structure comprised of vertices and edges:
+<p><img src="pics/WhatIsAGraph.png">
+
+<p>A graph database uses (contains) graph entities such as nodes (vertices), relations (edges), and properties (k-v pairs) on vertices and edges, to store data.
+
+<br>
+<img src="pics/NodesEdgesRels.jpg">
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs: index-free adjacency
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>A graph DB is said to be 'index free', since each node directly stores pointers to its adjacent nodes.
+
+<p>In a graph db, the focus is on relationships between 'linked data'.
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs: multiple types of graphs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>A rich variety of graphs can be stored and manipulated - directed graphs, trees, weighted graphs, hypergraphs, etc. 
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs: implementations
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>These are popular:
+
+<ul>
+<li>FlockDB (from Twitter)
+<li>Neo4J
+<li>HyperGraphDB
+<li>InfiniteGraph
+<li>InfoGrid (makers of MeshBase and NetMeshBase)
+<li><a href="http://orientdb.com/orientdb/">OrientDB</a> [wasn't this also listed as a document DB?!]
+<li>Giraph (from Apache)
+<li>GraphLab
+</ul>
+
+<p>Uses: social networks, recommendation engines..
+
+<p>Gartner:  "Graph analysis is possibly the single most effective competitive differentiator for organizations pursuing data-driven operations and decisions, after the design of data capture."
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs: a couple of sample graphs
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p><img src="pics/GraphSample.jpg">
+
+<br>
+
+<p><img src="pics/GraphSample2.png">
+
+
+<p>Note that in addition to internal names/IDs, nodes and edges can have properties (attributes and their values, ie. k/v pairs).
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+GraphDBs: comparisons with relational modeling
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Compared to a relational scheme, a graph offers a compact, normalized, intuitive way of expressing connections/relationships.
+
+<p>Here is a relational way to express employee-dept relations, and the corresponding graph-based way:
+
+<br><img src="pics/Neo4J_rel.jpg">
+<br><img src="pics/Neo4J_graph.jpg">
+
+<p>Each row in a table becomes a node, and columns (and their values), node properties.
+
+<p>Here is an E-R diagram, and a graph version:
+
+<br><img src="pics/RelModel.jpg">
+<br><img src="pics/GraphModel.jpg">
+
+<p>As you can see, the graphs help model relationships in the form of connections between nodes.
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Graph DBs: querying
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>It is pretty straightforward to create nodes and edges, and attach properties to them; after that, it is equally simply to do queries on the resulting database.
+
+<p>In Neo4J, we use Cypher, a declarative graph query language - modeled after SQL, augmented with graph-specific functionality.
+
+
+<p>In the following, we compare a SQL query, and its Cypher equivalent:
+
+<pre style="font-family: 'Courier New';font-size:22px;"><code>SELECT name FROM Person
+LEFT JOIN Person_Department
+  ON Person.Id = Person_Department.PersonId
+LEFT JOIN Department
+  ON Department.Id = Person_Department.DepartmentId
+WHERE Department.name = "IT Department"
+
+MATCH (p:Person)<-[:EMPLOYEE]-(d:Department)
+WHERE d.name = "IT Department"
+RETURN p.name
+</code></pre>
+
+<p>Using the Neo4J JDBC driver, a query to return "John's dept" can be embedded in Java:
+
+<pre style="font-family: 'Courier New';font-size:22px;"><code>Connection con = DriverManager.getConnection("jdbc:neo4j://localhost:7474/");
+
+String query =
+    "MATCH (:Person {name:{1}})-[:EMPLOYEE]-(d:Department) RETURN d.name as dept";
+try (PreparedStatement stmt = con.prepareStatement(QUERY)) {
+    stmt.setString(1,"John");
+    ResultSet rs = stmt.executeQuery();
+    while(rs.next()) {
+        String department = rs.getString("dept");
+        ....
+    }
+}
+</code></pre>
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+GraphDBs: TinkerPop (Gremlin)
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p><a href="http://tinkerpop.incubator.apache.org/">TinkerPop</a> is a very interesting graph traversal language (actually, an entire graph computing framework). <a href="http://tinkerpop.apache.org/docs/3.1.1-incubating/tutorials/getting-started/">Here</a> is how to get started on exploring it.
+
+<p>Aside: <a href="pdfs/1603.06371.pdf">here</a> is an interesting use case, for a graph DB [<a href="pdfs/MathGenealogy.txt">notes</a> here]. 
+
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Specifying a graph 
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>
+It is useful to ponder how you would specify a graph in a certain format - a pre-determined format would make it possible for an application to read and write graphs.
+
+
+<ul>
+<li>how would you describe a graph (named nodes, connected by not-named edges), using JSON? There are at least two ways...
+<li>look up 'dot' for specifying graphs - eg. read <a href="https://www.graphviz.org/doc/info/lang.html">this</a> and <a href="http://graphs.grevian.org/example">this</a>
+<li>look up the .gdf and GraphML formats for describing graphs - eg. read <a href="pdfs/GUESSmanual.pdf">this</a>
+</ul>
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+What is a triple store?
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>A triple store (or triplestore, or RDF) database stores triples of (subject,predicate,object) [or equivalently, (subject,attribute(property),value)]. A triple defines a <b>directed binary relation</b>, via its predicate/attribute/property. In relational form, we express this as predicate(subject,object).
+
+<p>Subject: what we are describing.
+
+<p>Predicate: a property of the subject.
+
+<p>Object: the predicate's (property's) value. 
+
+<p>In a triple, the predicate is given equal status to subject and object [upcoming examples will make this clear].
+
+
+<p>As an aside, if a fourth attribute (context) is also stored, then we'd call the DB a quad store, or 'named graph'. There are even 'quints' (with an extra 'name' or 'ID' attribute).
+
+<p>We issue 'semantic queries' to search a triple store DB.
+
+<p>Note that a triple store DB is a restricted form of a graph DB.
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Triple store: an example
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Here is an example of a triple store - it is a flat (non-hierarchical) list (bag) of triplets, specified as subject (node), predicate (relationship), object (another node). The column on the left shows node IDs, that's not part of the triple.
+
+<br><img src="pics/triplestore-data-example.png">
+
+<p>The beauty is that such a triplet list can be grown 'endlessly', eventually connecting EVERYTHING to EVERYTHING ELSE! There is no schema to modify - just keep adding triplets to the DB!
+
+
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Triple store database implementations
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<ul>
+<li>AllegroGraph
+<li>MarkLogic
+<li>SparkleDB
+<li>Stardog (http://stardog.com/)
+</ul>
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Triplet store DBs: querying
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>Querying a triplet store can be done in one of several RDF (what is THAT?) query languages, eg. RDQL, SPARQL, RQL, SeRQL, Versa.. Of these, SPARQL is currently the most popular.
+
+<p>The output of a triple store query is called a 'graph'. 
+
+<p>Queries tend to span disparate data, perform complex rule-based logic processing or inference chaining (AI-like).
+
+
+<p>Eg. given 
+<pre>
+    :human rdfs:subClassOf :mammal 
+    :man rdfs:subClassOf :human 
+</pre>
+
+<p>an RDF database can infer 
+
+<pre>
+    :man rdfs:subClassOf :mammal 
+</pre>
+
+<p>If you want LARGE triple store datasets to play with, look at <a href="http://wiki.dbpedia.org/">DBpedia</a>, which is all of Wikipedia in RDF form!
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Triple store DBs: equivalent to a form of RDF databases!
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>RDF (Resource Description Framework) is a metadata data model - a set of specifications (from W3C), for modeling information, for use in KM applications and the semantic web.
+
+<p>Specifically, one of RDF's serialization formats is <a href="https://en.wikipedia.org/wiki/N-Triples">N-Triples</a>, which is *exactly* what store in our triple store DBs - subject,predicate,object. In that sense, every triple store DB is an RDF DB as well (but not the other way around). 
+
+<p>Here is a small graph that shows a single transaction at a <a href="https://syntopika.wordpress.com/2010/08/02/n-triples-example/">barbershop</a>:
+<br><img src="pics/barbershop.png">
+
+<p>Here is the N-Triples representation for the above graph:
+<pre style="font-family: 'Courier New';font-size:16px;">
+# barbershop.nt
+# N-triples representation
+&lt;mailto://jim@FAKEDOMAIN.com> &lt;http://www.example.com/barbershop/Properties#receives> _:service
+&lt;mailto://jim@FAKEDOMAIN.com> &lt;http://www.example.com/barbershop/Properties#name> "Jim"
+_:service &lt;http://www.example.com/barbershop/Properties#cost> "10"
+_:service &lt;http://www.example.com/barbershop/Properties#date> "2010-07-31"
+_:service &lt;http://www.example.com/barbershop/Properties#providedBy> &lt;http://www.example.com/barbershop/barbers#Ted>
+&lt;http://www.example.com/barbershop/Barbers#Ted> &lt;http://www.example.com/barbershop/Properties#name> "Ted"
+</pre>
+
+
+
+<p>If you want to play with RDF, try <a href="http://rdf4j.org/">RDF4J</a> [formerly, 'OpenRDF Sesame'].
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- NOTES**NOTES**NOTES**NOTES**NOTES**NOTES  -->
+<!-- Notes: -->
+<!-- notesnotesnotesnotesnotesnotesnotesnotes  -->
+<div id="itframe">
+<h1 class="st">
+<!-- TITLE**TITLE**TITLE**TITLE**TITLE**TITLE  -->
+Triple store DBs: architecture
+<!-- titletitletitletitletitletitletitletitle  -->
+</h1></div>
+<!-- CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT**CONTENT   -->
+<p>These databases are set up to run in one of three modes:
+<ul>
+<li>in-memory: triples are stored in main memory
+<li>native store: persistence provided by the DB vendors, eg. AllegroGraph
+<li>non-native store: uses third-party service, eg. Jena SDB uses MySQL as the store
+</ul>
+
+<!-- contentcontentcontentcontentcontentcontentcontentcontentcontent -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+<!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY -->
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</body>
+
+
+</html>
+
+
+
+

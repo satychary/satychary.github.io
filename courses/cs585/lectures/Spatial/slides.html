@@ -1,0 +1,1374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ------PAGE TITLE------- -->
+<title>
+Spatial databases
+</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+<script src="../../res/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:50px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:50px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- ****************************** -->
+Spatial DBs
+</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: [x]
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Objectives/TOC
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<ul>
+<li>spatial DBs: definition, characteristics, need, creation..
+<li>spatial datatypes
+<li>spatial operators
+<li>spatial indices
+<li>implementations
+<li>miscellany
+</ul>
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Mass2015
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+What is a spatial database?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>"A spatial database is a database that is optimized to store and query data related to objects in space, including points, lines and polygons."
+
+<p>In other words, it includes objects that have a SPATIAL location (and extent). A chief category of spatial data is geospatial data - derived from the geography of our earth.
+
+
+<p>Characteristics of geographic data:
+<ul>
+<li>has location
+<li>has size
+<li>is <a href="https://www.sciencedirect.com/topics/computer-science/spatial-autocorrelation#:~:text=Spatial%20autocorrelation%20is%20the%20term,together%20to%20have%20similar%20values]">auto-correlated</a> 
+<li>scale dependent
+<li>might be temporally dependent too
+</ul>
+<p>Geographic data is NOT 'business as usual'!
+
+<hr>
+
+<h1>Entity view vs field view</h1>
+
+
+<p>In spatial data analysis, we distinguish between two conceptions
+of space:
+<ul>
+<li>entity view: space as an area filled with a set of discrete objects
+<li>field view: space as an area covered with essentially continuous surfaces
+</ul>
+
+<p>For our purposes, we will adopt the 'entity' view, where space is populated by discrete objects (roads, buildings, rivers..).
+
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: 
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Components
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+
+<p><img src="pics/Components.jpg">
+
+
+<p>So a spatial DB is a collection of the following, specifically built to handle spatial data:
+<ul>
+<li>types
+<li>operators
+<li>indices
+</ul>
+
+<p>Soon, we will explore what types, operators and indices mean.
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u CAD drg / land use 
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Examples of spatial data
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>CAD data:
+<br><img height="500"  src="pics/CAD.jpg">
+
+<p>Agricultural data:
+<br><img src="pics/Agro.gif">
+
+<p>3D data:
+<br><img src="pics/3D_Data.jpg">
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: [x]
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+What can be plotted on to a map?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<ul>
+<li> crime data
+<li> spread of disease, <a href="http://www.sciencealert.com/this-map-estimates-which-us-cities-face-the-highest-risk-from-zika-virus">risk</a> of disease [look at <a href="http://www.cdc.gov/zika/geo/">this</a> too]
+<li><a href="http://time.com/4260798/drug-epidemic-america/">drug overdoses</a> - over time
+<li> census data
+<li> income distribution, home prices
+<li> locations of Starbucks (!)
+<li> (real-time) traffic
+<li> agricultural land use, deforestation
+</ul>
+
+<hr>
+
+<h1> Who creates/uses spatial data?</h1>
+
+<p><img src="pics/SDBMS_UseCases.jpg">
+
+
+<p>Various government agencies routinely coordinate spatial data collection and use, operating in effect, a national spatial data infrastructure (NSDI) - these include federal, state and local agencies. At the federal level, participating agencies include:
+
+<ul>
+<li>Department of Commerce
+ <ul>
+  <li>Bureau of the Census
+  <li>NIST
+  <li>NOAA
+ </ul>
+<li>Department of Defense
+ <ul>
+  <li>Army Corps of Engineers
+  <li>Defense Mapping Agency
+ </ul>
+<li>Department of the Interior
+ <ul>
+  <li>Bureau of Land Management
+  <li>Fish and Wildlife Service
+  <li>U.S Geological Survey [<a href="https://earthquake.usgs.gov/earthquakes/map/?extent=20.30342,-133.41797&extent=52.85586,-56.51367">earthquakes</a>, <a href="doc/MapProjs.pdf">map projections</a>]
+ </ul>
+<li>Department of Agriculture
+ <ul>
+  <li>Agricultural Stabilization and Conservation Service
+  <li>Economic Research Service
+  <li>Forest Service
+  <li>National Agriculture Statistical Service
+  <li>Soil Conservation Service
+ </ul>
+<li>Department of Transportation
+ <ul>
+  <li>Federal Highway Administration
+ </ul>
+<li>Environmental Protection Agency
+<li>NASA
+</ul>
+
+<p>As you can see, spatial data is a SERIOUS resource, vital to US' national interests.
+
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u ex
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Where does spatial data come from?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>Spatial data is created in a variety of ways:
+<ul>
+<li>CAD: user creation
+<li>CAD: reverse engineering
+<li>maps: cartography (surveying, plotting)
+<li>maps: satellite imagery
+<li>maps: 'copter, drone imagery
+<li>maps: driving around
+<li>maps: walking around
+</ul>
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: 
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+What to store?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>All spatial data can be described via the following entities/types:
+
+<ul>
+<li>points/vertices/nodes
+<li>polylines/arcs/linestrings
+<li>polygons/regions
+<li>pixels/raster
+</ul>
+
+<p><img src="pics/ptLinePoly.png">
+
+<p><img src="pics/linestrings.jpg">
+<p><img src="pics/polygons.jpg">
+
+<p><img src="pics/OraclePrims.gif">
+<p><img src="pics/ArcPrims.gif">
+
+<p><img src="pics/RasterPrim.jpg">
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: spatial and non-spatial attrs too
+pisati
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Points, lines, polys => models and non-spatial attrs
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>Once we have spatial data (points, lines, polygons), we can:
+
+<ul>
+<li>'model' features such as lakes, soil type, highways, buildings etc, using the geometric primitives as underlying types
+<li>add 'extra', non-spatial attributes/features to the underlying spatial data 
+</ul>
+
+<p><img src="pics/LayeredData1.jpg">
+<p><img src="pics/LayeredData2.jpg">
+
+<p>Look at <a href="http://homicide.latimes.com/">this</a> map, overlaid with scary data..
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2014
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+SDBMS architecture
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/SDBMS_3LayerStructure.jpg">
+<p><img src="pics/SDBMS_3LayerArch2.jpg">
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2014
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+GIS vs SDBMS
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>GIS is a specific application architecture built on top of a [more general purpose] SDBMS. 
+
+<p>GIS typically tend to be used for:
+
+<p><img src="pics/GISAnalysisExamples.jpg">
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2015
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Spatial relationships
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>In 1D (and higher), spatial relationships can be expressed using 'intersects', 'crosses', 'within', 'touches' (these are T/F predicates). 
+
+<p>Here is a sampling of spatial relationships in 2D:
+<br><img src="pics/SpatialRelations.jpg">
+
+<p>Another diagram showing the [binary] operations:
+<br><img src="pics/BinTopo.png">
+
+<p>Minimum Bounding Rectangles (MBRs) are what are used to compute the results of operations shown above:
+<br><img src="pics/MBR.jpg">
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: proxim containm o'lap
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Spatial relations - categories
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+
+<p>Spatial relationships can be:
+
+<ul>
+<li>topology-based [using defns of boundary, interior, exterior]
+<li>metric-based [distance/Euclidian, angle measures]
+<li>direction-based
+<li>network-based [eg. shortest path]
+</ul>
+
+<p>Topological relationships could be further grouped like so:
+
+<ul>
+<li>proximity
+<li>overlap
+<li>containment
+</ul>
+
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2015
+Measurements
+Fns
+Preds
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+How can we put these relations to use?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+
+<p>We can perform the following, on spatial data:
+
+<ul>
+<li>spatial measurements: find the distance between points, find polygon area..
+<li>spatial functions: find nearest neighbors..
+<li>spatial predicates: test for proximity, containment..
+</ul>
+
+<p><img src="pics/EntityCreation.jpg">
+<p><img src="pics/EntityCreation2.jpg">
+<p><img src="pics/QueryEx1.jpg">
+<p><img src="pics/QueryEx2.jpg">
+
+
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Au Melb
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Spatial operators, functions
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/SpatialFns.jpg">
+<p><img src="pics/SpatialOps.jpg">
+<p><img src="pics/queryAndAnalysisFunctions.jpg">
+
+<p><a href="doc/SpatialRelations.pdf">This</a> doc [from 'FME Knowledge Center'; thanks to Minaxi Singla for the link] provides more info on the spatial operators. 
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: au melb
+sdo_geom etc
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Oracle Spatial
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>Oracle offers a 'Spatial' library for spatial queries - this includes UDTs and custom functions to process them.
+
+<p><img src="pics/Or/SpatialDatabaseWhatIs.jpg">
+<p><img src="pics/Or/OracleSpatial10g.jpg">
+<p><img src="pics/Or/OracleSpatialTypes.jpg">
+
+<p><img src="pics/Or/SDO_Geom.jpg">
+<p><img src="pics/Or/SDO_GType.jpg">
+<p><img src="pics/Or/SDO_GType2.jpg">
+
+<p><img src="pics/Or/OracleConstructingGeoms.jpg">
+
+<p><img src="pics/Or/SpatialOps2.jpg">
+
+<p><img src="pics/Or/SDO_Filter.jpg">
+
+<p><img src="pics/Or/SDO_Relate.jpg">
+
+<p><img src="pics/Or/RelOps.jpg">
+<p><img src="pics/Or/ProxOps.jpg">
+<p><img src="pics/Or/ContOps.jpg">
+
+<p><img src="pics/Or/OracleSpatialIndexing.jpg">
+<p><img src="pics/Or/OracleOptimizedQueryModel.jpg">
+
+
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2014 + PostGIS bk
+bk lnk
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Postgres PostGIS
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/Post/PostGISQ1.jpg">
+<p><img src="pics/Post/PostGISQ2.jpg">
+<p><img src="pics/Post/PostGISQ3.jpg">
+
+<p>Here is an example - table creation, and polygon insertion:
+<p><img src="pics/Post/CountyTablePostgres.png">
+
+<p>To do the above, here are the steps on a PC (similar steps on a Mac):
+
+<ul>
+<li>install Postgres (v.9.5, not 9.6 beta!)
+<li>bring up 'Application Stack Builder' (an add-on that gets installed when Postgres v9.5 is installed), from the available installation options that come up, pick Spatial Extensions -> 'PostGIS 2.2 for Postgres 9.5', install
+<li>bring up a shell (I use 'cygwin'); note - if you want to use cygwin, be sure to use the shell that comes up when you run cygwin.bat, *not* the 'mintty' shell that you get when you double-click on the cygwin icon; Mac users would use the built-in shell 
+<li>9.5/bin/initdb (on a Mac the path would be different)
+<li>9.5/bin/pg_ctl start - this starts the Postgres server
+<li>9.5/bin/createdb mydb - a new db for us to create tables in 
+<li>9.5/bin/psql.exe -d mydb -c "CREATE EXTENSION postgis;" - this adds spatial types to our db; note: 'psql' is the program that lets us communicate with the db server, via the shell
+<li>9.5/bin/psql.exe -d mydb -a -f county.sql - this is how you can execute SQL commands that you store in a .sql file
+<li>edit the .sql file (eg add more data [including spatial data], create new tables, write SQL queries [including spatial ones]..), run the file (as shown above), edit, run......
+<li>9.5/bin/pg_ctl stop - optionally you can stop the server and restart it later
+<li>...
+</ul>
+
+<p>You can learn a lot about spatial queries from <a target="_blank" href="http://postgis.net/docs/manual-1.5/ch04.html">this</a> page.
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: 
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Creating spatial indexes
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>As (more so than) with non-spatial data, the creation and use of spatial indexes VASTLY speed up processing!
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: survey
+
+Also: R* trees, R+ trees, Buddy Trees, Packed R Trees
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Can B Trees index spatial data?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>In short, YES, if we pair it up with a 'z curve' indexing scheme (using a space-filling curve):
+
+<p><img src="pics/BTrees.jpg">
+
+<p><video src="clips/zCurve.mp4" controls="true"> </video>
+
+<p>The idea is to quantize every (x,y) location into a recursively-divided 'quadtree' cell, and use the cell's binary (x,y) location to create a (binary) 'z' key, which is ordered along the unit (0..1) interval - in other words, 2D (x,y) points get mapped (indexed) to ordered 1D 'z' locations.
+
+<p>But, this is of academic interest mostly, not commonly practiced in industry - Apple's <a href="https://apple.github.io/foundationdb/spatial-indexing.html">FoundationDB</a> is an exception. 
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: survey
+
+Also: R* trees, R+ trees, Buddy Trees, Packed R Trees
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+R trees
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/RTree.png">
+<p><img src="pics/RTree_2.jpg">
+
+<p>R trees use MBRs to create a hierarchy of bounds.
+
+<p>Variations, FYI: R+ tree, R* tree, Buddy trees, Packed R trees..
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: survey
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+k-d trees, K-D-B trees
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>k-d tree
+<p><img src="pics/kdTree.jpg">
+
+<p>Alternate: K-D-B tree:
+<p><img src="pics/kdbTree.jpg">
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Quadtrees (and octrees)
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+
+<p>Here we recursively and adaptively subdivide space [subdivisions happen only where necessary].
+
+<p><img style="width:45%" src="pics/GKQuadtree.png">
+
+<p><img style="width:45%" src="pics/quadTree.jpg">
+
+<p>Each node is either a leaf node, with indexed points or null, or an internal (non-leaf) node that has exactly 4 children. The hierarchy of such nodes forms the quadtree.
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Indexing evolution
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/IndexingEvol.jpg">
+
+<p>Indexing schemes continue to evolve.
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: Ms2014
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Query processing: filter, refine 
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><img src="pics/QueryProcEx.jpg">
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: pisati
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Visualizing spatial data
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>A variety of non-spatial attrs can be mapped on to spatial data, providing an intuitive grasp of patterns, trends and abnormalities. Following are some examples.
+
+<p>Dot map:
+<br><img src="pics/Viz_DotMap.jpg">
+<p>Here's <a href="https://demographics.virginia.edu/DotMap/index.html">another</a> one.
+
+<p>Proportional symbol map:
+<br><img src="pics/Viz_PropSymbolMap.jpg">
+
+<p>Diagram map:
+<br><img src="pics/Viz_DiagramMap.jpg">
+
+<p>Another diagram map:
+<br><img src="pics/Viz_DiagramMap2.jpg">
+<br>Also possible to plot multivariate data this way.
+
+<p>Choropleth maps (plotting of a variable of interest, to cover an entire region of a map):
+<br><img src="pics/Viz_ChoroplethMap.jpg">
+<br><img src="pics/Viz_ObamaCareCost.png">
+
+
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: [x]
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+So who (else) has spatial extensions?
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>Everyone!
+
+<p>Thanks to SQL's facility for custom datatype ('UDT') and function creation ('functional extension'), "spatial" has been implemented for every major DB out there:
+
+<ul>
+<li>Oracle: Locator, Spatial, SDO
+<li>Postgres: PostGIS
+<li>DB2: Spatial Datablade
+<li>Informix: Geodetic Datablade
+<li>SQL Server: Geometric and Geodetic Geography types
+<li>MySQL: spatial library comes 'built in'
+<li>SQLite: SpatiaLite
+<li>..
+</ul>
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Google KML
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p>Google's KML format is used to encode spatial data for Google Earth, etc. <a href="http://www.google.com/earth/outreach/tutorials/importgis.html">Here</a> is a page on importing other geospatial dataset formats into Google Earth.
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u 
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+OpenLayers
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><a href="http://openlayers.org/">OpenLayers</a> is an open GIS platform.
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+ESRI: Arc*
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+<p><a href="http://www.esri.com/">ESRI</a> is the home of the powerful, flexible family of ArcGIS products - and they are local!
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE-SLIDE -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="slide">
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<!--
+Notes: l/u O'Reill
+-->
+<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<div id="itframe">
+<h1 class="st">
+<!-- T -->
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+Misc/MORE
+<!-- 00000000000000000000000000000000000 -->
+<!-- 00000000000000000000000000000000000 -->
+</h1></div>
+<!-- C -->
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+
+<p>There is a variety of inexpensive/open source mapping platforms, competing with more pricey commercial offerings (from ESRI etc). Here are several:
+
+<br>&bull; <a href="http://www.qgis.org/en/site/">QGIS</a>
+<br>&bull; <a href="https://www.mapbox.com/">MapBox</a>
+<br>&bull; <a href="https://carto.com/">Carto</a>
+<br>&bull; <a href="http://www.giscloud.com/">GIS Cloud</a>
+
+
+<p><a href="https://bytes.usc.edu/~saty/courses/docs/DevDataMLLLMOps/big-book-of-data-engineering-2e.pdf">Here</a> is a neat book - read section 2.6 [and ALL else!]...
+
+<!-- 11111111111111111111111111111111111 -->
+<!-- 11111111111111111111111111111111111 -->
+</div>
+<!-- ----------------------------------------------------------------- -->
+<!-- ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE-ENDSLIDE--ENDSLIDE-ENDSLIDE  -->
+<!-- ----------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------- -->
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+		<!-- ****************** -->
+		<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+</body>
+</html>
+
+
+
+
+
+

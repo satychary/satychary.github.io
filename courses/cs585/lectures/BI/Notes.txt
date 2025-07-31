@@ -1,0 +1,20 @@
+Data Wrangling: https://www.oreilly.com/ideas/data-wrangling-gets-a-fresh-look
+
+
+
+
+----
+Data Lake vs Operational Database
+Since they both store untransformed data, I was wondering that is there any difference between them.
+A data lake would be a superset of sorts, of a traditional operational DB - because the data lake would ingest streaming data that is structured as well as semi-structured (eg tweets, emails, server logs, Instagram likes, etc), directly into a cloud, Hadoop environment, with continuous or on-demand analytics.
+PS: To put it differently, in a Data Lake there's no ETL (ie no "schema-on-write" loading using a star or snowflake schema), and, it's not just for structured data. 
+---
+
+NICE: for discussions, use #3, #4 schemas!
+https://www.softwaretestinghelp.com/data-warehouse-modeling-star-schema-snowflake-schema/
+
+---
+
+
+https://www.cnn.com/videos/health/2022/12/06/blue-bottle-oat-milk-sustainability-lbb-orig.cnn - switch to oat milk
+

@@ -1,0 +1,862 @@
+
+
+
+<!-- add https://scikit-learn.org/stable/modules/cross_validation.html -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ------PAGE TITLE------- -->
+<title>
+Data Mining
+</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script> 
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- ****************************** -->
+Data Mining
+</h1>
+<h1 class="subtitleC">
+[search(ing) for PATTERNS]
+</h1>
+
+<p style="font-size:25px;" >"You look at where you're going and where you are and it never makes sense, but then you look back at where you've been and a pattern seems to emerge."
+<br>- Robert M. Pirsig, <a href="refs/ZenAnd.pdf">Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values</a>
+</p>
+
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+What is data mining?
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Data mining is the science of extracting useful information from large datasets. 
+
+<p>At the heart of data mining is the process of discovering <b>RELATIONSHIPS</b> between parts of a dataset. 
+
+<p>"Data mining is the analysis of (often large) observational data sets to find unsuspected
+relationships and to summarize the data in novel ways that are both understandable and
+useful to the data owner. The relationships and summaries derived through a data mining exercise are often
+referred to as <b>models</b> or <b>patterns</b>".
+
+<p>The term <b>'trend'</b> is used to describe patterns that occur or change over time. 
+
+<hr>
+
+<p>How is ML different from DM?
+
+<p>Machine learning is the process of TRAINING an algorithm on an EXISTING dataset in order to have it discover <b>relationships</b> (so as to create a model/pattern/trend), and USING the result to analyze NEW data. 
+
+<p><a href="https://class.coursera.org/ml-003/lecture">Here</a> is Andrew Ng's 'classic' Stanford course on ML that is hosted at Coursera, which he co-founded [till early 2017, Andrew was with <a href="https://en.wikipedia.org/wiki/Baidu">Baidu</a>]. 
+
+
+<hr>
+
+<p>Here is how data mining relates to existing fields:
+
+<p><img src="pics/DM_5_areas.jpg">
+
+<hr>
+
+<p>By nature, most data mining is cyclical. Starting with <b>data</b>, mining leads to <b>discovery</b>, which leads to action (<b>"deployment"</b>), which in turn leads to new data - the cycle continues.
+
+
+<p><img src="pics/DDD.jpg">
+
+<p>A more nuanced depiction of the cycle:
+
+<p><img src="pics/DDD_2.jpg">
+
+<hr>
+
+<p>As you can imagine, data mining is useful in dozens (hundreds!) of fields!! Almost ANY type of data can be mined, and results put to use. Following are typical uses:
+
+
+<ul>
+<li>predicting which customers will purchase what
+products and when
+<li>deciding should insurance rates be set to
+ensure profitability
+<li>predicting equipment failures, reducing
+unnecessary maintenance and increasing
+uptime to optimize asset performance
+<li>anticipating resource demands
+<li>predicting which customers are likely to leave and what
+can be done to retain them
+<li>detecting fraud
+<li>minimizing financial risk
+<li>increasing response rates for marketing campaigns
+</ul>
+
+<p><img src="pics/DM_appl1.jpg">
+
+<p><img src="pics/DM_appl2.jpg">
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Data mining algorithms: categories
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Practically all <a href="pics/10MLAlgoForBeg.jpg">data mining ('DM') algorithms</a> neatly fit into one of these 4 categories:
+
+<ul>
+<li><b>Classification</b>: involves LABELING data
+<li><b>Clustering</b>: involves GROUPING data, based on similarity
+<li><b>Association</b>: involves RELATING data
+<li><b>Regression</b>: involves COUPLING data [incl finding 'outliers']
+</ul>
+
+<p>We'll look at examples in each category, that will provide you a concrete understanding of the above summarization.
+
+<p>DM algorithms can also be classified in a different way - as being a 'supervised' learning method (where we need to provide categories for, ie. train, using known outcomes), or an 'unsupervised' method (where we provide just the data to the algorithm, leaving it to learn on its own), or 'semi-supervised', or even 'self-supervised'.
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithms!
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Now we can start discussing specific algorithms (where each one belongs to the four categories we just outlined).
+
+<p>Challenge/fun - can each algorithm be talked about, without using any math at all? You get the 'big picture' [a clear, intuitive understanding] that way.. After that, we can optionally look at equations/code for the algorithms, to learn the details (God/the devil *is* in the details :)).
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Decision trees (eg. C4.5, C5.0 etc.)
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>Classification and regression trees (aka decision trees) are machine-learning methods for constructing
+prediction models from data. The models are obtained by recursively partitioning
+the data space and fitting a simple prediction model within each partition.
+
+
+<p>The decision tree algorithm works like this:
+
+<ul>
+<li>user provides a set of input (training) data, which consists of features (independent parameters) for each piece of data, AND an outcome (a 'label', ie. a class name)
+<li>the algorithm uses the data to build a 'decision tree' [with feature-based conditionals (eqvt to 'if' or 'case' statements) at each non-leaf node], leading to the outcomes (known labels) at the terminals
+<li>the user makes use of the tree by providing it new data (just the feature values) - the algorithm uses the tree to 'classify' the new item into one of the known outcomes (classes)
+</ul>
+
+<p>Should we play tennis? Depends (on the weather) :)
+<p><img src="pics/DecisionTree.png">
+
+<p>This is a VERY simple algorithm! The entire tree is a disjunction (where the branches are) of conjunctions (that lead down from root to leaves).
+
+<p>If the outcome (dependent, or 'target' or 'response' variable) consists of classes (ie. it is 'categorical'), the tree we build is called a classification tree. On the other hand if the target variable is continuous (a numerical quantity), we build a regression tree. Numerical quantities can be ordered, so such data is called 'ordinal'; categories are names, they provide 'nominal' data. Given that, nominal data results in classification trees, and ordinal data results in regression trees.
+
+<p>Here is another example (from 'Principles of Data Mining' by David Hand et. al.). Shown is a 'scatter plot' of a set of wines - color intensity vs alcohol content:
+
+<p><img src="pics/WineScatterPlot.png">
+
+<p>The classification tree for the above data is this:
+
+<p><img src="pics/WineClassifTree.png">
+
+<p>When we superpose the 'decision boundaries' from the classification tree on to the data, we see this:
+
+<p><img src="pics/WineScatterPlot2.png">
+
+
+<p>A sample regression tree is shown below - note that the predictions at the leaves are numerical (not categorical):
+
+<p><img src="pics/RegrTree.png">
+
+<p>Note - algorithms that create <b>c</b>lassification trees <b>a</b>nd <b>r</b>egression <b>t</b>rees are referred to as CART algorithms (guess what CART stands for :)).
+
+
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Support Vector Machine (SVM)
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>An SVM always partitions data (classifies) them into TWO sets - uses a 'slicing' hyperplane (multi-dimensional equivalent of a line), instead of a decision tree.
+
+<p>The hyperplane maximizes the gap on either side (between itself and features on either side). This is to minimize chances of mis-classifying new data.
+
+
+
+<p><img src="pics/SVM.png">
+
+<p>On either side, the equidistant data points closest to the hyperplane are the 'support vectors' (note that there can be several of these, eg. 3 on one side, 2 on the other). Special case - if there is a single support (closest point) on either side, in 2D, the separator is the perpendicular bisector of the line segment joining the supports; if not, the separating line/plane/hyperplane needs to be calculated
+by finding two parallel hyperplanes with no data in between them, and maximizing their gap. The goal is to achieve "margin maximization".
+
+<p>How do we know that a support data point is indeed a support vector? If we move the data point and therefore the boundary moves, that is a support vector :) In other words, non-support data can be moved around a bit, that will not change the boundary (unless the movement brings it to be inside the current margin).
+
+
+<p>Note - in our simplistic setup, we make two assumptions: that our two classes of data are indeed separable (not inter-mingled), and that they are linearly separable. FYI, it is possible to create SVMs even if both the assumptions aren't true [think - how?]. 
+
+<p><img src="pics/SVM_perpbisec.png">
+
+
+
+<p>Here's some geek humor for ya:
+
+<p><img src="pics/ISupport.jpg">
+
+
+<p>Prof. Patrick Winston @ MIT, lecturing on SVMs: https://www.youtube.com/watch?v=_PwhiWxHK8o ...
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: kNN
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>kNN (k Nearest Neighbors) algorithm picks 'k' neartest neighbors, closest to our unclassified (new) point, considers the 'k' neighbors' types (classes), and attempts to classify the unlabeled point using the neighbors' type data - majority wins (the new point's type will be the type of the majority of its 'k' neighbors).
+
+<p><img src="pics/kNN.png">
+
+<p>Here is an example of 'loan defaulting' prediction. With k=3, and a new point of (42,142000), our neighbors have targets of Non Default, Non Default, Default - so we assign 'Non Default' as our target.
+
+<p><img src="pics/kNNLoanDefaulting.png">
+
+<p>Note that if k=1, we assign as our target, that of our closest point. 
+
+<p>Also, to eliminate excessive influence of large numerical values, we usually normalize our data so that all values are 0..1. 
+
+<p>kNN is a 'lazy learner' - just stores input data, uses it only when classifying an unlabeled (new) input. VERY easy to understand, and implement!
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Naive Bayes 
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>The 'na&iuml;ve' Bayes algorithm is a  probability-based, supervised, classifier algorithm (given a datum with `x_1,x_2,x_3..x_n` features (ie an n-dimensional point), classify it to be one of 1,2,3...k classes).
+
+<p>The algorithm is so called because of its strong ('na&iuml;ve') assumption: each of the `x_1` ..`x_n` features are statistically independent of each other ["class conditional independence"] - eg. a fruit is an apple if it is red, round and ~4 in. dia [color, shape and size are independent metrics]. 
+
+<p>Other names for this algorithm: simple Bayes, independence Bayes, idiot Bayes (!). 
+
+<p>For each training feature set, probabilities are assigned for each possible outcome (class). Given a new feature, the algorithm outputs a classification corresponding to the max of the most probable value of each class (which the algorithm calculates, using the 'maximum a posteriori', or 'MAP' decision rule).
+
+<p>Here is an example (from http://www.statsoft.com/textbook/naive-bayes-classifier).
+
+<p>Given the following distribution of 20 red and 40 green balls (ie. 60 samples, 2 classes [green,red]), how to classify the new [white] one ('X')?
+
+<p><img src="pics/NaiveBayes.png">
+
+<p>PRIOR probability of X being green or red:
+
+<p><img src="pics/PriorProb.gif">
+
+
+<p>Given the neighborhood around X, probability (LIKELIHOOD) of X being green, X being red:
+<p><img src="pics/CondProb.gif">
+<br><img src="pics/CondProb2.gif">
+
+<p>POSTERIOR probabilities of X being green, X being red [posterior probability = prior probability modified by likelihood]:
+<p><img src="pics/PostProb.gif">
+
+<p>Classify, using the max of the two posterior probabilities above [MAP]: X is classified as 'red'.
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: k-means clustering
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>This algorithm creates 'k' number of "clusters" (sets, groups, aggregates..) from the input data, using some measure of closeness (items in a cluster are closer to each other than any other item in any other cluster). This is an example of an unsupervised algorithm - we don't need to provide training/sample clusters, the algorithm comes up with them on its own.
+
+<p>If each item in our (un-clustered) dataset has 'n' attributes, it is eqvt to a point in n-dimensional space (eg. n can be 120, for Amazon!). We are now looking to form clusters in n-D space!
+
+<p>Approach: start with 'n' random locations ('centroids', ie means) in the dataset; assign each input point (our data) to the [current] closest centroid; compute new centroids (from our data, for each centroid's "membership"); iterate (till convergence is reached) - this is the 'mean shift' algorithm. <a href="pics/kmeans-steps.png">Here</a> is another description.
+
+<p><img src="pics/kMeansClusteringAnim.gif">
+
+<p><a href="clips/kmeans-clust.mp4">Here</a> is a/nother clip showing the cluster creation; <a href="sw/kmeans.jar">here</a> is the Java .jar file (download, double click to open) used to create the clip. 
+
+<p><a href="https://miguelmota.com/blog/k-means-clustering-in-javascript/">This</a> page contains JavaScript code that implements k-means - the centroid migration trail is plotted; <a href="https://bytes.usc.edu/~saty/tools/xem/run.html?x=kmeans">this</a> is the neat result.
+
+<p>Here is a use case for doing clustering:
+<p><img src="pics/kMeansClust.png">
+
+<p>Again, very simple to understand/code! 
+
+<P>Another example - here, we classify clients of a company, into 3 categories, based on how many orders they placed, and what the orders cost:
+
+<p><img src="pics/KMeans2.png">
+
+
+<p>Q: how many clusters are ideal? <a href="https://www.edureka.co/blog/k-means-clustering/">Here</a> is a way to estimate it [on the Y axis, plot SSE - sum of the squared distance between each cluster point and its centroid].
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Hierarchical clustering
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>In some situations (where it is meaningful to do so), it is helpful to separate items in a dataset into <b>hierarchical</b> clusters (clusters of clusters of..). There are two ways to look at this - as the merging of smaller clusters into bigger superclusters, or dividing of larger clusters into finer scale ones.
+
+<p>Below is a dataset that plots, for <a href="https://www.google.com/search?q=yellowstone+geyser&ie=utf-8&oe=utf-8">Yellowstone National Park</a>, the waiting time between geyser eruptions, and time length (duration) of eruptions. The data points are numbered, just to be able to identify them in our cluster diagram.
+
+<p><img src="pics/HierClust.png">
+
+<p>Given this data, we run a hierarchical clustering algorithm, whose output is a 'dendrogram' (tree-like structure) that shows the merging of clusters:
+
+<p><img src="pics/HierClustDendro.png">
+
+<p>Another example:
+
+<p><img src="pics/hier_clust.gif">
+
+<p>How do we decide what to merge? A popular strategy - pick clusters that lead to the smallest increase in sum of squared distances (in the above diagram, that is what the vertical bar lengths signify). The dendrogram shows that we need to start by merging #18 and #27, which we can verify by looking at the scatter plot (those points almost coincide!). 
+
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: EM (Expectation Maximization)
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>EM is a rather 'magical' algorithm that can solve for a Catch-22 (circular reference) set of values! Here we use it, to cluster data. 
+
+<p>Imagine we have a statistical model that has some parameters, regular variables, and some 'latent' (hidden) variables [eg. data columns with missing values]. The model is expected to operate on new data (predict/classify), given training/pre-existing data. Sounds like a straightforward DM algorithm (eg. k-means clustering), except that it is not!
+
+<p>We do not know the values for the model parameters, or latent/missing variables! We DO have observed/collected/measured data, which the model should be able to act on, ie we have 'outcomes'. <b>The question is, what model parameters would explain (result in, produce...) the outcomes?</b> In other words, we want to explain why/how those outcomes result.
+
+<p>The algorithm works as follows:
+
+<ul>
+<li>pre-step: start with random (!) values for the model parameters
+<li>step1: use current param values to compute probabilities for all possible values for each hidden (latent) var, then do a weighted average (weighted by probability) to compute the best value for each latent var (this is the 'E' step)
+<li>step2: use the hidden vars' values found in the above step, to improve/update the model parameters ('M' step) - do this by maximizing likehood [for the outcomes, given the params]
+<li>iterate the above two steps till param values converge
+</ul>
+
+<p>As counter-intuitive as it sounds, this does work! 
+
+<p>Here is another explanation, from a StackOverflow post:
+
+<p>There's a chicken-and-egg problem in that to solve for your model parameters you need to know the distribution of your unobserved data; but the distribution of your unobserved data is a function of your model parameters.
+
+<p>E-M tries to get around this by iteratively guessing a distribution for the unobserved data, then estimating the model parameters by maximizing something that is a lower bound on the actual likelihood function, and repeating until convergence:
+
+<ul>
+<li>start with guess for values of your model parameters
+
+<li>E-step: For each datapoint that has missing values, use your model equation to solve for the distribution of the missing data given your current guess of the model parameters and given the observed data (note that you are solving for a distribution for each missing value, not for the expected value). Now that we have a distribution for each missing value, we can calculate the expectation of the likelihood function with respect to the unobserved variables. If our guess for the model parameter was correct, this expected likelihood will be the actual likelihood of our observed data; if the parameters were not correct, it will just be a lower bound.
+
+<li>M-step: Now that we've got an expected likelihood function with no unobserved variables in it, maximize the function as you would in the fully observed case, to get a new estimate of your model parameters.
+
+<li>repeat until convergence.
+</ul>
+
+<p>EM is frequently used to 'auto cluster' data. 
+
+
+<p><a href="clips/EM.mp4">Here</a> is an example of EM being used to compute clustering on a dataset (centroids are the model params, cluster memberships are the latent vars).
+
+
+<p>EM is an example of a family of <a href="https://brilliant.org/wiki/maximum-likelihood-estimation-mle/">maximum likelihood estimator</a> [MLE] algorithms - others include gradient descent, and conjugate gradient algorithms [which are optimization algorithms, that can, among other things, be used for MLE].
+
+<p>One more example: EM clustering of Yellowstone's Old Faithful eruption data:
+<p><img src="pics/EM_Clustering_of_Old_Faithful_data.gif">
+<p>Note that in the above, the initial random model consists of two flattened spheres. 
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Classif vs clustering algorithm[s]: a clarification
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>What is the difference between classification and clustering? Aren't they the same?
+
+
+<p>Classification algorithms (when used as learning algorithms) have one ultimate purpose: given a piece of new data, to place it into one of several pre-exising, LABELED "buckets" - these labels could be just names/nonimal (eg. ShortPerson, Yes, OakTree..) or value ranges/ordinal (eg. 2.5-3.9, 100,000-250,000)..
+
+<p>Clustering algorithms on the other hand (again, when used as learning algorithms) take a new piece of data, and place it into a pre-existing group - these groups are UN-LABELED, ie. don't have names or ranges. 
+
+<p>Also, in parameter (feature/attribute) space, each cluster would be distinct from all other clusters, by definition; with classification, just 'gaps' don't need to exist. 
+
+<p>Note that we use multiple terms to denote data. If we imagine data to be tabular, each row would constitute one sample, with each column being refered to as an attribute/parameter/feature/input/independent variable/descriptor/dimension, and the label column (if present) being refered to as a label/class/target/output/dependent variable/response variable/dimension. 
+
+<p><b>Each sample (row) would constitute a single point in the multidimensional space/axes/coordinate system created by the columns, including the label column (if present), and the collection of rows/samples would lead to a distribution - data mining consists of finding patterns in such a multi-dimensional point distribution.</b>
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: A priori
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>Looking for hidden relationships in large datasets is known as association analysis or association rule learning.
+
+<p>The A priori algorithm comes up with association rules (relationships between existing data, as mentioned above). 
+Here is an example: outputting "items purchased together" (aka 'itemsets'), eg. [chip, dip, soda], from grocery transaction records. 
+
+<p>Inputs: 
+<ul>
+<li>data ("shopping basket"), ie. raw data of items bought during multiple transactions
+<li>size of the desired itemsets (eg. 2, 3, 4..) - # of items bought together
+<li>the support (number of times the itemset occurs, divided by the total # of data items)
+<li>confidence (conditional probability of an item being in a datum, given another item - in other words, the ratio of supports)
+</ul>
+
+<p><img src="pics/AssocRules.png">
+
+<p>In the above, support for {diapers,wine} is 3/5, and support for {diapers} alone is 4/5; the confidence for {diapers} -> {wine} [given a purchase of diapers, would there also be a purchase of wine]
+is support({diapers,wine})/support({diapers}), which is 3/5 over 4/5, which is 0.75 (note that 5, ie the total,  cancels out). In other words, 75% of the time, a purchase of diapers is also accompanied by the purchase of wine.
+
+<p>What is specified to the algorithm as input, is a <b>[support (ie. frequency),confidence (ie. certainty, ie. accuracy)] pair</b> - given these, the algorithm outputs all matching associations that satisfy the [support,confidence] criteria. We would then make appropriate use of the association results (eg. co-locate associated items in a store, put up related ads in the search page, print out discount coupons for associated products while the customer is paying their bill nearby, etc.). 
+
+<p>Below is another 'shopping basket' example, with products in columns, customers in rows. 
+
+<p><img src="pics/BasketData.png">
+
+<p>If we set a frequency (ie support) threshold of 0.4 and confidence of 0.5, we can see that the matching items are {A}, {B}, {C}, {D}, {A,C}, {B,C} (each of these occur >=4 times). We can see that {A,C} has an accuracy (ie. confidence) of 4/6=2/3 [occurences-of-AC/occurences-of-A], and {B,C} has an accuracy of 5/5=1 [EVERY time B is purchased, C is also purchased!].
+
+<p>Summary: given a basket (set of itemsets), we can look for associations between itemsetA and itemsetB, given:
+<ul>
+<li>size (count) of itemsetA (eg. 2, eg. {A,C} above)
+<li>size (count) of itemsetB (eg. 1, eg. {A} above)
+<li>threshold/support (S) for itemsetA, eg. 0.4 above
+<li>threshold/support (S) for itemsetB, eg. 0.4 again, above
+<li>confidence for S(itemsetA)/S(itemsetB), eg. 0.5 above
+</ul>
+
+<p>So if our five inputs listed above are (2,1,0.4,0.4,0.5) in the above basket example, the outputs would be (A,C) and (B,C), which means we'd consider co-locating or co-marketing (A,C) and also (B,C) - this is the actionable result we get, from mining the basket data. 
+
+<p>Note - such association-mining is also useful in recommendation engines, where it is classified as a form of 'collaborative filtering' (as opposed to 'content-based filtering') algorithm. 
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Linear regression
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>This (mining) technique is straight out of statistics - given a set of training pairs for a feature x and outcome y, fit the best line describing the relationship between x,y. The line describes the relationship/pattern. 
+
+
+
+<p>Given that we have
+`Y_i` which depends on `X_(i 1), X_(i 2), X_(i 3)... X_(i p)` [`i` is the sample index (one "row" of data/one observation/...), 1,2,3..`p` are the variable indices (dimensions)], we seek to model the dependency relationship as
+`Y_i = f(X_i) + epsilon_i` where `f` is the unknown function (that we seek), and `epsilon` is the error with mean=0. Specifically, we are calculating the y-intercept `c` and slope `m` of the "regression line", whose equation would be `Y = f(X) = mX+c`.
+
+<p>Here is an example:
+
+<p><img src="pics/SchoolUnivGPAs.png">
+
+<hr>
+
+<p>A different kind of linear regression called <a href="https://www.google.com/search?q=autoregressive+moving+average+(arma)&rlz=1C1CHBF_enUS723US723&oq=Autoregressive+moving+average+(ARMA)&aqs=chrome.0.0i512l3j0i390.452j0j7&sourceid=chrome&ie=UTF-8">ARMA</a> is what is applied to more 'noisy' linear variation [eg. a noisy cycle superposed over a linear trend]. This in turn is part of a larger field called 'time series analysis' [eg. see <a href="https://www.statisticalaid.com/an-intuitive-study-of-time-series-analysis/">this</a>]. 
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Non-linear regression
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Here we fit a higher order polynomial equation (parabola, ie. `ax^2 + bx + c`) to the observed data:
+
+<p><img src="pics/TV_Age.png">
+
+
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Two parameter, non-linear regression
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Here we need to fit a higher order, non-linear surface (ie. non-planar) to the observed data:
+
+<p><img src="pics/Income_EdSen.png">
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Non-parametric modeling
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>Parametric methods (eg. regression analysis which we just looked at) involve parameter estimation (regression coefficients).
+
+<p>Non-parametric methods - no assumptions on what our surface (the dependent variable) would look like; we would need much more data to do the surface fitting, but we don't need the surface to be parameter-based!
+
+<p><img src="pics/Income_TPS.png">
+
+<p>While non-parametric models might be better suited to certain data distributions, they could lead to a poor estimate as well (if there is over-fit)..
+
+<p><img src="pics/Income_BadEst.png">
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: Logistic regression
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+<p>Logistic regression is a classification (usually binary) algorithm:
+
+<ul>
+<li>compute regression coeffs (linear) corresponding to a 'decision boundary' (line dividing two classes of training data)  
+<li>use the  derived regression coeffs to compute outcome for new data
+<li>transform the outcome to a logistic regression value, and use the 0..1 result to predict a binary outcome (class A or class B)
+</ul>
+
+<p><img src="pics/LogisticEqn.jpg">
+<p><img src="pics/sigmoid.jpg">
+
+
+
+<p>Result (the whole point of doing the three steps above) - we are transforming a continuous, regression-derived value (which can be arbitrarily large or small) into a 0..1 value, which in turn we transform into a binary class (eg. yes or no) [similar to using an SVM or creating two clusters via k Means].  Note that if we use the simpler form of the logistic equation (a=b=c=1), we'd need to transform our regression results to a 0-centered distribution before using the logistic equation - this is because 1/(1+exp(-x)) is 0.5, when x=0.
+
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+(Meta) Algorithm: Ensemble Learning
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>What if we used a training dataset to train several different algorithms - eg. decision tree, kNN, neural net(s)..? You'll most likely get (slightly!) different results for target prediction.
+
+<p> We could use a voting scheme, and use the result as the overall output. Eg. for a yes/no classification, we'd return a 'yes' ('no') if we got a 'yes' ('no') majority.
+
+<p>This method of combining learners' results is called 'boosting', and resulting combo learner is called an 'ensemble learner'. Why do this? "Wisdom of the crowds" :) We do this to minimize/eliminate variances between the learners.
+
+
+
+<p>FYI - 'AdaBoost' (Adaptive Boosting) is an algorithm for doing ensemble learning - here, the individual learners' weights are iteratively and adaptively tweaked so as too minimize overall classification errors [starting from a larger number of features used by participating learners to predict outcomes, the iterative training steps select only those features known to improve the predictive power of the overall model].
+
+<p>FYI - 'Bagging' (bootstrap aggregating) is a data-conditioning-related ensemble algorithm (where we employ 'bootstrap resampling' of data - divide the data into smaller subsets, use all the subsets for training different 'variations' of a model, use all the resulting models to predict outcomes, transform these into a single 'ensemble' outcome).
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- SLIDE SLIDE SLIDE SLIDE --><div class="slide">
+<!-- NOTES -->
+<!--
+-->
+<!-- /NOTES -->
+<!-- TITLE --><div id="itframe">
+<h1 class="st">
+Algorithm: RandomForest (TM)
+</h1>
+<!-- /TITLE --></div>
+<!-- CONTENT -->
+
+<p>RandomForest(TM) is an *ensemble* method where we:
+<ul>
+<li>grow a 'forest' (eg. with count=500) decision trees, run our new feature through all of them, then use a voting or averaging scheme to derive an ensemble classification result
+<li>keep each tree small - use sqrt(k) features for it, chosen randomly from the overall 'k' samples
+</ul>
+
+<p><img src="pics/RandomForest.jpg">
+
+<!-- /CONTENT -->
+<!-- /SLIDE /SLIDE /SLIDE /SLIDE --></div>
+<!-- -------------------------------------------------------- -->
+
+
+
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</body>
+
+
+</html>
+
+
+

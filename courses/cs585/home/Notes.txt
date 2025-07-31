@@ -1,0 +1,20 @@
+ForSOC/ is exactly what it's for - to put up, in the SOC :)
+
+Edit the HTML, add in pics (eg schedule snapshot) etc... Include sections on:
+* overview, incl a note on 'extras'
+* prereq desc
+* topics
+* grading 
+* textbook
+
+Proper syntax for video emb (in 2023, 2024!):
+<br><video width="570" controls autoplay loop muted>
+  <source src="clips/Adverity.mp4" type="video/mp4" />
+</video>
+
+Hidden span: <br>
+<span style="color:white;">OMG: www.youtube.com/watch?v=ed9fS5gDlNI</span>
+
+----
+
+Can preview pics/ in FC (not Win Explorer!) - what I like, then enter it in index.html :)

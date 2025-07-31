@@ -1,0 +1,15 @@
+Chunks to c&p, for each lecture. Cool!
+
+
+
+
+
+ML:
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/CorM.png">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/NNForBabies.jpg">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/DeeEll.jpg">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/strawb.jpg">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/AI-ML-LR.jpg">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/LettuceDog.jpg">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/YOLO.png">
+<br><img style="width:50%; border:3px solid #777777; padding:6px; background:white;" src="pics/LossLandscape.gif">

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<link rel="shortcut icon" href="https://bytes.usc.edu/~saty/USC-ico.png" />
+<title style='font-size:60px;'>HW2: SQL</title>
+  
+    
+<!-- carousel(slidesDiv,0,transitionTimeInMilliSec); -->
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"></script>
+</head>
+
+<!-- what, how, when -->
+
+<body>
+
+  <div class="navbar navbar-inverse"> </div>
+
+<!-- only ONE xmp section will render, so don't have multiples; ONLY customization is the 'theme' - look in 0.2/themes for alt names, eg. united (this came as the demo one), amelia, journal, readable -->
+<!-- what look good:
+* flatly - probably 2nd best..
+* cosmo - clean
+* readable - simple, pretty b/w, makes H1 ALL uppercase!!
+* simplex - tall and thin
+* slate: sort of like my 'forever' smartcg css!!
+* spacelab - clean, elegant, minimal, pretty - Becky's fav!
+* united - modern - probably the best :)
+* yeti - thinnish; yucky top-menu
+* cyborg - pretty but navbar can't be 'right'
+
+* bootstrap: chunky but good, no 'right' navbar
+* default: nice text but black menubar (not 'bad' though)
+-->
+
+<!-- Inside the xmp, *can* have classic md, html, links (see 'page2' for such mixed markup), etc. -->
+<!-- ********************************** -->
+<xmp theme="theme" style="display:none;">
+<!-- ********************************** -->
+
+#### &nbsp;
+
+#HW2: SQL generation via LLM :)
+
+###Summary: you'll use Kimi K2 (a new, highly capable LLM!) to have natural language queries (ie. English questions) be turned into SQL code!
+
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+###Go to https://www.kimi.com/chat/, and signing in using your Google credentials. Now you (and K2!) are ready to chat:
+###<img style="width:500px;" src="pics/KimiChat.png">
+
+###Kimi K2 excels at code gen and multi-step follow-ups (eg when we ask for each new SQL query in a new prompt): https://blog.kilocode.ai/p/kimi-k2-first-open-model-to-challenge. Here's more on Kimi K2, from its creators [Moonshot AI]: https://moonshotai.github.io/Kimi-K2/
+
+###Once you sign in, you can start having K2 output SQL, simply by 'chatting' with it, where you would provide:
+####&bull; a plaintext description of the DB from HW1 :)
+####&bull; followup prompts, one by one, for 5 questions - to have K2 output eqvt. SQL queries
+
+###For this HW you'll simply submit screenshots. But in real life you'll be able to EXECUTE the queries so they run on your tables that have actual data. In other words, the AI makes it easy to 'simply' obtain SQL. During all the decades that SQL has been around, it's been HUMANS alone, who could come up with SQL (eg. look at link after link, to see what this <a href="https://www.google.com/search?q=Top+10+Data+Science+skills&rlz=1C1CHBF_enUS723US723&oq=Top+10+Data+Science+skills&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDgyNTBqMGoxqAIAsAIB&sourceid=chrome&ie=UTF-8">search</a> shows!). But now, for the first time, AI can output SQL too.
+
+###Start by copying and pasting from HW1 (!!), the verbatim DB description [ending with '(one to five stars).'], as your first 'prompt':
+###<img style="width:500px;" src="pics/DBDesc.png">
+
+###Now that K2 has the DB description (from which it can create table schemas), you can continue the chat with it, by asking it to create SQL related to the tables, one question at a time - eg:
+###<img style="width:500px;" src="pics/text-to-SQL.png">
+
+###Here's what we want to query - 5 items - input each separately (as its own prompt):
+####&bull; what is the course with most number of students?
+####&bull; who is the most popular instructor (ie. who teaches the most number of students)?
+####&bull; who is the most popular instructor (ie. who has the highest rating)?
+####&bull; create a listing that includes class name and the number of students enrolled in the class, sorted in reverse order of enrollment (eg. to tell which were the most popular classes, at the end of the term)
+####&bull; given an instructor X, we want to know how much he/she got paid
+
+###For each query, K2 outputs any assumptions made, then SQL code! Do feel free to create small tables (eg. at https://sql.js.org/examples/GUI/), then RUN the queries that K2 generated, to verify that they do work. You don't need to submit such verifications, you'd do this for your own edification :)
+
+###After this course, do play with other systems that generate SQL, eg. https://github.com/vanna-ai [you can use this via Streamlit even, eg. see https://github.com/vanna-ai/vanna-streamlit-simple]. This explains how Vanna works: https://github.com/vanna-ai/vanna. You can also use Qwen 2.5 Coder 32B, Alibaba's model which has been trained using lots of SQL [eg. see pages 19,20 here: https://arxiv.org/pdf/2409.12186v1]. You can try deployments at https://huggingface.co/spaces?q=Qwen2.5-Coder-32B-Instruct, or even use Ollama to download and run it locally (you do need a beefy GPU!). TL;DR: <a href="https://www.google.com/search?q=LLM+Text-to-SQL&num=10&sca_esv=e948bafec9f39f8c&rlz=1C1CHBF_enUS723US723&sxsrf=AE3TifMDcRWcb2VSpI6p5JwogsknptOf5A%3A1753782576307&ei=MJmIaO_LEq3bkPIPqKqjsAk&ved=0ahUKEwjvo-Wb5eGOAxWtLUQIHSjVCJYQ4dUDCBA&uact=5&oq=LLM+Text-to-SQL&gs_lp=Egxnd3Mtd2l6LXNlcnAiD0xMTSBUZXh0LXRvLVNRTDIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgQQABgeMgQQABgeMgQQABgeMgQQABgeMgQQABgeMgQQABgeSIYgUNQKWPUXcAF4AZABAJgBtAGgAZsEqgEDMC40uAEDyAEA-AEBmAIFoALABMICChAAGLADGNYEGEfCAg0QLhiABBiwAxhDGIoFwgINEAAYgAQYsAMYQxiKBcICBxAjGLACGCeYAwCIBgGQBgqSBwMxLjSgB7sasgcDMC40uAexBMIHBTItNC4xyAcf&sclient=gws-wiz-serp">'Text-to-SQL'</a> is here to stay!
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+###Please post your qns (and their answers!) on the 'hw2' Piazza page.
+
+###**What to submit** (as a single .zip): for each query, a screenshot showing your prompt as well as the returned SQL.
+
+###**HAVE FUN!**
+
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+<div style="height:1px;border:1px solid #BBBBBB;"/>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************************** -->
+</xmp >
+<!-- ********************************** -->
+<!-- DO NOT MODIFY WHAT'S BELOW - IT RENDERS THE MD CONTENT! -->
+<script>
+ var markdownEl = document.getElementsByTagName('xmp')[0]  || document.getElementsByTagName('textarea')[0];
+   var theme = markdownEl.getAttribute('theme') || 'bootstrap';
+   theme = theme.toLowerCase();
+  // alert(theme);
+  var originBase = "../../res";
+   var linkEl = document.createElement('link');
+   linkEl.href = originBase + '/themes/'+theme+'.css';
+   linkEl.rel = 'stylesheet';
+   document.head.appendChild(linkEl);
+</script>
+<script src="../../res/styles/js/strapdown/0.2/strapdown.js"></script>
+<!-- DO NOT MODIFY WHAT'S ABOVE - IT RENDERS THE MD CONTENT! -->
+
+
+
+</body>
+</html>
+
+
+
+
+

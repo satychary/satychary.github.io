@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ----------------------- -->
+<title>BI</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+
+<!-- CSS, JS -->
+<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+
+<!-- ------ -->
+</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:50px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:50px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+<!-- ************************ -->
+<!-- SLIDES SLIDES SLIDES -->
+<!-- ************************ -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1 class="title">
+<!-- *************** -->
+Business Intelligence
+</h1>
+<h1 class="subtitleC">("BI")</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<h1 class="subtitleC">&nbsp;</h1>
+<!-- *************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- ******************************************** -->
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">BI</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s004.png">
+<p><img style="width:600px" src="pics/s011.png">
+<p><img style="width:600px" src="pics/s005.png">
+<p><img style="width:600px" src="pics/s014.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Trees (transactional) vs forests ('analytical')</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s016-017.png">
+
+<p>Transactional, operational data: individual units.
+
+<p>'Analytical', decision-support data: aggregated.
+
+<p><img style="width:600px" src="pics/s018.png">
+
+<p><img style="width:600px" src="pics/s021.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">ETL - is how to construct a 'DW'</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s022.png">
+
+<p>ETL is a classic "schema on write" process, where we define a schema (table structure) first, THEN load the data into that structure.
+
+<p>An ETL-related job ad:
+
+<p><img style="width:600px" src="pics/ETL_ad.jpg">
+
+<p>You can learn much more about ETL, <a href="docs/UnderstandingETL_OReilly_6tgV.pdf">here.</a>
+
+
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">DW: characteristics</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s024.png">
+<p><img style="width:600px" src="pics/s025.png">
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Star schema - a warehouse design </h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s026.png">
+<p><img style="width:600px" src="pics/s027.png">
+
+<p><img style="width:600px" src="pics/s028.png">
+
+<p><img style="width:600px" src="pics/SliceAndDice.png">
+
+<p><img style="width:600px" src="pics/s029.png">
+
+<p><img style="width:600px" src="pics/s030.png">
+
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st"> A sample star schema</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s031.png">
+<p>We have the fact table (of transactions) at the center, and denormalized (all-in-one) dimension tables all around. 
+
+<p><a href="https://en.wikipedia.org/wiki/Star_schema#/media/File:Star-schema-example.png">Here</a> is another representation.
+
+<p>Note: "dimensions are qualifying characteristics that provide additional perspectives to a given fact; dimensions provide descriptive characteristics about the facts through their attributes."
+
+
+
+<p>Each fact (transaction) can now pictured to be located in a multi-dimensional cube where the axes are dimensions. Eg. a 3D representation of our data for the above schema would look like this:
+<p><img style="width:600px" src="pics/SalesCube.png">
+
+<p>Slicing and dicing the cube provides specific insights..
+
+
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st"> Snowflake schema - another warehouse design</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/NormDimTables.png">
+<!----------------------------------->
+
+<p>Dimensional tables can be normalized so that they have their own dimensional tables - this is done to simplify the design, but requiring navigation across the normalized chains. 
+
+<p>Purpose - an attribute hierarchy would provide drill-down/roll-up capability as well, eg.
+<p><img style="width:600px" src="pics/AttrHier.png">
+<p><img style="width:600px" src="pics/AttrHierarchy2.png">
+
+<p><a href="https://en.wikipedia.org/wiki/Snowflake_schema#/media/File:Snowflake-schema-example.png">Here</a> is another representation.
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Star, snowflake, all-in-one-v1, all-in-one-v2</h1></div>
+<!----------------------------------->
+
+
+<p>There are four different ways in which we can organize (structure) a data warehouse:
+<ul>
+<li>1. star schema: fact table FKs point to a single level of dimension tables (points of a star)
+<li>2. snowflake schema: each dimension table can be normalized to create a 1:M chain 
+<li>3. the fact table can be supplanted with all the columns in the star/snowflake dimensions
+<li>4. a separate fact table can be created for each attribute in a dimension hierarchy
+</ul>
+
+
+<p>To denormalize a fact table (#3 above), we simply add extra 'dimension' columns to it, and fill them with redundant data - this permits fast queries (no joins needed) at the expense of disk space (and cleanliness of design).
+
+
+
+<p>Instead of having a fact table pointing to denormalized star dimensions (#1), or a fact table with lowest attrs pointing to a chain of rolled-up attrs, ie. snowflake schema (#2), or creating a denormalized fact table (#3), we can create multiple fact tables, one for each level in an attr hierarchy (#4) - it is a different form of denormalization, where the redundant data is stored in physically separate tables.
+<!----------------------------------->
+<p><img style="width:600px" src="pics/MultipleFactTables.png">
+
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">A summarization...</h1></div>
+
+<p>Fact tables that we see in the middle of star/snowflake schema, are ALWAYS denormalized, with multiple repeating values in the columns that link to dimensions - eg. multiple date values, product values, location values, POS terminal # values etc (because each row in a fact table contains those columns as raw 'facts').
+
+<p>Dimension tables, in a star schema are ALSO denormalized - eg. location dimension, with city,state,region columns, will have repeating values for states (because many cities are in each state), and repeating region values (because many states are in each region).
+
+<p>Dimension tables in a snowflake schema are normalized, because we create a chain (hierarchy) of them using the star's dimension columns.
+
+<p>The fact table ALWAYS stays denormalized. Such a fact table is said to employ star schema, if we use star-like denormalized columns for BI - eg. to find out how much of a product we sold in a city, we'd query the fact rows for city name, and if we need it, can also do state-level analyses (because states are listed in the location dimension table).
+
+<p>Using a snowflake schema, doing location analysis for a product at a city level is similar to the above paragraph - we simply look for the city name, and if necessary, get extra info about the city (eg tax rate) by looking at the dimension table. BUT to do state level analysis, we need to follow the city-state link, and use the state-level dimension table ie traverse a branch of the snowflake. 
+
+<p>To avoid traversing those branches in a snowflake, we trade off ('waste') space by creating extra 'copies' of the fact table, where a column such as city (lowest value in the hierarchy of 'location') is REPLACED instead with 'state' values, and in another copy, with 'region' values. This lets us do star-like analyses again, because a fact row directly points the state table, and in another copy, directly points to the region table - no traversing the chain necessary (at the expense of extra storage).
+
+<p>Which schema (star or snowflake) is used to model the warehouse, determines whether we maintain denormalized (or normalized) dimension tables [fact tables always stay denormalized].
+
+
+'For BI purposes, the idea is to take the 'single unified view' of data which is in the fact table (which contains numerous columns (think of a single Amazon purchase order item) - they can be categorized into dimensions, and in each dimension, even be hierarchically grouped - an example would be 'location'), and DERIVE additional tables, with data pre-aggregated along those (hierarchies of) dimensions. This lets us slice-and-dice (along dimensions), and zoom in/out (along just one dimension), all without expensive querying at runtime (on billions of rows), because the 'group by' calculations have been done already (that resulted in those aggregated data tables).'
+
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Analytics - the entire POINT of creating a DW!</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s034.png">
+<p>"True fact" - this was the start of DM [Data Mining]!
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">OLAP - fancy term for 'BI using DW'</h1></div>
+<!----------------------------------->
+<p><img style="width:600px" src="pics/s035.png">
+<p><img style="width:600px" src="pics/s039.png">
+<p><img style="width:600px" src="pics/s040.png">
+<p><img style="width:600px" src="pics/s023.png">
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"><h1 class="st">ROLAP, MOLAP</h1></div>
+<!----------------------------------->
+<p>Relational OLAP ('ROLAP'):
+<br><img style="width:600px" src="pics/s041.png">
+
+<p>Multidimensional OLAP ('MOLAP'):
+<br><img style="width:600px" src="pics/s042.png">
+
+
+<p><img style="width:600px" src="pics/s043.png">
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">TWO BI-oriented SQL extensions</h1></div>
+<!----------------------------------->
+<p>ROLLUP and CUBE are GROUP BY modifiers - they help generate subtotals for a list of specified columns (see examples that follow). Depending on granularity of the columns (eg. US_REGION vs STORE_NUMBER), these subtotals help provide a rolled-up (aggregated) or drilled-down (detailed) analysis of data. 
+<p><img style="width:600px" src="pics/s044.png">
+
+<p><img style="width:600px" src="pics/s045.png">
+<p>"Subtotal for each vendor - all products; sum of (the only set of) subtotals".
+
+<hr>
+
+<p><img style="width:600px" src="pics/s046.png">
+<p>"Subtotal for each month - all products; subtotal for each product - all months; sum of (either set of) subtotals".
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div class="slide">
+<div id="itframe"> <h1 class="st">Modern alts</h1></div>
+<!----------------------------------->
+<p>A 'traditional' data warehouse is an ETL-based, historical record of transactions - very RDB-like (schema-on-write).
+
+<p>A 'modern' alternative is a 'data lake', which offers a more continuous form of analytics, driven by the rise of unstructured (semi-structured, really) data, streaming, cloud storage, etc. 
+
+<p>In a data lake, data is NOT ETLd, rather, it is stored in its 'raw' ("natural") form [even incomplete, untransformed...]; we create a schema AFTER storing (raw) data in such a DB - this is called <a href="pics/ELT-vs-ETL-56FFbv.png">ELT</a>, or 'reverse ETL', or 'schema on read'.
+
+<p>In a data lake we can do scheme-on-read, ie ELT, to create a warehouse - a '<b>lakehouse</b>'. Here is a good <a href="docs/BldgTheDataLakehouse.pdf">'lakehouse'</a> book (read p.19-p.39 in particular). <a href="https://www.upsolver.com/lp-thankyou/lakehouse-data-lake-course?">Here</a> is a good set of 12 short clips, that are about 'Data Lake vs. Lakehouse'.
+
+<p><a href="https://www.teradata.com/platform/use-cases/data-lakes">VantageCloud</a> is a cloud-based data lake product.
+
+<p>There is also, the data <a href="https://www.montecarlodata.com/blog-data-mesh-vs-data-lake-whats-the-difference/">mesh</a>; <a href="clips/MeshVs.mp4">here</a> is a comparison...
+
+<p>Here is <a href="https://thenewstack.io/linkedin-open-sources-openhouse-data-lakehouse-control-plane/">OpenHouse</a> :)
+
+<p><a href="docs/databricks-etl-to-gen-ai.pdf">This</a> is DataBricks' architecture, for all-in-one lakehouse+{ML,BI...}.
+
+
+
+
+<!----------------------------------->
+</div>
+<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+</body>
+
+</html>
+
+
+
+
+
+

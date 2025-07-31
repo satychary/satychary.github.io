@@ -1,0 +1,911 @@
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			Machine learning basics
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+<link rel="stylesheet"  href="../../res/layout_only.css"/>
+<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/SSS.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/strokeText.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+<script src="../../res/styles/js/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>  
+<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js"></script>
+<script src="../../res/styles/hljs/highlight.min.js"></script>
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+		<!-- ************************** -->
+		<!-- BEGIN SLIDES SLIDES SLIDES -->
+		<!-- ************************** -->
+
+		<!-- ****************************************** -->
+		<!-- ****************************************** -->
+		<!-- TITLE SLIDE -->
+		<div class="slide">
+			<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="center" valign="center">
+						<!-- valign was 'center' -->
+						<!-- ---------- -->
+						<br><br><br><br><br>
+						<h1  class="title">
+						<!-- ****************************** -->
+							Machine learning
+						</h1>
+
+						<h1  class="subtitleC">
+						<!-- ****************************** -->
+                                                      A gentle introduction
+						</h1>
+                                                    <img src="pics/IsItAI.jpg">
+						<!-- ****************************** -->
+						<!-- ---------- -->
+					</td>
+				</tr>
+			</table>
+		</div><!-- osframe, slide -->
+		<!-- END TITLE SLIDE -->
+		<!-- ****************************************** -->
+		<!-- ****************************************** -->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Our 'menu' for today
+<!--t*e--></h1></div>
+<!--c*s-->
+<ul>
+<li>'AI'
+<li>types of AI
+<li>neurons
+<li>neural networks ('NN's)<!-- backprop, learning rate, momentum -->
+<li>'AI winter' <!-- newer: cloud, GPU, SDC, Siri... -->
+<li>'deep learning' - the new revolution
+<li>convolutional NNs, ie. CNNs
+<li>NN architectures <!--LeNet, ResNet, ConvoNet, AlexNet, VGG, ImageNet etc.-->
+<li>players
+<li>hardware acceleration
+<li>current directions
+<li>applications<!-- NVIDIA img gen, music, art (DeepDreams)-->
+<li>learning more 
+<li>the 'race' for AI
+<li>the big prize
+<li>but, but...<!-- foolability in RL and imgs; biases... it's all BOGUS!-->
+</ul>
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Artificial INTELLIGENCE ("AI")
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>We humans (not other animals!) have been to outer space, invented agriculture, found cures for diseases, invented countless things, create and use STEM, have radically altered the environment... But, these pale in comparison, when it comes to the promise/potential/dream of machine intelligence. 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Types of AI, Machine Learning  ("ML"), types of ML
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Here is a good way [after Arend Hintze] to <b>classify AI types</b> (not just techniques!)..
+
+<p><b>Type I</b>: Reactive machines - make optimal moves - no memory, no past 'experience'. Ex: game trees. 
+
+<p><b>Type II</b>: Limited memory - human-compiled/provided , one-shot 'past' 'experiences' are stored for lookup. Ex: expert systems, neural networks.
+
+<p><b>Type III</b>: Theory of Mind - "the understanding that people, creatures and objects in the world can have thoughts and emotions that affect the AI programs' own behavior". 
+
+<p><b>Type IV</b>: Self-awareness - machines that have consciousness, that can form representations about themselves (and others).
+
+<p>Type I AI is simply, application of rules/logic (eg. chess-playing machines).
+
+<p>Type II AI is where we are, today - specifically, this is what we call 'machine learning' - it is <b>"data-driven AI"</b>! Within the last decade or so, spectacular progress has been made in this area, ending what was called the 'AI Winter'. 
+
+<p>As of now, types III and IV  are in the realm of speculation and science-fiction, but in the general public's mind, they appear to be certainty in the near term :)
+
+<p>ML is the ONE subset of AI that is revolutionizing the world.
+
+<p>"Machine learning focuses on the construction and study of systems that can learn from data to optimize a performance function, such as optimizing the expected reward or minimizing loss functions. The goal is to develop deep insights from data assets faster, extract knowledge from data with greater precision, improve the bottom line and reduce risk."
+<br>  - Wayne Thompson, SAS
+
+<p>ML comes in several flavors - the key types of machine learning include: 
+<ul>
+<li> Supervised learning
+<li> Unsupervised learning
+<li> Semisupervised learning
+<li> Reinforcement learning 
+</ul>
+
+<p>Here is a classification:
+<br><img src="pics/MLTypesFlowchart.jpg">
+
+<p><b>Supervised learning</b> algorithms are "trained" using  examples where in addition to features [inputs], the desired output [label, aka target] is known. 
+
+<p><b>Unsupervised learning</b> is a type of machine learning where the system operates on unlabeled examples. In this case, the system is not told the "right answer." The algorithm tries to find a hidden structure or manifold in unlabeled data. The goal of unsupervised learning is to explore the data to find intrinsic structures within it using methods like clustering or dimension reduction. 
+
+<p>For Euclidian space data: k-means clustering, Gaussian mixtures and principal component analysis (PCA)
+
+<p>For non-Euclidian space data: ISOMAP, local linear embedding (LLE), Laplacian eigenmaps, kernel PCA.
+
+<p>Use matrix factorization, topic models/graphs for social media data.
+
+<p>Here is a WIRED mag writeup on unsupervised learning:
+<span>
+<p style="font-size:14px;">Let's say, for example, that you're a researcher who wants to learn more about human personality types. You're awarded an extremely generous grant that allows you to give 200,000 people a 500-question personality test, with answers that vary on a scale from one to 10. Eventually you find yourself with 200,000 data points in 500 virtual "dimensions" - one dimension for each of the original questions on the personality quiz. These points, taken together, form a lower-dimensional "surface" in the 500-dimensional space in the same way that a simple plot of elevation across a mountain range creates a two-dimensional surface in three-dimensional space.
+
+<p style="font-size:14px;">What you would like to do, as a researcher, is identify this lower-dimensional surface, thereby reducing the personality portraits of the 200,000 subjects to their essential properties - a task that is similar to finding that two variables suffice to identify any point in the mountain-range surface. Perhaps the personality-test surface can also be described with a simple function, a connection between a number of variables that is significantly smaller than 500. This function is likely to reflect a hidden structure in the data.
+
+<p style="font-size:14px;">In the last 15 years or so, researchers have created a number of tools to probe the geometry of these hidden structures. For example, you might build a model of the surface by first zooming in at many different points. At each point, you would place a drop of virtual ink on the surface and watch how it spread out. Depending on how the surface is curved at each point, the ink would diffuse in some directions but not in others. If you were to connect all the drops of ink, you would get a pretty good picture of what the surface looks like as a whole. And with this information in hand, you would no longer have just a collection of data points. Now you would start to see the connections on the surface, the interesting loops, folds and kinks. This would give you a map.
+</span>
+
+<p><a target="_blank" href="https://www.technologyreview.com/s/612427/the-rare-form-of-machine-learning-that-can-spot-hackers-who-have-already-broken-in/">Here</a> is a practical use for unsupervised learning.
+
+<p><b>Semisupervised learning</b> is used for the same applications as supervised learning. But this technique uses both labeled and unlabeled data for training - typically, a small amount of labeled data with a large amount of unlabeled data. The primary goal is unsupervised learning (clustering, for example), and labels are viewed as side information (cluster indicators in the case of clustering) to help the algorithm find the right intrinsic data structure. image analysis - for example, identifying a person's face on a webcam - textual analysis, and disease detection. 
+
+<p>With <b>reinforcement learning</b> 'RL'), the algorithm discovers for itself which actions <a target="_blank" href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">yield the greatest rewards</a> through trial and error. Reinforcement learning has three primary components: 
+<br>1. agent - the learner or decision maker
+<br>2. environment - everything the agent interacts with
+<br>3. actions - what the agent can do
+
+<p>The objective is for the agent to choose actions that maximize the expected reward over a given period of time. The agent will reach the goal much quicker by following a good policy, so the goal in reinforcement learning is to learn the best policy. Reinforcement learning is often used for robotics and navigation. 
+
+<p>Markov decision processes (MDPs) are popular models used in reinforcement learning. MDPs assume the state of the environment is perfectly observed by the agent. When this is not the case, we can use a more general model called partially observable MDPs (or POMDPs).
+
+<p>And there's also, hierarchical RL: https://sites.google.com/view/hrl-ep3
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Neurons
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Our brains contain about <a target="_blank" href="http://www.human-memory.net/brain_neurons.html">100 billion of them</a> - each neuron is like a function, with inputs ("dendrites"), and an output ("axon"):
+<p><img src="pics/neuron.jpg">
+
+<p>Neurons ENCODE memory, learning... There are many types of neurons:
+<p><img src="pics/neuron_types.jpg">
+
+<p>Neurons CONNECT (via dendrites and axons) to other neurons:
+<p><img src="pics/neurons.jpg">
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+NN basics - it's all about 'backprop'
+<!--t*e--></h1></div>
+<!--c*s-->
+
+
+<p>A neural network is a form of 'AI' - uses neuron-like connected units to <b>learn patterns</b> in training (existing) data that has known outcomes, and uses the learning to be able to gracefully respond to new (non-training, 'live') data. 
+
+<p>Definition: a neural net(work) is <b>an interconnected set of weighted, nonlinear functions</b> [this compact definition will become clear[(er), soon]:
+<br><img src="pics/NNDef.png">
+
+<p>The overall idea is this:
+<ul> 
+<li>existing data is used to TRAIN a neural network - the network 'learns' patterns in the data, by adapting weights in each interconnected unit ('neuron')
+<li>the network can now go 'live', ie. be deployed
+<li>new data can be processed on the DEPLOYED network, which would make predictions about it based on the patterns learned 
+</ul>
+
+
+<p>Guess why you are able to recognize these? 
+<p><img src="pics/A1.jpg">
+<p><img src="pics/A2.png">
+<p><img src="pics/A3.jpg">
+
+<p><img src="pics/P1.jpg">
+<p><img src="pics/P2.png">
+<p><img src="pics/P3.jpg">
+
+
+<p>Neural networks (NNs) can be used to:
+
+<ul>
+<li>recognize/classify features - traffic, terrorists, expressions, plants, words..
+<li>detect anomalies - unusual CC activity, unusual machine states, gene sequences, brain waves..
+<li>predict exchange rates, 'likes'..
+<li>calculate numerical values (eg. home prices)
+<li>... [HUNDREDS, if not THOUSANDS, of uses - ANY form of data, that has ANY pattern in it, can be learned!!]
+</ul>
+
+<p><a target="_blank" href="https://www.youtube.com/watch?v=cNxadbrN_aI">Here</a> is some early NN work. 
+
+<p>As you can imagine, 'Big Data' can help in all of the above! The bigger the training set, the better the learning, and therefore, better the result. 
+
+
+<p>Below is an overview of how NNs work..
+
+<p>The brain (specifically, learning/training) is modeled after strengthening relevant neuron connections - neurons communicate (through axons and dendrites) dataflow-style (neurons send output signals to other neurons):
+
+<p><img src="pics/Brain.png">
+
+<p>Linear (identity), 'leaky' output: input values get passed through 'verbatim' (not very useful to us, does not happen in real brains!):
+
+<p><img src="pics/LinNeurons.png">
+
+
+<p>A better model is when a neuron outputs a 1 (stays 0 to start with) ("fires") if and when its combined inputs exceed a threshold value:
+
+<p><img src="pics/BinThreshNeurons.png">
+
+<p>Another option is to convert the 'step' pulse to a ramp:
+
+<p><img src="pics/RectifiedLinNeurons.png">
+
+<p>Even better - use a smoother buildup of output:
+<p><img src="pics/SigmoidNeurons.png">
+
+<p>*Even* better - use a sigmoidal probability distribution for the output:
+
+<p><img src="pics/StochasticBinNeurons.png">
+
+
+<p>The functions we use to generate the output, are called activation functions - the ones we looked at are identity, binary threshold, rectifier and sigmoid. The gradients of these functions are used during backprop. There are more (look these up later) - symmetrical sigmoid, ie. hyperbolic tangent (tanh), soft rectifier, polynomial kernels...
+
+<p>This is from an early ('87) newsletter - today's NNs are not viewed as systems of coupled ODEs - instead we use 'training' to make processing element 'learn' how to respond to its inputs:
+<p><img src="pics/NNOld.png">
+
+<p>With the above info, we can start to build our neural networks!
+
+<p>* we create LAYER upon LAYER of neurons - each layer is a set (eg. column) of neurons, which feed their (stochastic) outputs downstream, to neurons in the next (eg. column to the right) layer, and so on
+<p>* each layer is responsible for 'learning' some aspect of our target - usually the layers operate in a hierarchical (eg. raw pixels to curves to regions to shapes to FEATURES) fashion
+<p>* a layer 'learns' like so: its input weights are adjusted (modified iteratively) so that the weights make the neurons fire when they are given only 'good' inputs. 
+
+<p><a target="_blank" href="https://en.wikipedia.org/wiki/File:Colored_neural_network.svg">Here</a> is how to visualize the layers.
+
+<p>The above steps can be summarized this way:
+
+<p><img src="pics/NNLearning.png">
+
+<p><b>Learning (ie. iterative weights modification/adjustment) works via 'backpropagation', with iterative weight adjustments starting from the last hidden layer (closest to the output layer) to the first hidden layer (closest to the input layer). Backpropagation aims to reduce the ERROR between the expected and the actual output [by finding the minimum of the [quadratic] loss function], for a given training input. Two hyper/meta parameters guide convergence: learning rate [scale factor for the error], momentum [scale factor for error from the previous step]. To know more (mathematical details), look at <a target="_blank" href="https://towardsdatascience.com/estimating-optimal-learning-rate-for-a-deep-neural-network-ce32f2556ce0">this</page>, and <a target="_blank" href="http://cs231n.github.io/neural-networks-3/">this</a>.
+
+
+</b>
+
+<p>To quote MIT's Alex "Sandy" Pentland: "The good magic is that it has something called the credit assignment function. What that lets you do is take stupid neurons, these little linear functions, and figure out, in a big network, which ones are doing the work and encourage them more. It's a way of taking a random bunch of things that are all hooked together in a network and making them smart by giving them feedback about what works and what doesn't. It sounds pretty simple, but it's got some complicated math around it. That's the magic that makes AI work."
+
+<p>As per the above, here is a schematic showing how we could look for a face:
+<p><img src="pics/AFaceOrNot.png">
+
+
+<p>Note that a single neuron's learning/training (backprop-based calculation of weights and bias) can be considered to be equivalent to multi-linear regression - the neuron's inputs are features (x_0, x_1..), the learned weights are corresponding coefficients (w_0,w_1..) and the bias 'b' is the y intercept! We then take this result ('y') and non-linearize it for output, via an activation function. So overall, this is equivalent to applying logistic regression to the inputs. When we have multiple neurons in multiple layers (all hidden, except for inputs and outputs), we are chaining multiple sigmoids, which can approximate ANY continuous function! THIS is the true magic of ANNs. Such 'approximation by summation' occurs elsewhere as well - the Stone-Weierstrass theorem, Fourier/wavelet analysis, power series for trig functions...
+
+<p>A simpler example - a red or blue classifier can trained, by feeding it a large set of (x,y) values and corresponding blueness values - the learned weights in this case are the coefficients a and b, in the line equation ax+by=c [equivalently, m and c, in y=mx+c]:
+<p><img src="pics/RedOrBlue.png">
+
+<p>Here is a simple network to learn XOR(A,B) - here all the 6 weights (1,1,1,1,-1,1) are learned:
+<p><img src="pics/XOR.png">
+<p>The following clip shows how a different NN (with one middle ('hidden') layer with 5 neurons) learns XOR - as the 5 neurons' weights (not pictured) are repeatedly modified, the 4 inputs ((0,0), (0,1), (1,0), (1,1)) progressively lead to the corresponding expected XOR values of 0,1,1,0 [in other words, the NN learns to predict XOR-like outputs when given binary inputs, just by being provided the inputs as well as expected outputs]:
+<p><video controls=true src="clips/XOR.mp4">
+<p><a target="_blank" href="https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/">This</a> page has clear, detailed steps on weights updating. 
+
+<p>In the above examples, there was a single neuron at the output layer, with a single 0 to 1 probability value as its output; if we had multiple neurons (one for each class we want to identify), we'd like their probabilities to sum up to 1.0 - we'd then use a <a target="_blank" href="https://en.wikipedia.org/wiki/Softmax_function">'Softmax' classifier</a> [a generalization of the sigmoid classifier shown above]. A Softmax classifier takes an array of 'k' real-valued inputs, and returns an array of 'k' 0..1 outputs that sum up to 1.
+
+
+
+
+<p>NN-based learning has started to REVOLUTIONIZE AI, thanks to three advances:
+<ul>
+<li> Big Data (BILLIONS of images, tens of thousands of hours of video/audio, terabytes of text, billions of tweets..), to use for training: more training predictably leads to better learning 
+<li>better algorithms - fruits of decades' worth of academic research in ML; more recently, 'industry' (Google, Facebook, Microsoft, IBM) seems to be taking the lead
+<li>faster cloud computing platforms and libraries 
+</ul>
+
+<p><a target="_blank" href="https://github.com/dennybritz/nn-from-scratch/blob/master/nn-from-scratch.ipynb
+">Here</a> is a (Jupyter) notebook with an NN implementation, if you want to play with it [you can simply look at the rendered/static version on GitHub, or <a target="_blank" href="https://www.dataschool.io/cloud-services-for-jupyter-notebook/">interact</a> with it]. 
+
+<p>'Summary':
+<br><img src="pics/BioAI.png">
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'AI winter' [more accurately, 'NN winter']
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Throughout the late 80s, all of 90s, and early 2000s, NN research had come to a standstill, instead, attention was on other approaches (such as Cyc). 
+
+<p>In the 2000s leading up to now, these things came to be: SDCs, GPUs, cloud computing, Siri/Alexa... so AI, specifically NN, specifically DL [including CNNs] started to take off.
+
+<p>What is <a target="_blank" href="docs/SR_NN.pdf">old</a> is new again :)
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Deep learning (NN++)
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>
+<p>Deep Learning is starting to yield spectacular results, to what were once considered intractable problems..
+
+<p>Why now? Massive amounts of learnable data, massive storage, massive computing power, advances in ML.. <a target="_blank" href="https://www.youtube.com/watch?v=roCXXvI5wK4">Here</a> is NVIDIA's response (to 'why now')..
+
+<p>In Deep Learning, we have large numbers (even 1000!) of hidden layers, each of which learns/processes a single feature.
+Eg. here is a (non-so-deep) NN:
+<p><img src="pics/DeepLearning_1.png">
+<p>"Deep learning is currently one of the best providers of solutions regarding problems in image recognition, speech recognition, object recognition, and natural language with its increasing number of libraries that are available in Python. The aim of deep learning is to develop deep neural networks by increasing and improving the number of training layers for each network, so that a machine learns more about the data until it's as accurate as possible. Developers can avail the techniques provided by deep learning to accomplish complex machine learning tasks, and train AI networks to develop deep levels of perceptual recognition."
+
+<p>Q: so what makes it 'deep'? A: the number of intermediate layers of neurons.
+
+<p>Deep learning is a <a target="_blank" href="http://blog.algorithmia.com/ai-why-deep-learning-matters/">"game changer"..</a>
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+CNN [Convolutional Neural Network]
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>
+<p>In signal processing, a convolution is a blending (or integrating) operation between two functions (or signals or numerical arrays) - one function is convolved (pointwise-multiplied) with another, and the results summed. 
+
+<p>Here is an example of convolution - the 'Input' function [with discrete array-like values] is convolved with a 'Kernel' function [also with a discrete set of values] to produce a result; here this is done six times:
+
+<p><img src="pics/conv.png">
+
+
+<p>Convolution is used heavily in creating image-processing filters for blurring, sharpening, edge-detection, etc. The to-be-processed image represents the convolved function, and a 'sliding' "mask" (grid of weights), the convolving function (aka convolution kernel):
+
+<p><img src="pics/conv1.png">
+
+<p>Here is [the result of] a blurring operation:
+<p><img src="pics/conv2.png">
+
+<p><a target="_blank" href="https://www.html5rocks.com/en/tutorials/canvas/imagefilters/">Here</a> you can fill in your own weights for a kernel, and examine the resulting convolution.
+
+<p>So - how does this relate to neural nets? In other words, what are CNNs?
+
+<p>CNNs are biologically inspired - (convo) filters are used across a whole layer, to enable the entire  layer as a whole to detect a feature. Detection regions are overlapped, like with cells in the eye.
+
+<p><a target="_blank" href="pics/LeCun.pdf">Here</a> is an*excellent* talk on CNNs/DNNs, by Facebook's LeCun.
+
+<p><a target="_blank" href="http://colah.github.io/">Here</a> is a *great* page, with plenty of posts on NNs - with lots of explanatory diagrams.
+
+<p>In essence, a CNN is where we represent a neuron's weights as a matrix (kernel), and slide it (IP-style) over an input (an image, a piece of speech, text, etc.) to produce a convolved output.
+
+<p>In what sense is a neuron's weights, a convolution kernel? 
+
+<p>We know that for an individual neuron, its output `y` is expressed by
+
+<p>
+`y = x_0*w_0 + w_1*x_1 + .... + w_n*x_n + b`, where the `w_i`s represent the neuron's weights, and the `x_i`s, the incoming signals [`b` is the neuron's activation bias]. The multiplications and summations resemble a convolution! The incoming 'function' is `[x_0, x_1, x_2, .... x_n]`, and the neuron's kernel 'function', `[w_0, w_1, w_2, .... w_n]`.
+
+<p>Eg. if the kernel function is `[0,0,0...w_0,w_1,0,0...]` [where we only process our two nearest inputs], the equivalent network would look like so [fig from Chris Olah]:
+<p><img src="pics/colah1.png">
+<p>The above could be considered one 'layer' of neurons, in a multi-layered network. The convolution (each neuron's application of `w_0` and `w_1` to its inputs) would produce the following:
+<br> `y_0 = x_0*w_0 + x_1*w_1 + b_0`
+<br> `y_1 = x_1*w_0 + x_2*w_1 + b_1`
+<br> `y_2 = x_2*w_0 + x_3*w_1 + b_2`
+<br>....
+
+<p>Pretty cool, right? Treating the neuron as a kernel function provides a convenient way to represent its weights as an array. For 2D inputs such as images, speech and text, the kernels would be 2D arrays that are coded to detect specific features (such as a vertical edge, color..).
+
+<p>EACH NEURON IS CONVOLVED OVER THE ENTIRE INPUT (again, IP-style), AND AN OUTPUT IS GENERATED FROM ALL THE CONVOLUTIONS. The output gets 'normalized' (eg. clamped), and 'collapsed' (reduced in size, aka 'pooling'), and the process repeats down several layers of neurons: input -> convolve -> normalize -> reduce/pool -> convolve -> normalize -> reduce/pool -> ... -> output.
+
+<p>The following pics are from a talk by Brandon Rohrer (Microsoft). You DON'T need to know the details of the steps - just understand that PIXELs are input, classification is the output.
+
+<p>What we want:
+<p><img src="pics/BR1.png">
+
+<p>The input can be RST (rotation, scale, translation) of the original:
+<p><img src="pics/BR2.png">
+
+<p>How can we compute similarity, but not LITERALLY (ie without pixel by pixel comparison)?
+<p><img src="pics/BR3.png">
+
+<p>Useful pixels are 1, background pixels are -1:
+<p><img src="pics/BR4.png">
+
+<p><img src="pics/BR5.png">
+
+<p>We match SUBREGIONS:
+<p><img src="pics/BR6.png">
+
+<p>Convolutional neurons that check for these three features:
+<p><img src="pics/BR7.png">
+
+<p><img src="pics/BR8.png">
+
+<p><img src="pics/BR9.png">
+
+<p><img src="pics/BR10.png">
+
+<p><img src="pics/BR11.png">
+
+<p><img src="pics/BR12.png">
+
+<p>CONVOLVE, ie. do `x_i*w_i`, then average, output a value:
+<p><img src="pics/BR13.png">
+
+<p><img src="pics/BR14.png">
+
+<p><img src="pics/BR15.png">
+
+<p><img src="pics/BR16.png">
+
+<p><img src="pics/BR17.png">
+
+<p><img src="pics/BR18.png">
+
+<p><img src="pics/BR19.png">
+
+<p>Need to center the kernel at EVERY pixel (except at the edges) and compute a value for that pixel!
+<p><img src="pics/BR20.png">
+
+<p><img src="pics/BR21.png">
+
+<p><img src="pics/BR22.png">
+
+<p>We end up with a 7x7 output grid, just for this (negative slope diagonal) feature:
+<p><img src="pics/BR23.png">
+
+<p><img src="pics/BR24.png">
+
+<p>Each neuron (feature detector) produces an output - so a single input image produces a STACK of output images [three in our case, one from each feature detector]:
+<p><img src="pics/BR25.png">
+
+
+<p><img src="pics/BR26.png">
+
+<p>To collapse the outputs, we do 'max pooling' - replace an mxn (eg. 2x2) neighborhood of pixels with a single value, the max of all the m*n pixels.
+
+<p><img src="pics/BR27.png">
+
+<p><img src="pics/BR28.png">
+
+<p><img src="pics/BR29.png">
+
+<p><img src="pics/BR30.png">
+
+<p><img src="pics/BR31.png">
+
+<p>Next, create a ReLU - rectified linear unit - replace negative values with 0s:
+<p><img src="pics/BR32.png">
+
+<p><img src="pics/BR33.png">
+
+<p><img src="pics/BR34.png">
+
+<p><img src="pics/BR35.png">
+
+<p>After a single stage of convolution, ReLU, pooling (or eqvt'ly, convolution, pooling, ReLU):
+<p><img src="pics/BR36.png">
+
+<p>Usually there are multiple stages:
+<p><img src="pics/BR37.png">
+
+<p>The resulting output values (12 in our case) are equivalent to VOTES: values at #0, #3, #4, #9, #10 contribute to voting for an 'X'; by repeated training with X-like images, which produce high-valued outputs for exactly those values at #0,#3,#4,#9,#10, the RECEIVER of all the 12 values, ie . the 'X' detector, learns to adjust its weights so that those inputs at #0,#3,#4,#9,#10 matter more (get assigned higher weight multipliers) compared to the other inputs such as #1,#2..:
+<p><img src="pics/BR38.png">
+
+<p><img src="pics/BR39.png">
+
+<p>Likewise, if we fed O image detectors kernels' results (also an array of 12 values) to the O receiver, the O receiver would classify it as an O - because the O detector has been separately trained, using several O-like images and O-feature detector neurons!!
+<p><img src="pics/BR40.png">
+
+<p>After training, a new ('test') image is fed to BOTH the X feature detector neurons AND to the O feature detector neurons, who outputs are all combined to produce a 12-element array as before. Now we feed that array to both the X-decider neuron and the O-decider neuron:
+
+<p><img src="pics/BR41.png">
+
+<p>Here's the output for X  and O - the results average to 0.91 for X, and 0.52 for O - the NN would therefore classify this as an X:
+<p><img src="pics/BR42.png">
+
+<p><img src="pics/BR43.png">
+
+<p>If we feed the network an O-like image instead, the X and O detectors will go to work, and produce an output array where the O features (at #1,#2..) would be higher. So when this array is fed to the X decider and the O decider, we expect the image to be classified as O, eg. because the output probabilities from the X decider and O decider come out to be 0.42 and 0.89. 
+
+<p>Repeat for each class that needs to be learned: test input => class detectors => outputs => train classifier.
+
+<p>This is very roughly equivalent to creating a "regression line" that "best fits" available data.
+
+<p>In summary: 
+<p><img src="pics/BR44.png">
+
+<p>In real world situations, these voting outputs can also be cascaded:
+<p><img src="pics/BR45.png">
+
+<p>'All together now':
+<p><img src="pics/BR46.png">
+
+<p>In the above, if we had fed an O-like image instead, the output probability would be higher for O. 
+
+<p>Errors are reduced via backpropagation. Error is computed by taking the absolute differences' sums between expected and observed outputs:
+<p><img src="pics/BR47.png">
+
+
+<p>In RL, we'd use thousands of images for each class (outcome/label), and create a network that can detect dozens of classes - eg. here is a pictorial representation of an NN that can classify dogs:
+<p><img src="pics/DogDet.png">
+
+<p>For each feature, each weight (one at a time) is adjustly slightly (+ or -, using the given learning rate) from its current value, with the goal of reducing the error (use the modified weights to re-classify, recompute error, modify weights, reclassify.. iterate till convergence) - this is called backpropagation:
+<p><img src="pics/BR48.png">
+
+<p>That was a whirlwind tour of the world of CNNs! Now you can start to understand how an NN can detect faces, cars..:
+<p><img src="pics/FacesCars.png">
+
+<p>And finally, here's a <a target="_blank" href="CNNDemo/index.html">live demo.</a>
+
+
+<p>When is a CNN **not** a good choice? Answer: when data is not spatially laid out, ie. scrambling rows and columns of the data would still keep the data intact (like in a relational table) but would totally throw off the convolutional neurons!
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+NN architectures
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Specific architectures (numbers and types of layers) exist, for different NN tasks - eg. look at this page: https://medium.com/@sidereal/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5
+
+<p>Before embarking on a big task, it is important to first identify, or create, a suitable architecture - otherwise, learning efficiency, and/or performance accuracy, will suffer.
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Players (Top Six, plus others)
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>
+<ul>
+
+<li>Amazon uses deep learning for product recommendations, Alexa...
+
+<li>Google: self-driving cars, <a target="_blank" href="https://www.tensorflow.org/">TensorFlow</a>, <a target="_blank" href="https://deepmind.com/">DeepMind</a>
+
+
+<li>Microsoft: <a target="_blank" href="http://www.wired.com/2016/01/microsoft-neural-net-shows-deep-learning-can-get-way-deeper/">ImageNet entry</a>, <a target="_blank" href="https://github.com/Microsoft/CNTK">CNTK</a>, Skype Translator...
+
+<li>Facebook: <a target="_blank" href="pics/DeepFace.png">DeepFace</a> can search 800M faces in <5 sec! Also, Facebook is planning to <a target="_blank" href="https://code.facebook.com/posts/1687861518126048/facebook-to-open-source-ai-hardware-design/">open source</a> its hardware setup. Deep learning is also used in Instagram, for recognizing content in images, including text.
+
+<li>IBM: <a target="_blank" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">Watson</a>, <a target="_blank" href="https://www-03.ibm.com/press/us/en/pressrelease/46205.wss">AlchemyAPI</a>, <a target="_blank" href="http://www.ibm.com/analytics/watson-analytics/us-en/">Watson Analytics</a>
+
+<li>Apple uses deep learning for Siri, iTunes, etc. 
+
+<li>Many others: Alibaba, Baidu, Tencent, Uber, Netflix, Visa, Linkedin...
+
+</ul>
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'AI hardware' (for DL)
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>GPUs and other forms of hardware are used to accelerate deep learning - advantages: massively parallel processing, and possibility of arbitrary speed increases over time just by upgrading hardware!
+
+<p>GPUs (multi-core, high-performance graphics chips made by NVIDIA etc.) and DNNs seem to be a match made in heaven!
+
+<p>NVIDIA has made available a <a target="_blank" href="https://developer.nvidia.com/deep-learning-getting-started">LOT</a> of resources related to DNNs using GPUs, including a framework called  DIGITS (Deep Learning GPU Training System). NVIDIA's <a target="_blank" href="http://www.scientificcomputing.com/news/2016/04/worlds-first-deep-learning-supercomputer-launched-meet-massive-ai-demands">DGX-1</a> is a deep learning platform built atop their Tesla P100 GPUs. <a target="_blank" href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-core-concepts/">Here</a> is an excellent intro' to deep learning - a series of posts. <a target="_blank" href="https://www.youtube.com/watch?v=HJ58dbd5g8g">Here</a> is a GPU-powered self-driving car (with 'only' 37 million neurons) :)
+
+<p><a target="_blank" href="http://research.microsoft.com/pubs/240715/CNN%20Whitepaper.pdf">Microsoft</a> has created a GPU-based network for doing face recognition, speech recognition, etc.
+
+<p>Untether: https://www.technologyreview.com/the-download/613258/intel-buys-into-an-ai-chip-that-can-transfer-data-1000-times-faster/
+
+
+
+<p>The following are GPU-based NN implementations, by others:
+<ul>
+<li><a target="_blank" href="http://www.anandtech.com/show/10905/amd-announces-radeon-instinct-deep-learning-2017">AMD</a>
+<li><a target="_blank" href="http://www.scientificcomputing.com/news/2016/08/fujitsu-develops-high-speed-technology-process-deep-learning">Fujitsu</a>
+<li><a target="_blank" href="http://www.scientificcomputing.com/news/2016/11/inspur-launches-gpu-deep-learning-appliance?cmpid=horizontalcontent">Inspur</a>
+</ul>
+
+
+<p>TPU (TensorFlow Processing Unit) is a Google-developed chip, for DNNs [in their Waymo cars].
+
+<p>Intel has its <a target="_blank" href="https://www.engadget.com/2018/11/14/intel-neural-compute-stick-2/">Neural Compute Stick</a>...
+
+<p>FPGAs also offer a <a target="_blank" href="http://www.nextplatform.com/2015/08/25/a-glimpse-into-the-future-of-deep-learning-hardware/">custom path</a> to DNN creation.
+
+<p>Also: TeraDeep, CEVA, Synopsis, Alluviate.. 
+
+<p>A new form of CPU, involving 'chiplets' (from AMD) might also be a suitable platform... 
+
+<p>Another trend is to build ML into cameras, eg. as done in <a target="_blank" href="https://www.youtube.com/watch?v=EcCbEWiyiQY">Pixy2.</a>
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+<!-- GANs for faces, airBnB, art...-->
+
+
+
+<!-- https://ganbreeder.app/category/random -->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Current work (research directions)
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>
+<p>Here is state-of-the-art [not including commercial applications, tools etc]:
+<ul>
+
+<li><a target="_blank" href="https://deeplearning4j.org/lstm.html">RNNs, LSTMs</a> [Recurrent Neural Nets (RNNs) are especially good for 'sequence' problems such as speech recognition, language translation, etc.; they are not massively parallelizable the way CNNs can be]
+
+<li>Temporal Convolution Nets (TCNs) - a good, parallelizable alt to RNNs
+
+<li>Numenta's <a target="_blank" href="https://numenta.com/press/2017/06/20/numenta-publishes-in-neurocomputing/">HTM</a> - a better alternative to RNNs etc.
+
+<li>attention, eg. https://skymind.ai/wiki/attention-mechanism-memory-network
+
+<li>DL+NLP, eg. ELMo, BERT: https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html
+
+<li>adversarial learning (and <a target="_blank" href="https://en.wikipedia.org/wiki/Generative_adversarial_network">GAN</a>s, that have dueling ["zero sum"] Generator  and Discriminator networks) [and <a target="_blank" href="https://deephunt.in/the-gan-zoo-79597dc8c347">MANY</a> variations!]
+
+<li>EBMs (a GAN alternative): https://openai.com/blog/energy-based-models/
+
+<li><a target="_blank" href="http://ruder.io/transfer-learning/">'transfer' learning</a>
+
+<li><a target="_blank" href="https://hackernoon.com/what-is-a-capsnet-or-capsule-network-2bfbe48769cc">Capsule Network (CapsNet)</a>; see also <a target="_blank" href="https://ireneli.eu/2018/01/23/deep-learning-16-understanding-capsule-nets/">this</a> page
+
+<li><a target="_blank" href="https://www.quantamagazine.org/machine-learning-confronts-the-elephant-in-the-room-20180920/">Selective tuning</a> ["huh, what was that again", ie. 'doubletake']
+
+<li>better NN designing, eg. https://papers.nips.cc/paper/7892-neural-ordinary-differential-equations
+
+
+<li><a target="_blank" href="http://newsroom.ucla.edu/releases/ucla-engineers-artificial-intelligence-device-identifies-objects-speed-of-light">optics-based</a> NN
+
+<li>another approach to AI is to model the brain's structure, in software or in hardware. IBM has its SyNAPSE chip, and <a target="_blank" href="http://www.wired.com/2014/08/ibm-unveils-a-brain-like-chip-with-4000-processor-cores/">TrueNorth</a> NN chip. Numenta is another player in <a target="_blank" href="https://discourse.numenta.org/t/breakthrough-in-construction-of-computers-for-mimicking-human-brain/4187/2">neuromorphic computing.</a>
+</ul>
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Applications - a sampler
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>ML is a runaway <b>engineering</b> success, which is sure to lead to 1000s (!) of applications, covering every human activity! Remember - if ANYTHING has a 'PATTERN' (that a. sets it APART from others, and b. has VARIATIONS within itself), it can be LEARNED!
+
+<p>Below is an arbitrary ("random") sampling of applications:
+
+<ul>
+<li>https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A - make the data 'lit'!
+<li>SDCs, eg. https://www.youtube.com/watch?v=tiwVMrTLUWg
+<li>Face detection, EU airports: https://www.cnn.com/travel/article/ai-lie-detector-eu-airports-scli-intl/index.html
+<li>Face detection, Chinese classrooms(!): https://www.youtube.com/watch?v=3H1hj_C8F_A
+<li>https://developer.amazon.com/blogs/alexa/post/ca34b954-1c5d-4a59-b326-f45c8df7c89c/alexa-skill-tech-for-good-challenge-winners
+<li>https://ai.googleblog.com/2018/11/improved-grading-of-prostate-cancer.html
+<li>ASL: https://www.youtube.com/watch?v=a4zvhJsBPa0
+<li>'master key' (uh oh): https://boingboing.net/2018/11/15/masterprints.html
+<li>Google's <a target="_blank" href="https://quickdraw.withgoogle.com/#">Quick Draw</a>, <a target="_blank" href="https://www.autodraw.com/">AutoDraw</a> [<a target="_blank" href="https://github.com/1991viet/QuickDraw">here</a> is an alternate implementation of QuickDraw; and, <a target="_blank" href="https://github.com/googlecreativelab/quickdraw-dataset">here</a> is Google's dataset!]
+<li><a target="_blank" href="https://news.artnet.com/market/google-inceptionism-art-sells-big-439352">Inceptionism</a>, <a target="_blank" href="https://www.youtube.com/watch?v=-oLemNTo7YU">DL portrait morph</a>
+<li>https://aiportraits.com/#
+<li>neural style transfer [incl <a target="_blank" href="clips/Musk_StyleXfr.mp4">this</a> clip :)]
+<li>deepfakes, eg. https://www.bbc.co.uk/programmes/p06r8g4l [most are NSFW!!]
+<li>https://medium.freecodecamp.org/chihuahua-or-muffin-my-search-for-the-best-computer-vision-api-cbda4d6b425d, http://www.evolvingai.org/fooling
+<li>https://gallery.azure.ai/browse
+<li>https://research.google.com/seedbank/seeds
+<li>https://thispersondoesnotexist.com/
+<li>https://www.reddit.com/r/MachineLearning/comments/as88xp/p_this_airbnb_does_not_exist/
+<li>https://ganbreeder.app/category/random
+</ul>
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'Learning' more
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Look up papers/blogs by:
+
+<ul>
+<li>Andrew Ng
+<li>Yann LeCun
+<li>Andrej Karpathy
+<li>Chris Olah
+<li>Brandon Rohrer
+</ul>
+
+<p>Also:
+<ul>
+<li>https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A - Siraj Raval :)
+<li>https://www.facebook.com/groups/DeepNetGroup/ - AIDL
+<li><a target="_blank" href="http://deeplearning.net/">this</a> is a VERY comprehensive portal on DNN
+<li>https://aischool.microsoft.com/en-us/home
+<li><a target="_blank" href="https://www.quora.com/What-is-the-chance-of-doing-a-PhD-in-deep-learning-if-math-is-not-my-strong-point">math</a> for deep learning 
+</ul>
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+<!-- -->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+The 'race' for AI
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>AI (ML, really) is tranforming world economies - everyone wants to participate, and WIN: 
+
+<ul>
+<li>US: <a target="_blank" href="https://www.whitehouse.gov/presidential-actions/executive-order-maintaining-american-leadership-artificial-intelligence/">this</a> and <a target="_blank" href="https://newsroom.intel.com/articles/intels-recommendations-u-s-national-strategy-artificial-intelligence/">this</a>
+
+<li>China: <a target="_blank" href="https://multimedia.scmp.com/news/china/article/2166148/china-2025-artificial-intelligence/index.html">world domination</a>
+
+<li>India: <a target="_blank" href="http://niti.gov.in/writereaddata/files/document_publication/NationalStrategy-for-AI-Discussion-Paper.pdf">address societal needs</a> 
+
+<li>EU: <a target="_blank" href="https://www.globalgovernmentforum.com/eu-launches-ai-strategy/">strategy</a>
+
+<li>...
+</ul>
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+The 'big prize' in CS...
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Just last week, the <a target="_blank" href="https://awards.acm.org/about/2018-turing">2018 Turing Award winners</a> were announced - it's a win for AI (ML). 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+but, But, BUt, BUT... HOLD ON!
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Despite all the success, hopes, dreams, strategies... what if it turns out that as of yet, we don't have AI <b>AT ALL</b>? 
+
+<p>First, the current generation of AI does have problems, eg.:
+<ul>
+<li>bias in ML, eg. https://dzone.com/articles/aiml-bias-explained-with-examples
+<li>not that easy to replicate human knowledge, eg. https://spectrum.ieee.org/biomedical/diagnostics/how-ibm-watson-overpromised-and-underdelivered-on-ai-health-care
+<li>lack of transparency - an NN is a black-box, really, eg. https://towardsdatascience.com/interpretable-machine-learning-1dec0f2f3e6b
+<li>easy foolability - eg. https://spectrum.ieee.org/cars-that-think/transportation/self-driving/three-small-stickers-on-road-can-steer-tesla-autopilot-into-oncoming-lane
+<li>SDCs' imperfections
+<li>danger of doing the wrong thing, eg. https://autonomousweapons.org/
+<li>...
+</ul>
+
+<p>Second, we are NOT doing it right!
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"> </script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"> </script>
+</body>
+
+
+</html>
+
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+<!-- ********************************************************************** -->
+
+
+
+
+
+
+

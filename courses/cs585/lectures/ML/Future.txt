@@ -1,0 +1,247 @@
+
+
+
+AutoML: https://forbytes.com/blog/what-is-automl plus fut_AutoML...pdf
+
+Extras: https://towardsdatascience.com/large-language-models-in-molecular-biology-9eb6b65d8a30 [Zhenyuan]
+
+NNs are Decision Trees: https://arxiv.org/abs/2210.05189
+
+Do include these two:
+https://github.com/shankarpandala/lazypredict
+https://towardsdatascience.com/ensemble-learning-bagging-and-boosting-23f9336d3cb0
+
+GREAT article on Transformers: https://amatriain.net/blog/transformer-models-an-introduction-and-catalog-2d1e9039f376/
+
+https://mltechniques.com/2023/01/28/math-free-parameter-free-gradient-descent-in-python/ RH etc!
+
+Anim/viz of ML layers: https://github.com/helblazer811/ManimML - cool!!
+
+
+2023 ML: https://matt-rickard.com/a-new-ml-stack
+https://nostalgebraist.tumblr.com/post/705192637617127424/gpt-4-prediction-it-wont-be-very-useful
+
+
+Add: https://towardsdatascience.com/learning-backpropagation-from-geoffrey-hinton-619027613f0
+Backprop-Hinton.png
+
+
+Multi-lin regression in Py: https://stackoverflow.com/questions/63604727/python-fitting-surface-to-discrete-data-points/63622413#63622413 [make a .mp4?]
+
+
+
+ML is not AI (it's IA): https://spectrum.ieee.org/the-institute/ieee-member-news/stop-calling-everything-ai-machinelearning-pioneer-says
+
+
+For spring '17:
+"
+Deep Learning however is a group of tools that we are applying to develop these capabilities, including Convolutional Neural Nets, Recurrent Neural Nets, Generative Adversarial Neural Nets, and Reinforcement Learning to name the most popular.  All of these are subsets of Deep Learning and all are accessed through the newly emerging Deep Learning platforms like TensorFlow, MXNet, Theano, Torch, and several others.
+"
+Also, AutoDraw: https://www.blog.google/topics/machine-learning/fast-drawing-everyone/
+
+Fall 2017: 
+
+CCRR : clustering classif regr rules
+
+H2O.ai
+
+http://modernfarmer.com/2013/05/lettuce-bot-roomba-for-weeds/
+
+For Spr'18: https://towardsdatascience.com/understanding-objective-functions-in-neural-networks-d217cb068138
+
+
+Most of the foll is DONE, but others aren't, I can use them for future:
+****
+Fixes and add'ns to ML lec:
+* https://www.youtube.com/watch?v=cNxadbrN_aI&feature=youtu.be Perceptron
+* fix eqn formatting
+* fix summation [add b]
+* add *NN link: https://deephunt.in/the-gan-zoo-79597dc8c347
+* add pics/MLTypesFlowchart.jpg
+* GAN [Discrim, Gen]
+* add PIXY2, chiplets, TPUs, Numenta, https://www.engadget.com/2018/11/14/intel-neural-compute-stick-2/, 
+* add GAN for univ fingerprint[https://boingboing.net/2018/11/15/masterprints.html], misclassif
+* explain RNN, Inceptionism
+* fooling: chihuaua vs muffin
+* add AI at EU airports[https://www.cnn.com/travel/article/ai-lie-detector-eu-airports-scli-intl/index.html?utm_content=2018-11-16T06%3A00%3A06&utm_medium=social&utm_term=link&utm_source=fbbusiness], Chinese classrooms
+* add Aness, Pness, trash sorting [make a vid of my Irfview slides]
+* add Google 'seeds': https://research.google.com/seedbank/seeds
+* 
+============================================
+USES of ML:
+* unsup: https://www.technologyreview.com/s/612427/the-rare-form-of-machine-learning-that-can-spot-hackers-who-have-already-broken-in/
+* MANY from my 250 lecs, incl links therein
+* https://aiportraits.com/ [https://aiportraits.com/#]
+* neural style xfr [incl <a href="clips/Musk_StyleXfr.mp4">this</a> clip :)]
+* Inception
+* https://developer.amazon.com/blogs/alexa/post/ca34b954-1c5d-4a59-b326-f45c8df7c89c/alexa-skill-tech-for-good-challenge-winners
+* https://www.youtube.com/watch?v=a4zvhJsBPa0 - ASL det!
+* deepfakes
+* AutoML, then https://syncedreview.com/2018/11/15/head-of-rd-jia-li-leaves-google-cloud-ai/
+* ...
+****
+
+
+In the ML lecture, we saw how a Generator Network is able to fool the Discriminator Network eventually by generating a perfect input.
+
+If the input is so good that the Discriminator Network gets fooled, then why cannot the input generated from the Generator Network be considered as identical to the other real input it receives/as another input data coming from the real dataset?
+
+Why is it so that the Discriminator Network loses while it is correctly classifying the almost perfect input data which resembles the real input data?  
+
+
+final_exam
+edit·good question0Updated 4 hours ago by Pranav (Anon. Beaker to classmates)
+the instructors' answer,where instructors collectively construct a single answer
+The Discriminator network "loses" when it plays this game against the Generator Network, as the Generator Network "fools" the Discriminator. The input from the Generator is "identical" from the Discriminator's point of view, though it might not truly be such to the human eye/point of view, hence the Discriminator fails to classify the Generator's output correctly. This is the whole point of putting both neural networks together, to make both networks stronger until the input is so good that the input feels close to what real input is. If the Discriminator fails a lot or never fails (assuming that that is the doubt of the correct classification of input data), then the Discriminator is not doing it's job; it needs to be able to depict differences in the real and fake input until it cannot do so. If it is too easily fooled, or it thinks everything is wrong, then perhaps the Discriminator's data either is not good (the Generator will then either be able to fool it with some mere pixels, or the Generator will never be able to generate something that the Discriminator would classify as good, meaning that we will never really get a good input either).
+
+Basically put, in any adversarial method, one part "wins" and another part "loses": if there is no way to win or no way to lose, then there leads to issues with the input/output. There needs to be a way to "win" and "lose" for each part of the adversarial method.
+
+I hope I answered the question, but maybe I misunderstood it. Let me know if it answers your query, also take a look at some GANs and how they work (e.g. common GAN applications that can be demoed within a few minutes include stuff like digit generation (numbers/letters), anime character generation, and face generation. There should be plenty of github repos and examples online that you can take a look, and you can also find bad examples of GANs (that fail miserably due to either the Discriminator never getting fooled even when it should be fooled, or the Discriminator always getting fooled, releasing horrible images that look nothing like what should be created).
+
+Excellent, detailed response, Michael!
+
+I'm going to add my notes here. The idea is that the Generator starts out generating poor imagery, passes it to the Discriminator (which looks like a regular NN, because it was trained using real, labeled images). The Discriminator generates a loss, which is measure of how bad the Generator's output was - that loss (gradient, per pixel) is propagated back to the Generator. The Discriminator's own weights get adjusted to generate a bigger loss, should the Generator feed it the same image again (which it won't). The Generator uses the loss given to it, to tweak its pixels to produce the next (better) version, outputs it to the Discriminator, and the cycle continues :) They stop, when the loss output by the Discriminator falls below a threshold - the Generator has 'passed' :) This entire cycle is done multiple times (start with random bad imagery, end up learning to get really good). From here on, the Generator is able to generate a multitude of real-like images on its own (no need to run it by the Discriminator). By the way, the generator uses as its starter data (to generate an image from), a multi-dimensional 'noise' vector (random numbers sampled from a distribution) :)
+
+Now you know - every time you reload this page, a bunch of RANDOM numbers are the input data to the Generator, to create the faces you see: https://thispersondoesnotexist.com/
+
+
+Future.txt: http://murderdata.org/
+
+Along w/ Pixy etc:  https://www.bloomberg.com/news/articles/2020-05-14/sony-builds-ai-into-latest-image-sensor?
+
+https://madewithml.com/topics/ - just wow.
+
+https://medium.com/vasily-betin/artificially-generated-tattoo-2d5fbe0f5146
+
+http://www.mbmlbook.com/toc.html - cool.
+
+https://towardsdatascience.com/creating-knowledge-graphs-from-resumes-and-traver-56016426f4fb
+
+...
+Cognitive/AI systems process knowledge that is far too complex for current databases. They require an expressive data model and an intelligent query language to perform knowledge engineering over complex datasets.
+
+In this talk, we will discuss how Grakn, a database to organise complex networks of data and make it queryable, provides the knowledge graph foundation for intelligent systems to manage complex data.
+
+We will discuss how Graql, Grakn's reasoning (through OLTP) and analytics (through OLAP) query language, provides the tools required to do the job: a knowledge schema, a logical inference language, a distributed analytics framework.
+
+And finally, we will discuss how Graql’s language serves as unified data representation of data for cognitive systems.
+...
+
+http://geometrylearning.com/paper/DeepFaceDrawing.pdf and https://www.youtube.com/watch?v=HSunooUTwKs
+
+Summary of AI: https://www.facebook.com/groups/strongartificialintelligence/
+
+Neuromorphics:
+Intel’s Loihi - The Future of GPUs
+
+A 14-nanometer chip with over 2 billion transistors and three managing Lakemont cores. “It contains a programmable microcode engine for on-chip training of asynchronous spiking neural networks (SNNs). Total, it has 128 cores packs. Each core has a built-in learning module and a total of around 131,000 computational “neurons” that communicate with one another, allowing the chip to understand stimuli.”
+
+IBM’s TrueNorth - The Hercules of Transistor Count
+
+It has 4,096 cores, Samsung’s 28nm process with 5.4 billion transistors. It is IBM’s largest chip in transistor count and uses less than 100Mw of power while simulating complex recurrent neural networks. It has a power density of 20mW / cm2.
+
+MIT’s - Brain on A Chip
+
+A chip built from silicon geranium and with “more than 100 trillion synapses that mediate neuron signaling in the brain”. In one simulation it represented human handwriting with 95 percent accuracy. It could be used in making humanoids and autonomous driving technology.
+
+Qualcomm’s - Zeroth processors
+
+Working on three main goals of “biologically inspired learning; enabling devices to see and perceive the world as humans do and; creating and defining Neural Processing Unit—NPU”, Qualcomm is developing new computer architecture that dismantles the traditional mold.
+
+
+https://colab.research.google.com/drive/1ZWHFz8dcsImNLQu6Rd-iivyhQpEQ6RFl - Grad-CAM, heatmap viz
+
+ML visually: https://www.youtube.com/watch?v=n80E7nlEpE0&feature=youtu.be&fbclid=IwAR1ifm8sDf00Kgf00cG_NIYIhNqUdqRheUsFFiVXda47loVS1LRx6CPkrb0
+
+https://bdtechtalks.com/2020/06/08/what-is-recurrent-neural-network-rnn/
+
+https://towardsdatascience.com/clone-a-voice-using-just-a-5-second-sample-with-the-help-of-ai-f8dc3cff606b
+
+https://www.liveportraits.ml/ - deepfakes!!
+
+Cool: https://phys.org/news/2019-08-all-optical-neural-network-deep.html
+
+DL/G, GDL, GRL... https://towardsdatascience.com/deep-learning-on-graphs-successes-challenges-and-next-steps-7d9ec220ba8
+
+GraphCore chip: https://www.theverge.com/2020/7/15/21324103/ai-chips-nvidia-graphcore-colossus-mk2-gc200-ipu?fbclid=IwAR3T1Qc-2FKXgJgLKHMh_-5VhNXJkMf_GAJqUcPRo9E8dNRuT3E-By-draU
+
+One more dataflow UI: https://prototypeml.com/ (+PerceptiLabs, Lobe, Baseet)
+
+https://www.nature.com/articles/s41598-020-58831-9
+
+Pull out code snapshots, for a JS-based tweets classif:
+https://medium.com/javascript-in-plain-english/ml-for-js-devs-in-10-minutes-46794782762e
+[Tor...]
+
+MUST publish: https://dafriedman97.github.io/mlbook/content/introduction.html
+
+NN viz in Mathematica: https://community.wolfram.com/groups/-/m/t/1843550
+
+https://towardsdatascience.com/tiny-machine-learning-the-next-ai-revolution-495c26463868 - TinyML
+
+Less than one shot: https://techxplore.com/news/2020-04-image-recognition-method-based-large-scale.html
+
+MMdnn (nice!): https://github.com/microsoft/MMdnn
+
+Vision Transformers: https://ambujmittal.medium.com/farewell-convolutions-transformers-for-images-7dba0af7f321
+
+Sigmoid: https://keisan.casio.com/exec/system/15157249643325 [calc]
+
+TinyNAS, TinyEngine (MCU): https://www.sciencedaily.com/releases/2020/11/201113154627.htm
+
+AI accelerators, ~ to OpenGL ones :) https://towardsdatascience.com/a-complete-guide-to-ai-accelerators-for-deep-learning-inference-gpus-aws-inferentia-and-amazon-7a5d6804ef1c
+
+DALL.E: https://towardsdatascience.com/dall-e-explained-in-under-5-minutes-327aea4813dd
+LaMDA: https://www.blog.google/technology/ai/lamda
+
+DATA driven: https://pub.towardsai.net/common-challenges-in-machine-learning-and-how-to-tackle-them-cc29c47c5f24
+
+V nice: https://towardsdatascience.com/transformers-explained-visually-not-just-how-but-why-they-work-so-well-d840bd61a9d3
+
+Tools: https://thesequence.substack.com/p/-ai-incumbents-and-their-favorite
+
+Alexa: https://anatomyof.ai/?fbclid=IwAR309FxOpARFD9GEjUDMVInm3SjmjSIFlCsnt4ioClw_32nkB1GpAj2gmA8
+
+https://ai-scholar.tech/en/articles/image-recognition/mlp-mixer
+
+https://towardsdatascience.com/how-to-deploy-machine-learning-models-as-a-microservice-using-fastapi-b3a6002768af FastAPI, cool.
+
+OMG: https://generated.photos/anonymizer and https://generated.photos/face-generator
+
+https://mloverflow.com/
+
+https://www.forbes.com/sites/moorinsights/2021/04/12/nvidia-announces-technology-for-training-giant-artificial-intelligence-models/?fbclid=IwAR0ftdJyCmrjOoxkBfyZv3jU5JgjYKdZRX3aN4oyY1_J2AsaPpg-tEwby0A&sh=7fe624be404a
+
+TextStyleBrush: https://ai.facebook.com/blog/ai-can-now-emulate-text-style-in-images-in-one-shot-using-just-a-single-word/
+
+OOTB ML/ML automation/ML AAS: https://primer.ai/products/primer-automate
+
+
+Cloud platforms:
+1. H2O
+2. Dataiku
+3. Neuton
+4. Rapid Miner GO
+5. Big ML
+6. Kraken by Big Squid (Qlik)
+7. Obviously.ai
+8. Azure AutoML
+9. IBM Watson
+10. Google AutoML
+
+
+GLIDE: text-to-img, CLIP/DALL.E style: https://arxiv.org/abs/2112.10741
+
+4 types of generators: https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html
+
+https://inbal-budo.medium.com/how-to-run-a-machine-learning-technical-due-diligence-415970f77d5f
+
+YOLO4: https://medium.com/aiguys/yolo-v4-explained-in-full-detail-5200b77aa825
+
+NN for math! https://arxiv.org/abs/2112.15594
+
+NICE: https://developers.google.com/machine-learning/guides/rules-of-ml?
+
+Python GNN: https://medium.com/@benalex/implement-your-own-music-recommender-with-graph-neural-networks-lightgcn-f59e3bf5f8f5
+
+TabTransformer : https://arxiv.org/abs/2012.06678

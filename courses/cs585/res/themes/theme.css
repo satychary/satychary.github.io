@@ -1,0 +1,21 @@
+/* theme specified here, changes pages' look; for changing slide fonts, edit ../fonts_only.css */
+
+
+/* customizable - edit moi.min.css to s&r font and/or color */
+/*@import url("../../res/styles/js/strapdown/0.2/themes/moi.min.css");*/
+
+
+@import url("../localfonts.css"); /* so now I can spec local fonts in moi.min.css! */
+@import url("../moi.min.css");
+
+
+
+/* other */
+/*@import url("../../res/styles/js/strapdown/0.2/themes/loving.min.css");*/
+/*@import url("../../res/styles/js/strapdown/0.2/themes/united.min.css");*/
+
+
+
+
+
+
