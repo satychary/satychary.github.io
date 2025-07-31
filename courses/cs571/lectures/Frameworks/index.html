@@ -1,0 +1,317 @@
+<!DOCTYPE html >
+
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			Frameworks;Node;Angular
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+		<link rel="stylesheet"  href="../../res/layout_only.css"/>
+		<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+		<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+		<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/SSS.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/strokeText.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js">
+		</script>
+		<script src="../../res/styles/hljs/highlight.min.js">
+		</script>
+
+
+		<!-- ------ -->
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center">
+<!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="title">
+<!-- ****************************** -->
+Frameworks<br>NodeJS<br>Angular
+</h1>
+<h1  class="subtitleC">
+<!-- ****************************** -->
+[standardization/modularization]
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+JS libraries SIMPLIFY app dev
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>As you know JS can be used to create/access HTML elements, and style them (ie. set CSS props on them). A library can help simplify writing code for this. 
+
+<p>jQuery ("jQ") was the first such library. $(&lt;elementID&gt;) is how we access an element, as opposed to document.getElementById(&lt;elementID&gt;). <a href="https://www.w3schools.com/jquery/jquery_hide_show.asp">Here</a> is an example of what it looks like.
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'Reactivity' 
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>UI elements need to react to events, need to be updatable easily. Eg a button click can fetch weather data, an image element can show changing images, etc. 
+
+<p>We CAN write our own JS code, to <b>manage the state of UI elements</b>. But, 'frameworks' can make this MUCH easier for us. 
+
+
+<p'Web Components' is a standard way of creating reusable UI elements! <p>'Templates' can help us write web components. Eg. see https://lit.dev/docs/v1/lit-html/getting-started/.
+
+<p>More:
+<ul>
+<li>https://developer.mozilla.org/en-US/docs/Web/Web_Components
+<li>https://open-wc.org/codelabs/basics/web-components.html#0
+<li>https://webcomponents.dev/user/m4dz?collection=all-the-ways
+<li>https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/
+</ul>
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+A 'framework'
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>A <a href="https://stackoverflow.com/questions/8772746/difference-between-framework-vs-library-vs-ide-vs-api-vs-sdk-vs-toolkits">framework</a> is an <b>app dev environment</b> (not a code 'IDE'), which includes libraries and tools, and is based on a <b>software architecture.</b>
+
+<p>A framework provides a <b>quick, standardized way</b> to set up (the 'framework' of) an app - we can then continue building the app, to get the specific functionality we desire. 
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+A powerful frontend/backend pair
+<!--t*e--></h1></div>
+<!--c*s-->
+
+
+<p><a href="NodeNg.pdf">Node+Angular</a> is a popular 'pairing' of frameworks, for web app development. They are part of the <a href="https://www.infoworld.com/article/3319786/what-is-the-mean-stack-javascript-web-applications.html">'MEAN' stack</a>: <b>M</b>ongoDB, <b>E</b>xpress, <b>A</b>ngular, <b>N</b>ode.
+
+<p><a href="NodeNg.pdf">Here</a> is more, on Node and Angular.
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Angular: architecture
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Below is my visualization of how various pieces fit together in Angular:
+<p><img style="width:40%" src="pics/AngularArch.png">
+
+<ul>
+<li>an Angular app is a collection of modules (containers)
+<li>a module encapsulates a component, and services that the component requires
+<li>a module can import other modules (to use their functionality), and can export parts of its functionality to other modules - this is not inheritance (there is no notion of overriding, or member hierarchy)
+<li>a component is a <b>controller</b> that binds with a template, and with services that it depends on
+<li>services get connected to components, via 'dependency injection' (DI)
+<li>a component can also include a style specification (for use by its template), eg .css, along with its own .ts controller code and .html template spec 
+<li>a template is a <b>view</b>, which gets rendered - users interact with it
+<li>directives can be included in a template, to procedurally control the rendering [eg. using if(), or for()] of DOM HTML elements, eg. as dictated by incoming data
+<li>templates can contain data and style variables whose values would be supplied by the controller
+<li>templates generate user events which are passed over to the controller
+<li>templates, components and services have '@' metadata that specifies their role/behavior
+<li>the backend usually contains (or can fetch, or generate) the <b>model</b> [data] that the frontend will render into its views; this is handled via usual http-based requests (eg. using GET) and server responses (eg. as JSON)
+<li>routes are used to map (redirect) url components (paths) to Angular components (which would instantiate corresponding views via their templates, to handle the rendering that corresponds with the url that is specified)
+<li>in the diagram above, 1 &rarr; 2 &rarr; 3 is a 'forward' path, from user action to server request; 4 &rarr; 5 &rarr; 6 is the reverse path, from server response to rendered (eg. updated) view
+<li>...
+</ul>
+
+<p><img style="width:40%"  src="pics/AngCompGen.png">
+
+<p><img style="width:40%"  src="pics/AngBoots.png">
+
+<p><img style="width:40%"  src="pics/AngHttp.png">
+
+<p><img style="width:40%"  src="pics/AngRoutes.png">
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+API calls, for testing
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Here are some 'practice' endpoints (to use with your front/backend)...
+
+<ul>
+<li>https://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=4d6ed283bb1620f68ad8b4ce845178e3 (with my API key)
+<li>https://api.themoviedb.org/3/search/multi?api_key=97588ddc4a26e3091152aa0c9a40de22&language=en-US&query=game [from HW6]: 
+<li>https://dog.ceo/api/breeds/list/all [from https://dog.ceo/dog-api/ :)]
+</ul>
+
+<p>You can use <a href="https://bytes.usc.edu/~saty/tools/jsoned/index.html">this</a> JSON viewer/editor to browse the results from above, if you like.
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Snippets!
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Here are some pieces of code, ideas, demos...
+
+
+<pre>
+
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+
+&lt;h4 class="card-title">{{movie.title }}</h4>
+
+https://bytes.usc.edu/~saty/tools/xem/run.html?x=bare#CjxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvdHdpdHRlci1ib290c3RyYXAvNC4wLjAtYWxwaGEuNS9jc3MvYm9vdHN0cmFwLmNzcyI+Cgo8ZGl2IGNsYXNzPSJjYXJkIj4KICA8aW1nCiAgICBzcmM9Imh0dHBzOi8vdXBsb2FkLndpa2ltZWRpYS5vcmcvd2lraXBlZGlhL2VuLzkvOTgvQ29jb18lMjgyMDE3X2ZpbG0lMjlfcG9zdGVyLmpwZyIKICAgIGNsYXNzPSJjYXJkLWltZy10b3AiCiAgICBhbHQ9Ii4uLiIKICAvPgogIDxkaXYgY2xhc3M9ImNhcmQtYm9keSI+CiAgICA8aDUgY2xhc3M9ImNhcmQtdGl0bGUiPkNvY288L2g1PiA8IS0tIHt7bW92aWUudGl0bGV9fSAtLT4KICAgIDxwIGNsYXNzPSJjYXJkLXRleHQiPiA8IS0tIHt7bW92aWUuZGVzY319IC0tPgogICAgICBDb29sIG1vdmllLi4uCiAgICA8L3A+CiAgICA8YSBocmVmPSIjISIgY2xhc3M9ImJ0biBidG4tcHJpbWFyeSI+Q2xpY2shPC9hPiAKICA8L2Rpdj4KPC9kaXY+IAo=
+
+https://mdbootstrap.com/docs/standard/components/cards/
+
+npm install -g @angular/cli
+ng -v 
+ng new myapp
+cd myapp
+ng -serve --open
+
+clips/AngularStart.mp4
+clips/NodeStart.mp4
+
+Axios, with simple UI: ex/AxiosPlusUI.html
+</pre>
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"></script>
+</body>
+</html>
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="NOTslide">
+<!--t*s--><div id="itframe"><h1 class="st">
+
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->

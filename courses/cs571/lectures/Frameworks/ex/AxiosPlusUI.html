@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS Axios Demo</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+
+     
+      <h1>JS Axios Demo<br><small>[adapted from CodingTheSmartWay.com]</small></h1>
+
+      <div class="jumbotron">
+        
+        <h4>This applications uses Axios. Axios is a Promise-based HTTP client for JavaScript which can be used in your front-end application and in your Node.js backend. </h4>
+      </div>
+
+
+
+              <div class="card text-white bg-primary mb-3" style="max-width: 60rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h4 class="card-title">GET</h4>
+
+
+                  <p class="card-text">Performs GET-based fetching of all todos, no filtering.</p>
+
+<button class="btn btn-primary" onclick="performGetRequest1()">Get Todos</button>
+          <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
+          <div class="panel-body" id="getResult1"></div>
+
+
+                </div>
+              </div>
+          
+
+
+
+
+
+              <div class="card text-white bg-primary mb-3" style="max-width: 60rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h4 class="card-title">GET</h4>
+
+
+                  <p class="card-text">Performs GET-based fetching of a single todo, given its ID.</p>
+
+<input type="text" class="form-control" id="todoId" placeholder="Todo ID ..."/><br/>
+          <button class="btn btn-primary" onclick="performGetRequest2()">Get todo</button>
+          <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
+          <div class="panel-body" id="getResult2"></div>
+
+
+                </div>
+              </div>
+            
+
+          <div class="card text-white bg-primary mb-3" style="max-width: 60rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h4 class="card-title">POST</h4>
+
+
+                  <p class="card-text">Performs POST-based fetching of a single todo, given its title (any text). Does nothing (just brings back the title!)</p>
+
+                   <form class="form-inline" id="todoInputForm">
+            <div class="form-group">
+              <input type="text" class="form-control" id="todoTitle" placeholder="Todo Title ...">
+            </div>
+            <button type="submit" class="btn btn-primary">Post</button>
+          </form><br/>
+          <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
+          <div class="panel-body" id="postResult"></div>
+
+
+                </div>
+              </div>
+            
+
+
+
+
+
+     
+</div><!-- container -->
+
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+function performGetRequest1(){
+  var resultElement = document.getElementById('getResult1');
+  resultElement.innerHTML = '';
+
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(function (response) {
+      resultElement.innerHTML = generateSuccessHTMLOutput(response);
+    })
+    .catch(function (error) {
+      resultElement.innerHTML = generateErrorHTMLOutput(error);
+    });
+}
+
+function generateSuccessHTMLOutput(response) {
+  return  '<h4>Result:</h4>' +
+          '<h5>Status:</h5>' +
+          '<pre>' + response.status + ' ' + response.statusText + '</pre>' +
+          '<h5>Headers:</h5>' +
+          '<pre>' + JSON.stringify(response.headers, null, '\t') + '</pre>' +
+          '<h5>Data:</h5>' +
+          '<pre>' + JSON.stringify(response.data, null, '\t') + '</pre>';
+}
+
+function generateErrorHTMLOutput(error) {
+  return  '<h4>Result:</h4>' +
+          '<h5>Message:</h5>' +
+          '<pre>' + error.message + '</pre>' +
+          '<h5>Status:</h5>' +
+          '<pre>' + error.response.status + ' ' + error.response.statusText + '</pre>' +
+          '<h5>Headers:</h5>' +
+          '<pre>' + JSON.stringify(error.response.headers, null, '\t') + '</pre>' +
+          '<h5>Data:</h5>' +
+          '<pre>' + JSON.stringify(error.response.data, null, '\t') + '</pre>';
+}
+
+
+function performGetRequest2(){
+  var resultElement = document.getElementById('getResult2');
+  var todoId = document.getElementById('todoId').value;
+  resultElement.innerHTML = '';
+
+  axios.get('https://jsonplaceholder.typicode.com/todos', {
+    params: {
+      id: todoId
+    }
+  })
+    .then(function (response) {
+      resultElement.innerHTML = generateSuccessHTMLOutput(response);
+    })
+    .catch(function (error) {
+      resultElement.innerHTML = generateErrorHTMLOutput(error);
+    });
+}
+
+document.getElementById('todoInputForm').addEventListener('submit', performPostRequest);
+
+function performPostRequest(e) {
+  var resultElement = document.getElementById('postResult');
+  var todoTitle = document.getElementById('todoTitle').value;
+  resultElement.innerHTML = '';
+
+  axios.post('https://jsonplaceholder.typicode.com/todos', {
+    userId: '1',
+    title: todoTitle,
+    completed: false
+  })
+  .then(function(response) {
+    resultElement.innerHTML = generateSuccessHTMLOutput(response);
+  })
+  .catch(function(error) {
+    resultElement.innerHTML = generateErrorHTMLOutput(error);
+  })
+  e.preventDefault();
+}
+
+function clearOutput() {
+    var resultElement = document.getElementById('getResult1');
+    resultElement.innerHTML = '';
+    var resultElement = document.getElementById('getResult2');
+    resultElement.innerHTML = '';
+    var resultElement = document.getElementById('postResult');
+    resultElement.innerHTML = '';
+}
+    </script>
+
+
+
+
+
+  </body>
+</html>

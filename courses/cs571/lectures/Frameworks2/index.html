@@ -1,0 +1,369 @@
+<!DOCTYPE html >
+
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			Frameworks: React, 'etc'.
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+		<link rel="stylesheet"  href="../../res/layout_only.css"/>
+		<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+		<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+		<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/SSS.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/strokeText.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js">
+		</script>
+		<script src="../../res/styles/hljs/highlight.min.js">
+		</script>
+
+
+		<!-- ------ -->
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center">
+<!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="title">
+<!-- ****************************** -->
+React, Vue... MORE
+</h1>
+<h1  class="subtitleC">
+<!-- ****************************** -->
+even more app frameworks
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Frameworks, again
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>As you know, on acct. of doing HW8, a frameworks provides you a 'structured' way to create backend or frontend functionality.
+
+<p>Angular is one such framework.
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+React
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>React (to make websites 'reactive') is a framework from Facebook. While it has a different syntax compared to Angular etc., the <a href="React.pdf"> core ideas</a> remain the same. 
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+React example
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>Here is a React example: https://codesandbox.io/s/react-new - as you can see, we create our app as a function (called App(){}), which RETURNS HTML! 
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+React - the big idea
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>MVC (Model-View-Controller) is a classied, tried-and-true architectural pattern, where the 'model' (data/state...) is kept SEPARATE from its 'view' (display/presentation/...) - mediated by a 'controller' [to keep the M and V in sync]. 
+
+<p>MVC is wonderful, but, NOT necessary in HTML! <b>What if an HTML element (which is [the] 'view') is BUNDLABLE along with its model (eg. JSON data), in the form of a 'template', which makes this "reactive" (when the model updates, so does the view, and vice versa)?</b> So, templates manage their own state changes!
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+React views
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>React 'components' declare how a view updates, given model/state changes - the developer does NOT need to manage this (in jQ, she would!). 
+
+<p>In other words, a React component maintains its own model/state, updates its view). In other words, it's M+V+C :)
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+(React) components
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>React components can contain other components - an app is such an organization (parent-child) of components. 
+
+<p>A parent component communicates its state to children, via (read-only) 'props'. 
+
+<p>Children communicate with a parent, using the parent's callbacks. 
+
+<p>Typically, children components do NOT maintain their own state - they are <b>stateless, render-only</b> - that update, when the parent calls them with (read-only) props. 
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Virtual DOM 
+<!--t*e--></h1></div>
+<!--c*s-->
+ <p>React components do not directly update HTML elements when models change - that would lead to many, constant, updates, making the UI be sluggish. Instead, components update an off-screen, 'virtual' DOM - whose changes efficiently get transferred to the actual DOM. 
+
+<p>Here is a barebones example of virtual DOM usage: https://bytes.usc.edu/~saty/tools/xem/run.html?x=ReactEx
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+JSX
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>JSX is a (Facebook) JS 'extension', to help describe UI simply: https://reactjs.org/docs/introducing-jsx.html JSX can be used to create React components [because JSX helps bundle logic (model) and markup (view)].
+
+<p>Here is a JSX intro' example: https://codepen.io/gaearon/pen/PGEjdG?editors=1010
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Vue ("view")
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Vue is a view-centric framework, ie it's all about layout: https://vuejs.org/v2/guide/
+
+<p>Short example: https://bytes.usc.edu/~saty/tools/xem/run.html?x=VueEx [fetch JSON data 'as usual', then specify a Vue for() loop to lay them out]
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'Native' frameworks
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>If we made an Angular/React/Vue/... webpage app and viewed it using our phone's browser, that would need to use the browser's JavaScript layer, so the app would load and run slower than 'natively' running it.
+
+<p>A native framework helps BYPASS JS entirely, and instead, run directly/natively on the phone's OS, ie. Android or iOS.
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+React Native
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>React Native (from FB, now open-sourced) is based on React: https://github.com/facebook/react-native
+
+
+<p>More:
+<ul>
+<li>https://docs.expo.io/build/introduction/
+<li>https://reactnative.dev/docs/components-and-apis
+<li>https://snack.expo.io/
+<li> https://snack.expo.io/@satychary/btn1
+</ul>
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Xamarin 
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Xamarin (from Microsoft (!), based on C#)) is another mobile device (plus others) framework: https://docs.microsoft.com/en-us/xamarin/get-started/what-is-xamarin
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Flutter!
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Flutter, from Google, is a widget-heavy mobile UI framework.
+
+<ul>
+<li>https://flutter.dev/
+<li>https://blog.codemagic.io/dart-vs-javascript
+<li>https://flutter.dev/showcase
+<li>https://rominirani.com/tutorial-flutter-app-powered-by-google-cloud-functions-3eab0df5f957
+</ul>
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+More
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>There are more frameworks to help build web apps and smartphone apps:
+
+<ul>
+<li><a href="nestjs-restful-crud-api.pdf">NestJS</a>
+<li>swig: https://github.com/paularmstrong/swig
+<li>svelte, etc. (and MUCH more!): https://github.com/andreasbm/web-skills
+<li>Ionic
+<li>AWS Amplify
+<li>ArcGIS apps
+<li>MongoDB Realm
+<li>PWA: https://blog.openreplay.com/building-a-progressive-web-app-with-react-18
+<li>Aurelia: https://blog.openreplay.com/aurelia-build-powerful-web-apps-with-simple-javascript
+<li>Telegram apps: https://core.telegram.org/bots/webapps
+<li>Sauron: https://blog.chainsafe.io/an-intro-to-the-sauron-web-framework-a6093a2ac9eb
+<li>Pega: https://www.pega.com/products/platform/mobile-app-development
+<li>App Inventor 2: https://appinventor.mit.edu/explore/ai2
+<li>Cordova: https://cordova.apache.org/
+</ul>
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"></script>
+</body>
+</html>
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="NOTslide">
+<!--t*s--><div id="itframe"><h1 class="st">
+
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->

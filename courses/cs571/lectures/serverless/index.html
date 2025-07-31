@@ -1,0 +1,201 @@
+<!DOCTYPE html >
+
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			"serverless"
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+		<link rel="stylesheet"  href="../../res/layout_only.css"/>
+		<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+		<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+		<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/SSS.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/strokeText.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js">
+		</script>
+		<script src="../../res/styles/hljs/highlight.min.js">
+		</script>
+
+
+		<!-- ------ -->
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center">
+<!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="title">
+<!-- ****************************** -->
+Anonymous functions
+</h1>
+<h1  class="subtitleC">
+"in the cloud"
+<!-- ****************************** -->
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+<!--
+History etc [CS455]
+apk, search!
+
+
+Ways of generating Android apps
+* 
+* native: 
+
+
+IDEs for dev: 
+
+
+
+Android.pdf
+
+
+
+
+
+
+-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+The 'serverless' concept
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>A 'serverless' function still runs on a server (whose .com URL is not important, because we'd never use it directly!) - it is an anonymous function, with inputs, output.
+
+<p>A microservice seems similar - a URL that acts as a function. BUT, a microservice is itself composed of multiple functions (eg a TMDB lookup involves DB access, search...), <b>each of which could be a serverless function.</b>
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Serverless: AWS
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Amazon kicked off the concept, with <a href="AWS.pdf">AWS Lambda</a> functions. The <a href="https://aws.amazon.com/lambda/features/#:~:text=AWS%20Lambda%20is%20a%20serverless,scale%2C%20performance%2C%20and%20security.">idea</a> is to have developers access these from OTHER AWS (micro)services.
+
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/applications-usecases.html">Here</a> are typical use cases.
+
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Serverless: GCP
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p><a href="GCP.pdf">Google Cloud Functions</a> followed suit... <a href="https://cloud.google.com/functions/">Here</a> is more.
+
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Serverless: Azure
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Not to be left behind, MS said, <a href="https://azure.microsoft.com/en-us/services/functions/#features">"us three!"</a>
+
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ssetUpSlides.js"></script>
+</body>
+</html>
+
+

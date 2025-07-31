@@ -1,0 +1,380 @@
+<!DOCTYPE html >
+
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			Web services
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+		<link rel="stylesheet"  href="../../res/layout_only.css"/>
+		<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+		<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+		<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/SSS.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/strokeText.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js">
+		</script>
+		<script src="../../res/styles/hljs/highlight.min.js">
+		</script>
+
+
+		<!-- ------ -->
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center">
+<!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="title">
+<!-- ****************************** -->
+Web services
+</h1>
+<h1  class="subtitleC">
+<!-- ****************************** -->
+[WWW == distributed app execution platform!]
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Sir Berners-Lee could not have imagined...
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>That his document-serving hypertext mechanism would turn into the most distributed software execution architecture ever!
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+An app - collection of functions...
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>EVERY useful application "gets things done", via a collection of function or method calls. 
+
+<p>A function is a VERY USEFUL abstraction:
+
+<p><img style="width:40%" src="pics/fn.png">
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Where can a function run? 
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Usually, in its own application! With Java (or sockets in general), on remote machines (RMI) as well. 
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+How do functions communicate?
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Usually, via shared memory, inter-process communication (eg. BSP, RPC (eg. COM, CORBA))...
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+What is the INVIOLABLE aspect of a function?
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>It's SIGNATURE (inputs, output)!
+
+<p>A function's signature ('public interface') serves as a 'contract' between its creator and users. 
+
+<p>In other words, the { } 'body' of a function, ie. <b>HOW</b> it does what it does (uses what computation to transform inputs to output) is not relevant, or accessible, to its users, ie. they shouldn't need to know or care; it's ALL about <b>what</b> the function needs (inputs) and <b>what</b> it returns (output). 
+
+<p>For example, in C/C++, these signatures are what we place, in a .h (header) file; the .c or .cpp file "merely" implements the interface declared in the .h! To our users, we'd supply the .h in source form (so they can #include it in their application that makes calls declared in our interface), and the .c/.cpp, in compiled form, ie. as a DLL/DSO (.dll or .so file). 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Functions can be accessed over WWW!
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>THAT is what a web service ("API") is.
+
+<p>Web services make for the most heterogenous, distributed form of computing, 'mostly' running on web servers - it is all based on inputs and outputs, 'glued together' by the app that uses the services.
+
+<p>An 'API', such as the <a href="https://developers.themoviedb.org/3/getting-started/search-and-query-for-details">TMDB API</a>, is accessed over the web, from a simple browser based 'GET' URL request (function <b>argument</b>), and produces JSON data response (function <b>return</b>). Cool! 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+'SOA' [Service Oriented Architecture]
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>This slide, and all of what follows, is NOT part of the midterm content :)
+
+<p>SOA binds to multiple services:
+
+<p><img src="pics/SOA.png">
+
+<p>BUT - traditionally, the term SOA means this - an architecture for a MONOLITHIC application, that is built around offering and consuming services. In other words, it's old-fashioned monolithic architecture (enterprise-wise, reusing components and frameworks and file formats and protocols...), that uses service interfaces in DBC fashion. Today's web apps, though they are service-based, are <b>NOT</b> SOA apps in this 'monolithic' sense (today's services are not tightly coupled). 
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Web services - the past...
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>A client requesting a service asks the server for a service, described via <a href="https://www.tutorialspoint.com/wsdl/wsdl_example.htm">WSDL.</a> Communication is done via the requests and responses described in WSDL, and actual message/data transport occurs via 'SOAP' format (protocol, which can also include binary data being exchanged via base64 encoding, for example). 
+
+<p>SOAP requests and responses are in XML.
+
+<p>SOAP came from COM -> DCOM, CORBA, XML-RPC. 
+
+<p>So is rather rigid - reqs must be in XML, specifically constructed as per the WSDL services description ('contract').
+
+<p>An entire service (collection of elementary services) described in terms of XML (or even JSON) is NOT RESTful, on account of the 'schema' used in such a description.
+
+<p>Need(ed) a lightweight alternative!
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Microservices - a lightweight alternative...
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>We call each <b>independent/standalone</b> 'piece' (a REST API call) of a modern 'web app', a 'microservice' - 'micro' because it is not part of a larger <b>monolithic</b> application. 
+
+<p><a href="https://www.ibm.com/cloud/learn/microservices">Here</a> is IBM's explanation of a microservice, and <a href="https://martinfowler.com/articles/microservices.html">here</a> is what Martin Fowler has to say about them. 
+
+<p>A blast from the past (2005!):
+<br><img style"width:85%" src="pics/Microservices2005.png">
+
+<p>The evolution has been: monolithic apps -> older web-based services ("heavy micro") -> ("light") microservices.
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Web services today (microservices): 'REST'ful!
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Modern APIs (eg TMDB) are LOOSE, SELF-CONTAINED, URL-BASED requests, who responses can be in XML, JSON, .csv, plaintext, html, JSONP (function call to the client)... NO rigid exchange format, no XML-only requirement!! THAT is a what 'RESTful' API means (offers)... It's a <b>SIMPLE way to CALL a 'server function'</b>, INDEPENDENT of any functions before/after, and get back a <b>self-contained response</b> - there is NO "state" stored, related to the req/resp. 
+
+<p>The client does a simple http GET/POST(/PUT/DELETE) request, the server responds, both "move on". 
+
+<p>Because it's so 'lightweight' (simple self-contained URLs w/ appended query strings is as barebones as a distributed call gets!), REST is perfect for IoT applications (where an embedded server runs on a small piece of hardware and responds with device-collected data, eg. in a weather station), to run in a 'serverless' (ie. cloud-deployed) environment...
+
+<p>We call each <b>independent/standalone</b> 'piece' (a URL-based REST API call), a 'microservice' - 'micro' because it is not part of a larger <b>monolithic</b> application. 
+
+<p><a href="https://www.ibm.com/cloud/learn/microservices">Here</a> is IBM's explanation of a microservice, and <a href="https://martinfowler.com/articles/microservices.html">here</a> is what Martin Fowler (of 'code refactoring' fame) has to say about them. 
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+REST principles
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>REST is a way of thinking about EVERYTHING a server can serve (wrt a service), as a 'resource' - with a unique resource ID that the server can keep track of, eg via 'routing'!
+
+<p>Specifically, to qualify as 'REST', <a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">THESE</a> need to be true, as per Roy Fielding, who <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">came up with</a> REST!
+
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Containers
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>Rather than upload ('deploy') our requirements.txt and app.py etc. to a server and have it do the pip install etc., what if we packaged up our entire 'venv' ENVIRONMENT (code, plus libraries - ready to run!), into a portable format? A container is just that :)
+
+<p><a href="https://www.docker.com/resources/what-container">Docker</a>, Docker Swarm, <a href="https://kubernetes.io/docs/concepts/containers/">Kubernetes</a> [pilot; 'Kube'] are examples of containers.
+
+
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Microservice Containers in Clouds ('MCC')
+<!--t*e--></h1></div>
+<!--c*s-->
+<p>Modern app dev looks like this:
+<ul>
+<li>develop and test your app locally; design it using RESTful service components (use loose/self-contained/small REST API calls)
+<li>containerize it, eg. using Kube
+<li>deploy the container to an elastic cloud, where it can be replicated and run on a cluster!
+</ul>
+
+<p>Result: a cloud-y, containerized, microservice architecture. 
+
+<p><b>For app execution, THIS IS AS FLEXIBLE AS IT GETS!</b>
+
+<hr>
+
+<p>We can flexibly 'integrate' (micro)services, to build cloud-based apps... Eg. https://app.datafire.io/, https://app.datafire.io/integrations, https://app.datafire.io/projects/sparkling-swan/overview/settings
+
+
+<hr>
+
+<p>Here are many API goodies:
+
+<ul>
+<li>https://dog.ceo/dog-api/ (in the past, we had cgi-bin Perl-based joke/quote servers)
+<li>https://rapidapi.com/ (eg. https://rapidapi.com/LemmoTresto/api/joke3/details)
+<li>https://swagger.io/
+<li>https://www.programmableweb.com/ (24,000+ APIs!!)
+</ul>
+
+<p><a href="https://bytes.usc.edu/~saty/tools/xem/run.html?x=NYT">Here</a> is a simple usage of NYT's books API...
+
+<p>Browsing the above resources tells you what a powerful idea (APIs, esp. REST APIs) this is!
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+More slides
+<!--t*e--></h1></div>
+<!--c*s-->
+<p><a href="WebServices.pdf">Here</a> is more...
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/setUpSlides.js"></script>
+</body>
+</html>
+
+
+

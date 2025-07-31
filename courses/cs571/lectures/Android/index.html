@@ -1,0 +1,231 @@
+<!DOCTYPE html >
+
+<html>
+	<head>
+		<meta name="generator" content=
+		"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+		<!-- ------PAGE TITLE------- -->
+		<title>
+			Android
+		</title>
+		<!-- ----------------------- -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content=" "/>
+
+		<!-- CSS, JS -->
+		<link rel="stylesheet"  href="../../res/fonts_only.css"/>
+		<link rel="stylesheet"  href="../../res/layout_only.css"/>
+		<link rel="stylesheet" media="print" href="../../res/styles/slides/myslidy/bts/print.css"/>
+		<link rel="stylesheet" href="../../res/styles/hljs/default.min.css">
+		<script src="../../res/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/jsxgraphcore.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/SSS.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/strokeText.js">
+		</script>
+		<script src="../../res/styles/slides/myslidy/bts/DigitalClock.js">
+		</script>
+		<script src="../../res/styles/hljs/highlight.min.js">
+		</script>
+
+
+		<!-- ------ -->
+	</head>
+
+	<body>
+		<!-- time, slide#, full-screen toggle, nav L.R -->
+		<canvas style="opacity:0.85;z-index:10;width:400px;height:100px;position:absolute;margin-left:-100px;margin-top:-14px;" id='clockHolder' >
+		</canvas>
+		<script>
+			setInterval("animateClock()", 1000);
+		</script>
+		<span id="slideNum" style="opacity:0.85;border:0px solid black; z-index:9;width:100px;height:10px;position:absolute;margin-left:12px;margin-top:16px;" >
+		</span>
+		<span style="opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:153px;margin-top:15px;" onclick="javascript:toggleView();" >
+			***
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:101;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:12px;margin-top:60px;" onclick="javascript:previousSlide(true);" >
+			&larr;
+		</span>
+		<span style="font-size:30px;opacity:0.25;z-index:100;border:0px solid black; width:50px;height:25px;position:absolute;margin-left:150px;margin-top:60px;" onclick="javascript:nextSlide(true);" >
+			&rarr;
+		</span>
+
+
+
+<!-- ************************** -->
+<!-- BEGIN SLIDES SLIDES SLIDES -->
+<!-- ************************** -->
+
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+<!-- TITLE SLIDE -->
+<div class="slide">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center">
+<!-- valign was 'center' -->
+<!-- ---------- -->
+<br><br><br><br><br>
+<h1  class="title">
+<!-- ****************************** -->
+Android
+</h1>
+<h1  class="subtitleC">
+<!-- ****************************** -->
+app dev
+</h1>
+<!-- ****************************** -->
+<!-- ---------- -->
+</td>
+</tr>
+</table>
+</div><!-- osframe, slide -->
+<!-- END TITLE SLIDE -->
+<!-- ****************************************** -->
+<!-- ****************************************** -->
+
+<!--
+History etc [CS455]
+apk, search!
+
+
+Ways of generating Android apps
+* 
+* native: 
+
+
+IDEs for dev: 
+
+
+
+Android.pdf
+
+
+
+
+
+
+-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Android apps!
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p>As you know, an 'app' runs NATIVELY in its OS - no translation layer.
+
+<p>Android apps are .apk files. <a href="MITAI2Companion.apk">Here</a> is a sample .apk (app), you can copy this via a USB cable to an Android phone, make it run! You can <a href="https://www.google.com/search?q=%22Index+of+%2F%22+.apk&rlz=1C1CHBF_enUS723US723&oq=%22Index+of+%2F%22+.apk&aqs=chrome..69i57.9561j0j1&sourceid=chrome&ie=UTF-8">search</a> for more apks - RUN THEM ON AN ISOLATED DEVICE!
+
+<p>A .apk is a glorified .jar file, which is a glorified .zip file :)
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Android app dev - cross-platform ways
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<ul>
+<li>https://snack.expo.io (React Native: JS, CSS, HTML) [eg. https://snack.expo.io/@satychary/btn1]
+<li>Flutter (Dart)
+<li>Xamarin (C#)
+<li>PhoneGap/Cordova [https://cordova.apache.org/]
+<li>MIT App Inventor [https://appinventor.mit.edu/, http://ai2.appinventor.mit.edu/] - <a href="clips/AppInventor_ex.mp4">here</a> is a clip that shows how easy 'AI2' is!
+<li>AppInventor.org [http://www.appinventor.org/]
+<li>ArcGIS AppStudio [https://developers.arcgis.com/appstudio/]
+<li>ArcGIS Survey123[https://developers.arcgis.com/documentation/app-templates-and-builders/survey123/]
+<li>...
+</ul>
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Android app dev - specific languages
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<ul>
+<li>Java
+<li>Kotlin
+<li>Python (Kivy)
+<li>Lua (Corona)
+<li>C#
+<li>C++
+</ul>
+
+<p>You can learn a bit more, <a href="https://www.appdevelopmentpros.com/blog/top-5-android-app-development-languages-2020">here.</a>
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Android app dev - IDEs
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<ul>
+<li>Android Studio: https://developer.android.com/studio [Java, Kotlin [https://developer.android.com/kotlin?gclsrc=ds]]
+<li>Eclipse: https://www.eclipse.org/eclipseide/ [Java, Kotlin[https://kotlinlang.org/docs/eclipse.html]]
+<li>IntelliJ: https://www.jetbrains.com/idea/ [Java, Kotlin[https://www.jetbrains.com/help/idea/kotlin.html]]
+<li>Visual Studio [with C++, React Native or Xamarin]
+<li>Netbeans [with 'Android Plugin']
+<li>...
+</ul>
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+
+
+
+
+<!--ssssssssssssssssssssssssssssssssssssssssss-->
+<!--S*S--><div class="slide">
+<!--t*s--><div id="itframe"><h1 class="st">
+Android: architecture
+<!--t*e--></h1></div>
+<!--c*s-->
+
+<p><a href="Android.pdf">These</a> slides describe how Android is structured, and what an app's components are.
+
+
+<p><a href="https://www.tutorialspoint.com/android/android_architecture.htm">This</a> page is a good, quick summary of the app architecture. <a href="https://android-arsenal.com/">This</a> is a useful developer portal.
+ 
+<!--c*e-->
+<!--S*E--></div>
+<!--eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+<!-- ****************** -->
+<!-- END END END SLIDES -->
+<!-- ****************** -->
+<script src="../../res/styles/slides/myslidy/bts/slidy.js"></script>
+<script src="../../res/styles/slides/myslidy/bts/ssetUpSlides.js"></script>
+</body>
+</html>
+
+
