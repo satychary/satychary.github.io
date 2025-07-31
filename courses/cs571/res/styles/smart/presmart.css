@@ -1,0 +1,652 @@
+/* 
+
+types are spec for:
+
+* body, b, i
+
+* h1 etc
+
+* tabmenu
+
+* pre
+
+
+
+sizes are spec for:
+
+* body etc
+
+* h1 etc
+
+* l1, l2
+
+* tabmenu 
+
+* pre
+
+*/
+
+
+
+/* custom fonts */
+
+
+
+/*
+
+https://www.google.com/search?q=PT+Sans+is+a+pretty+font&hl=en&safe=off&client=firefox-a&hs=uBX&rls=org.mozilla:en-US:official&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=ZimMUPLwEaq80QW9vIDwBg&ved=0CDMQsAQ&biw=1280&bih=597
+
+*/
+
+
+
+@import "../type/PTSans-type/stylesheet.css";
+
+
+
+
+@import "../type/SourceCode-type/stylesheet.css";
+
+
+
+/* USING this! */
+
+/*
+
+https://www.google.com/search?q=prima+sans+mono&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&um=1&ie=UTF-8&hl=en&tbm=isch&source=og&sa=N&tab=wi&ei=PJWMUNv3IIHU0QWryYCgDQ&biw=1262&bih=608&sei=T5WMUOSVM--M0wXFvoDIDA
+
+*/
+
+@import "../type/PrimaSansMono-type/stylesheet.css";
+
+/* USING this, too!! */
+
+@import "../type/PrimaSans-type/stylesheet.css";
+
+
+
+
+@import "../type/ProximaNova-type/stylesheet.css";
+
+
+@import "../type/Arimo-type/stylesheet.css";
+/**/
+
+@import "../type/CartoGothic-type/stylesheet.css";
+
+/* 11/3 */
+
+@import "../type/Aller-type/stylesheet.css";
+
+
+
+
+
+/* Google webfonts */
+
+@import "http://fonts.googleapis.com/css?family=""; /* template for c&p */
+
+
+
+@import "http://fonts.googleapis.com/css?family=Droid+Sans:400,700"; /* nice */
+
+
+
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,400italic,700,700italic"; /* pretty, somewhat open/boxy */
+
+
+
+@import "http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic"; /* LOOKS fancy w/o actually being so!! */
+
+
+
+@import "http://fonts.googleapis.com/css?family=Ruluko"; /* keeper! Pretty, handwritten feel.. */
+
+
+
+@import "http://fonts.googleapis.com/css?family=Gudea:400,400italic,700"; /* keeper! */
+
+
+
+@import "http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700"; 
+
+/* looks GREAT, esp. w/ a letter-spacing of 0.75 - ALL variations look great, great contrast bet. regular and other forms, just the right thinness to provide elegance.. */
+
+
+
+/* LOTS of type.. 'likes' are PTSN, Gudea, Ruluko, {Quattrocento,Droid,Open,PT}Sans.. Of all these, which to pick?
+
+*/
+
+
+
+/* mono */
+
+@import "http://fonts.googleapis.com/css?family=Ubuntu+Mono"; /* oddly cool! */
+
+@import "http://fonts.googleapis.com/css?family=PT+Mono"; 
+
+
+
+
+
+/***************************************************************************/
+
+
+
+/* overall colors */
+
+body {
+
+color: #ffffff;
+
+background: #020211; /* #060611; #2D2D2D; */
+
+}/* body */
+
+
+
+
+
+/* reset all type! */
+
+/***************************************************************************/
+
+/* #content inherits this! */
+
+body,p,b,i,span,div {
+
+/***********************/
+
+font-size:12pt; /* was 13 */ /* 11 */ /* keep it same for ul/ol and ul-li too */
+
+/***********************/
+
+/* Google fonts */
+
+/* JUST ONE SPEC HERE, used EVERYWHERE */
+
+/* the foll. six are all 'winners' - PT Sans,
+
+Prima Sans, Proxima Nova, Arimo, CartoGothic, Aller Sans */
+
+/* Of the six, top four are 
+
+4. Proxima Nova, 3. PT Sans, 2. CartoGothic, 1. Aller Sans Light */
+
+/*font-family:'PTSansRegular', sans-serif;*/
+
+/**font-family:'PT Sans Narrow', sans-serif;**/
+
+/*font-family:'primasans_btroman', sans-serif;*/
+
+//letter-spacing:-0.25px;
+
+/*font-family: 'proxima_nova_rgregular';*/ /* 11/2 */
+
+/*font-family: 'arimoregular';*/ /* 11/2 */
+
+/*font-family: 'CartoGothicStdBook';*/
+
+//text-shadow: 0 0 0.15px #666666; /* just for cartogothic */
+
+// 7/2014 - REMOVING this 'body' font!
+//\\//\\font-family: 'aller_lightregular';
+
+text-shadow: 0 0 0.15px #666666;
+
+
+
+
+
+//\\text-shadow : 0 0 0.25px #ffffff; 
+
+}/* body etc */
+
+
+
+
+
+/* redo b, i */
+
+b {
+
+//font-family:'PTSansRegular', sans-serif;
+
+//font-family: 'primasans_btbold';
+
+////\\\\font-family: 'proxima_nova_rgbold';
+
+/\\font-family: 'arimobold';
+
+//\\font-family: 'CartoGothicStdBook';
+
+//\\text-shadow : 0 0 0.4px #777777;
+
+//\\letter-spacing: .75px;
+
+font-family: 'aller_lightregular';
+
+text-shadow : 0 0 0.4px #777777;
+
+}
+
+// make it red!
+b {
+font-family: 'allerregular', sans-serif;
+font-size: 17px;
+padding-left: 12px;
+color: #FCDEC7; // #ffffff; 
+background: #660517;//was #8B0720; #592276; 
+padding-top: 4px;
+padding-bottom: 4px;
+}
+
+
+
+i {
+
+//font-family:'PTSansRegular', sans-serif;
+
+//\\text-shadow : 0 0 0.5px #666666; 
+
+//font-style: normal;
+
+/*text-shadow : 0 0 0.2px #777777;
+
+/*letter-spacing: .5px;
+
+font-weight: normal;*/
+
+font-weight:100;*/
+
+//font-family: 'CartoGothicStdItalic';
+
+font-family: 'aller_lightregular';
+
+text-shadow : 0 0 0.4px #777777;
+
+}
+
+
+
+/* next 4 are from CG's stylesheet.. */
+
+p.style1 {font: 18px/27px 'CartoGothicStdBook', Arial, sans-serif;}
+
+p.style2 {font: 18px/27px 'CartoGothicStdItalic', Arial, sans-serif;}
+
+p.style3 {font: 18px/27px 'CartoGothicStdBold', Arial, sans-serif;}
+
+p.style4 {font: 18px/27px 'CartoGothicStdBoldItalic', Arial, sans-serif;}
+
+
+
+/* HEADINGS */
+
+h1,h2,h3,h4,h5,h6 {
+
+// font-family:'PTSansRegular', sans-serif; 
+
+}/* headings */
+
+/***************************************************************************/
+
+
+
+
+
+
+
+/* just need a <span id="pbr"/> where a break is needed, to force a break right there! */
+
+#pbr {
+
+page-break-before: always;
+
+}
+
+
+
+
+
+
+
+body {
+
+margin: 12px 4px 10px 10px;
+
+//NEED a left padding (last val), to look good :)
+
+padding: 2px 0px 2px 12px; // 2020
+
+ 
+
+//line-height: 140%; // was 140%
+
+}   
+
+PBR {
+
+page-break-after: always;
+
+}
+
+
+
+          
+
+
+
+p {
+
+line-height: 150%;
+
+//margin: 6px 0px 2px 10px; /* was 2-0-2-10 */
+
+//padding: 3px 2px 5px 6px; // was 3-2-3-6
+
+}
+
+
+
+#first-para {
+
+margin: 2px 0px 2px 10px;
+
+/* lesser padding than the standard para, to 'outdent' a bit! */
+
+padding: 3px 2px 5px 1px;
+
+}
+
+
+
+/* caption is flush w/ L1 item */
+
+/* MORE padding/margin than the standard para, to 'indent' a bit! */
+
+#fig-caption {
+
+margin: 2px 0px 2px 21px;
+
+padding: 2px 2px 5px 0px;
+
+}
+
+
+
+#code-caption {
+
+margin: 2px 0px 1px 21px;
+
+padding: 0px 2px 5px 0px;
+
+}
+
+
+
+p.page { page-break-after: always; }
+
+
+
+i {
+
+/*font-weight: bold;*/
+
+padding: 1px 1px 1px 1px;
+
+margin-left:-1px;
+
+}
+
+
+
+b {
+
+/*font-weight: 600;*/
+
+padding:2px 2px 2px 2px;
+
+padding-right: 3px;
+
+padding-left: 2px;
+
+margin-left:-1px;
+
+margin-right:2px;
+
+line-height: 145%; // 195
+
+padding-top:0px;
+
+padding-bottom:0px;
+
+padding-top:0px;
+
+}
+
+
+
+           
+
+
+       
+#content {
+
+padding: 2px 2px 2px 2px; // was 2 2 2 0
+
+margin: 2px 2px 2px 0px; 
+
+border: 0px solid black;
+
+z-index: 2; 
+
+}/* content */
+
+/*******************************/
+
+
+
+
+
+
+
+/************** CONTENT *****************/
+
+
+
+            
+
+h1,h2,h3,h4,h5 {
+
+color: #c4c4ff;
+
+background: #020212;
+
+font-family: 'allerregular';
+
+}
+
+
+
+h1 {
+font-size: 24px; 
+
+line-height: 90%;
+
+padding:8px 0px 0px 4px; 
+
+text-shadow: 0 0 0.5px #666666;
+padding-bottom: 4px;
+padding-top: 8px;
+margin-bottom: 2px;
+padding-left: 4px;
+margin-left: -2px;
+}
+
+h2 {
+
+font-size: 22px;
+
+font-weight: bold;
+
+line-height: 100%;
+
+margin:  2px 0px 6px 0px; 
+
+padding: 2px 0px 3px 12px;// 2 0 2 9
+
+//font-family:'PTSansRegular', sans-serif; 
+
+text-shadow: 0 0 0.25px #666666;
+
+}  
+
+h3 {
+
+font-size: 20px;
+
+font-weight: bold;
+
+line-height: 100%;
+
+margin:  2px 0px 6px 0px; 
+
+padding: 2px 0px 3px 14px;
+
+
+letter-spacing: 0.15px;
+
+}   
+
+h4 {
+
+font-size: 16px;
+
+font-weight: bold;
+
+line-height: 100%;
+
+margin:  2px 0px 6px 0px; 
+
+padding: 2px 0px 3px 14px;
+
+}
+
+h5 {
+
+font-size: 20px;
+
+font-weight: bold;
+
+line-height: 100%;
+
+margin:  2px 0px 6px 0px; 
+
+padding: 2px 0px 3px 14px;
+
+background: #46004A;
+
+}
+
+ 
+p {
+line-height: 120%;
+margin: 8px 0px 4px 0px; // 12 0 8 0
+}
+
+p.heading {
+font-size: 30px; 
+font-weight: bold;
+font-family: 'allerregular', sans-serif;
+text-shadow: 0 0 0.5px #666666;
+padding-bottom: 8px;
+padding-top: 11px;
+padding-left: 15px;
+margin-left: -2px;
+margin-top: 24px;
+margin-bottom: -1px;
+background: #676d91; // #2D2D47;
+}
+
+p.item {
+font-family: 'allerregular', sans-serif;
+font-size: 17px;
+font-weight: normal;
+color: #ffffff;
+padding-left: 12px;
+padding-top: 4px;
+padding-bottom: 4px;
+}
+
+p.subitem {
+font-family: 'allerregular', sans-serif;
+font-size: 15px;
+padding-left: 32px;
+padding-top: 5px;
+padding-bottom: 4px;
+margin-top: 0px;
+}
+
+p.line {
+
+border: none;
+
+}
+
+p.urgentitem {
+
+// border: 1px solid #ffffff;
+//margin: 10px 0px 20px -15px;
+//padding: 1px 1px 1px 0px; 
+font-family: 'allerregular', sans-serif;
+font-size: 17px;
+padding-left: 12px;
+color: #FCDEC7; // #ffffff; 
+background: #660517;//was #8B0720; #592276; 
+padding-top: 4px;
+padding-bottom: 4px;
+}
+
+p.urgentsubitem {
+
+font-family: 'allerregular', sans-serif;
+font-size: 15px;
+padding-left: 32px;
+color: #FCDEC7; // #ffffff;
+background: #660517; // #8B0720; // #592276; 
+padding-top: 5px;
+padding-bottom: 4px;
+margin-top: 0px;
+
+}
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ 
+
+//\\//\\font-family: Consolas, monaco, monospace;
+
+// to go w/ OddMuse table syntax
+table.user {
+border-style:solid;
+border-width:thin;
+}
+table.user tr td {
+border-style:solid;
+border-width:thin;
+padding:5px;
+}
+
+
+
+
+
+
+

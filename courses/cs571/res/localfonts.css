@@ -1,0 +1,253 @@
+/*
+1. From https://www.cufonfonts.com/font/urban-tour-variable etc, click 'Download @font-face Kit'
+2. unzip
+3. grab the .woff and stick it here in fonts/
+4. examine style.css, grab the @font-face block, stick it here
+5. edit the @font-face block, add fonts/<subdir>/ to the url()
+6. can now use the font-family in fonts_only.css AND in moi.min.css :)
+*/
+
+/* a font-face block specifies four/five props: family, style, weight, [display], src */
+/* a SINGLE woff is enough to have, at the least! [so, can bring them in from anywhere!] */
+/* search for woffs :) */
+/* can get ttf, then convert: https://cloudconvert.com/ttf-to-woff */
+/*
+https://bigfontsite.com/fonts/
+https://www.typeby.com/
+*/
+/* ttf, OK too!!! */
+
+/* AVOID cmts above font-face declarations if poss!!! */
+/* BEST to have own/local copies of font files */
+
+/*
+SFMono: the monospaced version of San Francisco, a font by Apple Computers. Used in Xcode, macOS Terminal, and macOS Console.
+
+
+*/
+
+
+@font-face {
+	font-family: "Quosm";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/quosm/Quosm.woff');
+}
+@font-face {
+	font-family: "Quosm-Bold";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/quosm/Quosm-Bold.woff');
+}
+@font-face {
+	font-family: "Quosm-SemiBold";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/quosm/Quosm-SemiBold.woff');
+}
+
+@font-face {
+	font-family: "SFMono";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/SFMono/SFMono-Regular.otf');
+}
+
+
+@font-face {
+	font-family: "Alatsi";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/alatsi/Alatsi-Regular.ttf');
+}
+
+/*@import url('https://fonts.cdnfonts.com/css/lemon-milk');*/
+@font-face {
+	font-family: "LEMON MILK";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/lemon_milk/LemonMilkRegular-X3XE2.woff');
+}
+
+@font-face {
+	font-family: "cnn_sans_display-v1";
+	font-style: normal;
+	font-weight: 400;
+        src:url('fonts/cnn_sans_display-v1/cnn_sans_display-v1.woff2');
+}
+
+
+
+@font-face {
+	font-family: "JetBrainsMono";
+	font-style: normal;
+	font-weight: 400;
+        src: local('JetBrainsMono'), url('fonts/JetBrains/JetBrainsMono-Regular.woff') format('woff');
+}
+
+
+
+@font-face {
+	font-family: "Circular";
+	font-style: normal;
+	font-weight: 400;
+        src: local('Circular'), url('fonts/Circular-Book.woff') format('woff');
+}
+
+
+
+/* thin serif! */
+@font-face {
+	font-family: "Capita";
+	font-style: normal;
+	font-weight: 200;
+        src: local('Capita'), url('fonts/CapitaExtraLight.woff') format('woff');
+}
+
+
+/* thin, pretty */
+/* remember the hyphen */
+@font-face {
+	font-family: "Brandon-Text";
+	font-style: normal;
+	font-weight: 400;
+        src: local('Brandon Text'), url('fonts/BrandonTextRegular.woff') format('woff');
+}
+
+/* thin, pretty */
+/* remember the hyphen */
+@font-face {
+	font-family: "Benton-Sans";
+	font-style: normal;
+	font-weight: 400;
+        src: local('Benton Sans'), url('fonts/BentonSansRegular.woff') format('woff');
+}
+
+/* bit thick/goopy but readable! */
+@font-face {
+font-family: 'Flaunters Regular';
+font-style: normal;
+font-weight: 100;
+src: local('Flaunters Regular'), url('fonts/flaunters/Flaunters.woff') format('woff');
+}
+
+
+
+/* VERY readable with fancy q g etc */
+@font-face {
+font-family: 'Bailey Sans ITC Com Book';
+font-style: normal;
+font-weight: normal;
+src: local('Bailey Sans ITC Com Book'), url('fonts/bailey-sans-itc-com/BaileySansITCBook.woff') format('woff');
+}
+
+
+
+/* readable! */
+@font-face {
+font-family: 'Avenir Next LT Pro Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Avenir Next LT Pro Regular'), url('fonts/avenir-next-lt-pro/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+
+/* readable! */
+@font-face {
+font-family: 'Avenir Next LT Pro Condensed';
+font-style: normal;
+font-weight: normal;
+src: local('Avenir Next LT Pro Condensed'), url('fonts/avenir-next-lt-pro/AvenirNextLTPro-Cn.woff') format('woff');
+}
+
+
+/* light, readable! */
+@font-face {
+font-family: 'Avancement 2020 Light';
+font-style: normal;
+font-weight: normal;
+src: local('Avancement 2020 Light'), url('fonts/avancement-2020/Avancement2020-Light.woff') format('woff');
+}
+
+
+/* fancy! */
+@font-face {
+font-family: 'Urban TOUR variable Regular';
+font-style: normal;
+font-weight: normal;
+src: local('Urban TOUR variable Regular'), url('fonts/UrbanTourVariable-Ol9d.woff') format('woff');
+}
+
+/* very pretty, readable */
+@font-face {
+  font-family:'metric';
+  src:url('fonts/MetricWeb-Regular.woff');
+  font-style:normal;
+  font-display:swap;
+  font-weight:400; 
+}
+
+/* gorgeous! */
+@font-face {
+	font-family: "BBC Reith Sans";
+	font-style: normal;
+	font-weight: 300;
+        src: local('BBC Reith Sans'), url('fonts/Reith/BBCReithSans_W_Rg.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: "00399-address";
+	font-style: normal;
+	font-weight: 300;
+        src: local('00399-address'), url('fonts/assorted/00399-address.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: "Cantarell-Regular";
+	font-style: normal;
+	font-weight: normal;
+        src: local('Cantarell-Regular'), url('fonts/Cantarell-Regular/Cantarell-Regular.ttf.woff') format('woff');
+}
+
+@font-face {
+	font-family: "Ainslie W01 Cond Regular V2";
+	font-style: normal;
+	font-weight: normal;
+        src: local('Ainslie W01 Cond Regular V2'), url('fonts/Ainslee/Ainslie-W01-Cond-Regular-V2.woff') format('woff');
+}
+
+
+
+
+@font-face {
+	font-family: "FiraCode";
+	font-style: normal;
+	font-weight: normal;
+        src: local('FiraCode-Regular'), url('fonts/FiraCode/FiraCode-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Red Hat Mono';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(fonts/RHM/RHM.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+
+@font-face {
+	font-family: "Caslon Pro";
+	font-style: normal;
+	font-weight: normal;
+        src: url('fonts/CaslonPro/CaslonPro.woff') format('woff');
+}
+
+
+
+/* MUST be last! */
+@import url(fonts/PFDinMono/stylesheet.css)
+@import url(fonts/fromtheweb/stylesheet.css)

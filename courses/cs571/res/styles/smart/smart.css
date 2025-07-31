@@ -1,0 +1,299 @@
+@import "presmart.css";
+
+body {
+ margin-left: 2px; 
+ background: #32303C; // #
+ 1C212D; // # 232938;
+ color: #DBE6F9; // # D0DFF9; 
+ // 
+ from 
+ http: //arc.id.au/CangoUserGuide.html
+ //\\font: 12px Verdana,"Lucida Grande",Arial,Helvetica,sans-serif;
+ //\\
+ font: 12px "Arial Black", Gadget, sans-serif;
+ //
+ font: 13px "Trebuchet MS", Helvetica, sans-serif;
+ //
+ font: 13px Tahoma, Geneva, sans-serif;
+ font-family: 'aller_lightregular';
+}
+
+b {
+ color: #FCEED7;
+ background: #660517;
+ font-style: bold; /*normal;*/
+ //
+ font-weight: 100;
+}
+
+p {
+ margin-left: 18px;
+ line-height: 135%;
+}
+
+h1, h2, h3, h4, h5 {
+ background: #343D56; // #
+ 38425B; //# 3F4A66;
+ color: #FFFFFF;
+ padding-top: 4px; 
+ padding-bottom: 4px;
+ line-height: 120%;
+}
+
+pre {
+ margin-left: 40px;
+ /*background: #ff0000;*/
+ margin-top: -8px;
+ margin-bottom: -5px;
+}
+
+#aceeditor {
+ font-family: monospace;
+ font-style: normal;
+ font-variant: normal;
+ font-weight: normal;
+ font-size: medium;
+ line-height: 100%;
+ word-spacing: normal;
+ letter-spacing: normal;
+ text-decoration: none;
+ text-transform: none;
+ text-align: left;
+ text-indent: 0ex;
+}
+
+a {
+ text-decoration: none;
+ color: #F2F2CB; // # FFFFB0;
+}
+a:hover { 
+ // 
+ font-weight: bold;
+ //
+ background: #535D6D; // # 918fa3; 
+ color: #FFD880; // #
+ FFD066; // # FFB100;
+}
+
+a:visited {
+ color: #FFFF20;; //# F770A5;
+ //
+ background: #FFFFFF;
+}
+
+
+
+
+
+//////////////////////////////
+ul {
+ /* font stack at end */
+ /*font: 11pt Trebuchet MS, sans-serif;*/
+ font-size: 12pt; //  11pt;
+ //
+ color: #ffffff;
+ list-style-position: outside;
+ padding-top: 0px;// was  2
+ padding-bottom: 2px;
+ margin-left: 1px;
+ /* margin-top is VERY IMPORTANT, eg. in the foll:
+ Consider:
+ * A
+ * B
+ the spacing bet. 'Consider:' and '* A' needs to be just right,
+ that's what margin-top specifies */
+ margin-top: -6px;
+ margin-bottom: 4px;
+ line-height: 130%; //  was  120
+ vertical-align: middle;
+ list-style-type: disc; /* first level bull */
+ //
+ list-style-image: url('sq.gif');
+}
+
+ol {
+ /* font: 11pt Trebuchet MS, sans-serif;*//* font stack at end */
+ font-size: 12pt; // 11pt;
+ //
+ color: #ffffff;
+ list-style-position: outside;
+ margin-top: 0px; //  was  -3px;
+ padding-top: 0px;// was  2
+ padding-bottom: 2px;
+ margin-left: 7px;
+ margin-top: -2px;
+ margin-bottom: 3px;
+ line-height: 130%; // 
+ normal; //  110%;
+ //
+ list-style-type: square;
+ vertical-align: middle;
+ //
+ list-style-image: url('sq.gif');
+}
+
+li{
+ //
+ color: #ffffff;
+ margin-left: -8px; 
+ margin-bottom: 1px;
+ padding-top: 0px; 
+ padding-bottom: 1px;
+ line-height: 160%; /*
+ each 
+ item, 
+ diff. 
+ from 
+ line 
+ height 
+ in 
+ multi-line */
+ //
+ list-style-image: url('http://www.smartcg.com/site/wiki/note-bullet.gif');
+}
+
+
+li ul{
+ //
+ color: #ffffff;
+ list-style-type: square; /* second level bullets */
+ /*font: 10.5pt Trebuchet MS, sans-serif;*//* font stack at end */
+ font-size: 11.5pt; /* was 11, to keep it smaller since it's L2 */
+ line-height: 106%; // 
+ inherit; //  125%;
+ vertical-align: middle;
+ margin-left: -18px; //  was  -24
+ padding-top: -10px;
+ margin-top: -1px;
+ margin-bottom: -2px;
+ //
+ list-style-image: url('smdot.png');
+}
+
+li ul li{
+ //
+ color: #ffffff;
+ border-top: none;
+ border-bottom: none;
+ // 
+ padding-left: -3px;
+ margin-left: -5px;  //  was  4  px
+ //\\
+ list-style-type: square;
+ /* l-h controls gap between consec. single-line entries */
+ line-height: 130%; // 
+ inherit; //  95%;
+ margin-top: 1px;
+}
+
+li ul li ul{
+ //
+ color: #ffffff;
+ list-style-type: square;
+ /*font: 10.5pt Trebuchet MS, sans-serif;*/
+ font-size: 11pt;
+ line-height: 100%; // 
+ 135%;
+}
+
+li ul li ul li{
+ //
+ color: #ffffff;
+ border-top: none;
+ border-bottom: none;
+ margin-left: -5px; 
+ list-style-type: square;
+ line-height: 125%; //  was  100
+ margin-top: 3px;
+ margin-bottom: -2px;
+}
+
+pre {
+ /* might need to spec 'p pre' to create a small top margin */
+ border: 1px solid #AAAACA;
+ padding: 4px;
+ margin-top: 0px;
+ margin-bottom: 3px;
+ margin-left: 25px;
+ padding-left: 10px;
+ font-size: 14.5px;
+ /*font-family: 'PT Mono';*/
+ letter-spacing: 0.5px;/* valid to spec 0px! */
+ line-height: 150%;
+ /* 650 px - PERFECT for printing w/ 0.5" margin on all sides.. */
+ //
+ width: 950px;                          /* specify width  */
+ // 
+ width: 90%;
+ white-space: pre-wrap;                 /* CSS3 browsers  */
+ white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+ white-space: -pre-wrap;                /* Opera 4 thru 6 */
+ white-space: -o-pre-wrap;              /* Opera 7 and up */
+ word-wrap: break-word;                 /* IE 5.5+ and up */
+ /* overflow-x: auto; */                /* Firefox 2 only */
+ /* width: 99%; */         /* only if needed */
+ background: #32303C; // #
+ color: #FFFFFF;
+ /*font-family: 'PT Mono';*/
+ width: 94%; /* scales nicely w/ the browser width */
+ white-space: pre-wrap;                 /* CSS3 browsers  */
+ white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+ white-space: -pre-wrap;                /* Opera 4 thru 6 */
+ white-space: -o-pre-wrap;              /* Opera 7 and up */
+ word-wrap: break-word;                 /* IE 5.5+ and up */
+ /* from http://crafted-software.blogspot.com/2010/07/css-for-tag-list-of-best-monospaced.html */
+ /*font-family: 'Pragmata, Menlo, 'DejaVu LGC Sans Mono', 'DejaVu Sans Mono', Consolas, 'Everson Mono', 'Lucida Console', 'Andale Mono', 'Nimbus Mono L', 'Liberation Mono', FreeMono, 'Osaka Monospaced', Courier, 'New Courier', monospace;'*/
+ //font-family: 'PT Mono';
+
+ //font-family: 'Consolas, Lucida Sans Typewriter,Lucida Typewriter,Courier New,Courier, monospace';
+ font-family: 'SourceCodeProSemiBold';
+}
+// pre
+
+/
+/ tabmenu styles, from wiki/todolist.css
+#tabmenu {
+ color: #000;
+ border-bottom: 1px solid black; /*  MUST  be  black */
+ padding: 2px;
+ z-index: 1;
+ padding-left: 10px;
+ margin-bottom: -5px;
+}
+#tabmenu li {
+ display: inline;
+ overflow: hidden;
+ list-style-type: none;
+}
+#tabmenu a, a.active {
+ color: #d8d8ff;
+ background: #060611; /* #444444;#918fa3; */
+ /* spec. font-size to be identical to h1 */
+ //
+ font-family: 'PTSansRegular', sans-serif;
+ text-shadow: 0 0 0.2px #d8d8ff;
+ font-size: 21px;
+ //
+ font-weight: bold;
+ border: 2px solid white;
+ padding: 0px 6px 0px 4px;
+ margin-top: 6px;
+ text-decoration: none; 
+}
+#tabmenu a.active {
+ background: #25253f; // #
+ border-bottom: 2px solid #DDDDDD; //
+ //
+ margin-bottom: 6px;
+}
+#tabmenu a:hover {
+ color: #d8d8ff; /* fff */
+ // 
+ background: #AAAAAA; // #
+ background: #2d2d5e;
+}
+
+#tabmenu a:visited {
+ color: #d8d8ff; /* #f1f2db; */
+}
+

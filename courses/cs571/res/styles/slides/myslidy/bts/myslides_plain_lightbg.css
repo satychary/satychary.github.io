@@ -1,0 +1,661 @@
+/* custom fonts!!! */
+@font-face
+{
+font-family: Sansation;
+src: url('sansation/sansation_light_webfont.ttf')
+      ,url('sansation/sansation_light_webfont.eot'); /* IE9+ */
+}
+
+@font-face
+{
+font-family: Sansation;
+src: url('sansation/sansation_bold_webfont.ttf')
+      ,url('sansation/sansation_bold_webfont.eot'); /* IE9+ */
+font-weight:bold;
+}
+
+
+      body {
+        margin: 10px 10px 10px 10px;
+        //NEED a left padding (last val), to look good :)
+        padding: 2px 0px 2px 12px; // 2020
+        line-height: normal; 
+        PBR {
+               page-break-after: always;
+        }
+     }
+
+body {
+   background: #1E1E33; 
+   color: #F0F0FF; 
+   color: #222233; // dark blue
+   /* the type below will be used everywhere, except when overridden, eg. in 'pre' */
+   //font-family: "Tahoma", "Arial", "Helvetica", sans-serif; // clean, pretty
+   font-family: sansation;
+   font-family: "Tahoma", sans-serif;  // works well!
+}
+
+/* order: link, visited, hover, active */
+a:link, a:visited{
+color: #FFFF99; // #c0c0F0;
+color: #012F83; //#01215C;
+background:transparent;
+text-decoration:none;
+}
+
+a:hover{
+color: #FFFF99; // #c0c0F0;
+color: #012F83; //#01215C;
+background:transparent;
+text-decoration:underline;
+}
+
+a:active{
+color: #FFFF99; // #c0c0F0;
+color: #012F83; //#01215C;
+//background: #eee;
+text-decoration:underline;
+} 
+
+h1, h2, h3, h4, h5, h6 {
+  color: #EFEFF6; // #F0F0FF;
+  color: #222233; // dark blue
+  
+  /* the type below will be used everywhere, except when overridden, eg. in 'pre' */
+  /* Georgia: no-show; Arial/Helv: both same, spacier; Tahoma: more blocky, ALWAYS BOLD, closer */
+  /*font-family: "Tahoma", "Arial", "Helvetica", sans-serif; */
+  /*font-family: Georgia, sans-serif;*/
+  /*font-family: "Helvetica", sans-serif;*/
+  /*font-family: "Arial", sans-serif; */
+  font-family: "Tahoma", sans-serif; 
+  margin-left:12px;
+}
+
+/* 'standard' p (plus ul, li) is below, can be overridden by *txt classes that come later */
+/* treat the 40px below as 'medium', and scale up/down as before to 
+    vvs vs s m l vl vvl; */
+p {
+  font-family: Helvetica, sans-serif; // Sansation, sans-serif; /* !!!!!!!!!!!! "Tahoma", sans-serif; */
+  font-style: bold; /* not BOLD */
+  color: #F0F0FF;
+  color: #222233; // dark blue
+  font-size: 40px;
+  margin: 15px 5px 5px 5px;
+}
+
+ul {
+  font-family: "Helvetica", sans-serif; 
+  font-style: bold; 
+  color: #F0F0FF;
+  color: #222233; // dark blue
+  font-size: 40px;
+  margin-top: 4px; // to get closer to top
+}
+
+li {
+  font-family: "Arial","Helvetica", sans-serif; 
+  font-family: "Arial", "Helvetica", sans-serif;
+  color: #F0F0FF;
+  color: #222233; // dark blue
+  font-size: 33px;
+  font-style: bold; 
+  //\\padding-left: 2px; // EXTRA over ilframe/irframe
+  margin-left:0px;
+  padding-left: 15px;
+  //\\border: 1px solid white;
+}
+
+/* next are the smaller versions of p, ul, li */
+.smp {
+  font-family: Helvetica, sans-serif; // Sansation, sans-serif; /* !!!!!!!!!!!! "Tahoma", sans-serif; */
+  font-style: normal; /* not BOLD */
+  color: #F0F0FF;
+  color: #222233; // dark blue
+  font-size: 30px;
+  margin: 4px 4px 12px 4px;
+}
+
+
+.sml {
+  font-family: "Helvetica", sans-serif; 
+  font-style: normal; 
+  color: #F0F0FF;
+  color: #222233; // dark blue
+  font-size: 25px;
+  margin-top: 0px; // to get closer to top
+}
+
+
+table {
+  margin: -4px;
+  margin-top:-2px;
+}
+
+td {
+  vertical-align: middle;
+}
+
+img {
+  margin-left: 5px;
+  margin-top:-10px;
+  margin-right: 14px;
+  padding: 10px;
+  border: 1px solid white;
+  border-color: #494961; //#7474c6; 
+  margin:5px;
+}
+
+svg {
+  margin-left: 5px;
+  margin-top:-5px;
+  margin-right: 14px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+object {
+  margin-left: 5px;
+  margin-top:5px;
+  margin-right: 14px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+embed {
+  margin-left: 5px;
+  margin-top:5px;
+  margin-right: 14px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+video {
+  margin-left: 5px;
+  margin-top:5px;
+  margin-right: 14px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+iframe {
+  margin-left: 15px;
+  margin-top:5px;
+  margin-right:5px;
+  margin-bottom:5px;
+  padding: 6px;
+  border: 1px solid white;
+  width:96%;
+  height:550px;
+}
+
+
+ /* 
+     dots indicate classes, meant to provide alt ways of styling the same el; dots by themselves define
+     freestanding classes that can be      m&m with any el; conversely, el.class {} defines a class alt
+     just for that el - this can be used to override a stdalone . class? :) 
+ */
+
+ div.slide
+  {
+     position:relative;
+     left:0px;
+     top:0px; /* was 20 px */
+     //background: #ff0000; /* TEST */
+     //opacity: 0.9; // test
+     /* as a result of 0.9 opa and bg spec, the body bg shows through each slide, 
+        slide bg is at L/R, body bg is 
+     100% as an external (outer) frame */
+     // background: #232354; 
+     background-image: url('pics/grid.png');
+     margin: 2px;
+  }
+
+  div#osframe
+    {
+       /* not 1067x800  or 666x500*/
+       margin:1px auto; padding:6px;
+       border:3px;
+       border-style: ridge; // solid;
+       border-color: #B5B5FF; 
+       border-radius: 8px; -webkit-border-radius: 8px;-moz-border-radius: 8px;
+       width:1024px;height:750px; 
+       //\\background: #060611; /* deep blue - redundant, same as 'body' */
+       overflow: auto;
+       opacity: 1.0;
+       /* alas, no border... */
+       //border: none;
+    }
+    
+    /* talk title frame, ie v. first slide */
+    div#tframe
+    {
+       //\\font-family: Arial sans-serif;
+       font-weight: bold;
+       //border-style: double;
+       /*border-color: black;padding:10px;
+       border:1px solid black;*/
+       margin: 3px;
+       /*background: #B2B1BC; */
+       border: none;
+    }
+
+    /* each slide's title frame */
+    div#itframe
+    {
+       // font: 14pt/18pt Trebuchet MS, sans-serif;color: #000046;
+       // background: #B2B1BC; 
+       //text-align: center;// no need to center titles!
+       padding:1px;
+       border:2px; 
+       border-style: ridge; /* solid; double; */
+       border-color: #8989D4; //#7474c6; // #5A5A99;  
+       border-radius: 6px; -webkit-border-radius: 8px;-moz-border-radius: 6px;
+       //margin-top: 5px;
+       margin: 10px 2px 2px 2px;   
+    }
+
+    /* don't (CAN'T) have >=2 lframes or rframes in succession
+        for the most part, what's common is L, or L-R, or L-R-L, nothing else */
+    /* in other words, to get 2 or 3 cols, do
+    table
+     tr
+       td
+         div, ilfr
+         /div
+       /td
+       td
+         div, irfr
+    ...
+    */
+
+    
+    div#ilframe
+    {
+       // font-family: sans-serif;font-weight: bold;border-style: double;
+       padding:40px;margin: 2px; 
+       float: left;
+       //background: #B2B1BC; 
+       //border:4px solid white; // black;  
+       //border-style: double;
+       border:1px white; // black;  
+       border-style: solid; // double;
+       border-radius: 8px; -webkit-border-radius: 8px;-moz-border-radius: 8px;
+       /* no border, since we'll have a var-ht one if we allow it */
+       border: none;
+    }
+
+    /* mirrored version of ilframe, for when I embed a div/frame/obj/img on the left */
+    div#irframe
+    {
+       // font-family: sans-serif;font-weight: bold;border-style: double;
+       padding:40px;margin: 2px; 
+       float: right;
+       //background: #B2B1BC; 
+       border:1px solid white; // black;  
+       //border-style: double;
+       border:2px white; // black;  
+       border-style: solid; // double;
+       border-radius: 8px; -webkit-border-radius: 8px;-moz-border-radius: 8px;
+       border: none;
+    }
+
+   div#title{font: 72pt/80pt Trebuchet MS, sans-serif;color: #000046;text-align: center} 
+   div#subtitle{font: 48pt/80pt Trebuchet MS, sans-serif;color: #000046;text-align: center}
+   div#xtxt{font: 36pt/42pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#btxt{font: 30pt/36pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#ltxt{font: 24pt/30pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#mtxt{font: 20pt/24pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#stxt{font: 14pt/18pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#tinytxt{font: 8pt/12pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#ittytxt{font: 6pt/10pt Trebuchet MS, sans-serif;color: #000046;text-align:left}
+   div#hidtxt{font: 14pt/44pt Trebuchet MS, sans-serif;color: #B2B1BC;text-align:left}
+   div#invtxt{font: 72pt/80pt Trebuchet MS, sans-serif;color: #B2B1BC;text-align:left}
+
+   div#posterA{font: 288pt/320pt Trebuchet MS, sans-serif;color: #000046;text-align: center} 
+   div#posterB{font: 216pt/240pt Trebuchet MS, sans-serif;color: #000046;text-align: center}
+
+/* colors */
+.ltblue {
+  color: #B5B5FF;
+}
+
+.oryell {
+  color: #FFE500;
+}
+
+   p.more
+    {
+       font: 8pt/10pt Trebuchet MS, sans-serif;color: #000046;
+       /* background: #B2B1BC; */
+    }
+
+    /* p class="stxt" .... etc. */ /*or instead of p: span, h1, h2.. */
+    .vvvstxt
+    {
+       font-size: 5pt; text-align:left;
+    }
+    .vvstxt
+    {
+       font-size: 10pt; text-align:left;
+    }
+    .vstxt
+    {
+       font-size: 15pt; text-align:left;
+    }
+    .stxt
+    {
+       font-size: 20pt; text-align:left;
+    }
+    .mtxt
+    {
+       font-size: 30pt; text-align:left;
+    }
+    .ltxt
+    {
+       font-size: 40pt; text-align:left;
+    }
+    .vltxt
+    {
+       font-size: 50pt; text-align:left;
+    }
+    .vvltxt
+    {
+       font-size: 60pt; text-align:left;
+    }
+    
+    .hidtxt
+    {
+       font: 14pt/44pt Trebuchet MS, sans-serif;color: #B2B1BC;text-align:left;
+    }
+    .invtxt
+    {
+       font: 72pt/80pt Trebuchet MS, sans-serif;color: #B2B1BC;text-align:left;
+    }
+
+   /*.title
+    {
+       font: 72pt/80pt Trebuchet MS, sans-serif;color: #000046;text-align: center;
+    }
+   .subtitle
+    {
+       font: 48pt/60pt Trebuchet MS, sans-serif;color: #000046;text-align: center;
+    }*/
+
+    .posterA
+    {
+       font: 288pt/320pt Trebuchet MS, sans-serif;color: #000046;text-align: center;
+    }
+
+    .posterB
+    {
+       font: 216pt/240pt Trebuchet MS, sans-serif;color: #000046;text-align: center;
+    }
+
+   
+    .title
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     //\\background-color: #aeadbc; 
+     //font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+     font-size: 100px;
+     line-height: 110%;
+    text-transform: none; 
+    margin: 1px;
+    padding: 4px 4px 16px 4px;
+    text-align: center;
+    border: none;
+    }
+
+     .bigtitle
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     //\\background-color: #aeadbc; 
+     //font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+     font-size: 200px;
+     line-height: 110%;
+    text-transform: none; 
+    margin: 1px;
+    padding: 4px 4px 16px 4px;
+    text-align: center;
+    border: none;
+    }
+
+    .verybigtitle
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     //\\background-color: #aeadbc; 
+     //font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+     font-size: 300px;
+     line-height: 110%;
+    text-transform: none; 
+    margin: 1px;
+    padding: 4px 4px 16px 4px;
+    text-align: center;
+    border: none;
+    }
+
+    .subtitleA
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     // background-color: #aeadbc; 
+     font-size: 80px;
+     line-height: 100%;
+     text-transform: none; 
+     margin: 1px;
+     padding: 4px 4px 16px 4px; 
+     text-align: center;
+     border: none;
+    }
+
+    .subtitleB
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     //background-color: #aeadbc; 
+     font-size: 60px;
+     line-height: 90%
+     text-transform: none; 
+     margin: 1px;
+     padding: 4px 4px 16px 4px;
+     text-align: center;
+     border: none;
+    }
+
+    .subtitleC
+    {
+     color: #FFFFFF; // #000046;
+     color: #222233; // dark blue
+     // background-color: #aeadbc; 
+     font-size: 40px;
+     line-height: normal;
+     text-transform: none; 
+     margin: 1px;
+     padding: 4px 4px 16px 4px;
+     text-align: center;
+     border: none;
+    }
+    
+   /* slide title, typically used inside an itframe */
+    h1.st
+    {
+      color: #222255; // dark blue
+     //\\color: #000046;
+     //\\background-color: #a2a1af; // #aeadbc; 
+     //font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
+     font-size: 42px; // slightly bigger than rest of text
+     line-height: normal;
+     text-transform: none; 
+     margin: 4px 2px 1px 6px;
+     padding: 2px;
+     padding-bottom: 6px;
+     /* the border below lies inside the itframe's white border, creating 
+     a widespaced-double-line effect :) */
+     /* update - no need, just use the container div's (itframe) border */
+     //\\border: 1px solid white; // black; //none;
+     //\\color: #B5B5FF; // pretty blue headings
+    
+    }
+
+   img#simg
+   {
+     padding:1px; border-color: #666666; border: 1px solid;text-align:center; 
+   }
+
+  /* usage: pre class="lcode" .... */
+   pre.lcode{  
+	 font-family: "Courier New", Courier, mono; 
+	 font-size: 36px; 
+              font-weight: bold;
+              line-height: 100%;	 
+	 padding-top: 2px; 
+	 padding-right: 4px; 
+	 padding-bottom: 2px; 
+	 padding-left: 4px; 
+	 border: #000000; 
+	 border-style: dashed; 
+	 border-top-width: 1px; 
+	 border-right-width: 1px; 
+	 border-bottom-width: 1px; 
+	 border-left-width: 1px; 
+	 width:auto;
+	 }
+   pre.mcode{  
+	 font-family: "Courier New", Courier, mono; 
+	 font-size: 24px; 
+              font-weight: bold;
+              line-height: 100%;	 
+	 padding-top: 2px; 
+	 padding-right: 4px; 
+	 padding-bottom: 2px; 
+	 padding-left: 4px; 
+	 border: #000000; 
+	 border-style: dashed; 
+	 border-top-width: 1px; 
+	 border-right-width: 1px; 
+	 border-bottom-width: 1px; 
+	 border-left-width: 1px; 
+	 width:auto;
+	 }
+  pre.scode{  
+	 font-family: "Courier New", Courier, mono; 
+	 font-size: 12px; 
+              font-weight: bold;
+              line-height: 100%;	 
+	 padding-top: 2px; 
+	 padding-right: 4px; 
+	 padding-bottom: 2px; 
+	 padding-left: 4px; 
+	 border: #000000; 
+	 border-style: dashed; 
+	 border-top-width: 1px; 
+	 border-right-width: 1px; 
+	 border-bottom-width: 1px; 
+	 border-left-width: 1px; 
+	 width:auto;
+}
+
+p,ul,li {
+  //font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 30px;
+  //font-weight:bold;
+  margin-left: 15px;
+}
+
+/* all our text! */
+p {
+ font-size: 34px;
+}
+
+ul{
+  margin-left: 0px;
+}
+
+
+div.slide {
+  //color: orange;
+  //border:4px solid ##AABBCC;
+}
+
+pre {
+ /* might need to spec 'p pre' to create a small top margin */
+ border: 1px solid #AAAACA;
+ padding: 4px;
+ //padding-top:-40px;
+ margin-top: 0px;
+ margin-bottom: 3px;
+ margin-left: 18px;
+ padding-left: 5px;
+ font-size: 24px;
+ font-weight: bold;
+ font-family: 'Consolas';
+ letter-spacing: 0.5px;/* valid to spec 0px! */
+ line-height: 150%;
+ /* 650 px - PERFECT for printing w/ 0.5" margin on all sides.. */
+ //
+ //width: 950px;                          /* specify width  */
+ // 
+ //width: 95%;
+ white-space: pre-wrap;                 /* CSS3 browsers  */
+ white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+ white-space: -pre-wrap;                /* Opera 4 thru 6 */
+ white-space: -o-pre-wrap;              /* Opera 7 and up */
+ word-wrap: break-word;                 /* IE 5.5+ and up */
+ /* overflow-x: auto; */                /* Firefox 2 only */
+ /* width: 99%; */         /* only if needed */
+ //background: #32303C; // #
+ color: #FFFFFF;
+ color: #222233; // dark blue
+ /*font-family: 'PT Mono';*/
+ width: 96%; /* scales nicely w/ the browser width */
+ white-space: pre-wrap;                 /* CSS3 browsers  */
+ white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+ white-space: -pre-wrap;                /* Opera 4 thru 6 */
+ white-space: -o-pre-wrap;              /* Opera 7 and up */
+ word-wrap: break-word;                 /* IE 5.5+ and up */
+ /* from http://crafted-software.blogspot.com/2010/07/css-for-tag-list-of-best-monospaced.html */
+ font-family: 'Pragmata, Menlo, 'DejaVu LGC Sans Mono', 'DejaVu Sans Mono', Consolas, 'Everson Mono', 'Lucida Console', 'Andale Mono', 'Nimbus Mono L', 'Liberation Mono', FreeMono, 'Osaka Monospaced', Courier, 'New Courier', monospace;'
+ //font-family: 'PT Mono';
+
+ //font-family: 'Consolas, Lucida Sans Typewriter,Lucida Typewriter,Courier New,Courier, monospace';
+ //\\font-family: 'SourceCodeProSemiBold';
+  margin-left: 30px;
+  margin-top:10px;
+  margin-right:5px;
+  margin-bottom:5px;
+  padding: 6px;
+  border: 1px solid #555555;
+  width:94.25%;
+}
+
+
+
+p.teeny 
+{
+  font-size:12px;
+  margin-top:-10px;
+  margin-left:40px;
+}
+
+img 
+{
+  width:100%;
+  border:2px solid #33336F; //white;
+  padding:3px;
+  margin-right:0px;
+}
+
+img {
+  width:auto;
+  height:auto;
+  //display: block; // no need to center!
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn2 {
+opacity: 0.4;
+}

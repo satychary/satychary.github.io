@@ -1,0 +1,8 @@
+* slidy.js - done
+* myslides.css - done
+* rollup.js - done
+* ASCIIMathML.js - done
+* slideshow ss - done
+* flowplayer swf - done
+* video.js
+* clock - done

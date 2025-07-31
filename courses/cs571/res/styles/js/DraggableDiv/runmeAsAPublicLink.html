@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Draggable - Default functionality</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+#draggable { width: 150px; height: 150px; border: 0px; padding: 0.em; }
+#draggable2 { width: 150px; height: 150px; border: 0px; padding: 0.em; }
+#draggable3 { width: 150px; height: 150px; border: 0px; padding: 0.em; }
+#draggable4 { width: 150px; height: 150px; border: 0px; padding: 0.em; word-break:pre-wrap;scroll:auto;}
+</style>
+<script>
+$(function() {
+$("#draggable" ).draggable();
+$("#draggable2" ).draggable();
+$("#draggable3" ).draggable();
+$("#draggable4" ).draggable();
+});
+</script>
+</head>
+<body>
+<div id="draggable" class="ui-widget-content">
+<img src="seqFlow.png">
+</div>
+<div id="draggable2" class="ui-widget-content">
+<img src="branchedFlow.png">
+</div>
+<div id="draggable3" class="ui-widget-content">
+<img src="loopedFlow.png">
+</div>
+<div id="draggable4" class="ui-widget-content">
+<img src="fnCallFlow.png">
+<p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+</body>
+</html>

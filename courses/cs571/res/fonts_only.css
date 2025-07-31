@@ -1,0 +1,201 @@
+/******************************************************************/
+/******************************************************************/
+/* SLIDE FONTS */
+/******************************************************************/
+
+/*
+2/2022
+Going to simply import moi.min.css for ALL the fonts+styling :) Then, the h1 etc that follow, will override... 
+*/
+
+@import url(moi.min.css);
+
+/******************************************************************/
+/******************************************************************/
+
+
+h1, h2, h3, h4, h5, h6
+{
+	/* the type below will be used everywhere, except when overridden, eg. in 'pre' */
+	/*font-family: "Tahoma", sans-serif;
+        font-family: "Open Sans";*/
+        font-weight: bold;
+}
+
+/* 'standard' p (plus ul, li) is below, can be overridden by *txt classes that come later */
+/* treat the 40px below as 'medium', and scale up/down as before to
+vvs vs s m l vl vvl; */
+p
+{
+	/*font-family: Helvetica, sans-serif;
+        font-family: "Open Sans";*/
+	font-weight: regular;
+}
+
+ul
+{
+	/*font-family: "Helvetica", sans-serif;
+    font-family: "Open Sans";*/
+	font-weight: regular;
+}
+
+li
+{
+	/*font-family: "Arial", "Helvetica", sans-serif;
+    font-family: "Open Sans";*/
+	font-weight: regular;
+}
+
+/* next are the smaller versions of p, ul, li */
+.smp
+{
+	/*font-family: Helvetica, sans-serif;*/
+	font-style: normal;
+}
+
+
+.sml
+{
+	/*font-family: "Helvetica", sans-serif;*/
+	font-style: normal;
+}
+
+
+
+
+
+
+/* talk title frame, ie v. first slide */
+div#tframe
+{
+    
+	font-weight: bold;
+}
+
+
+div#title
+{
+	font: 72pt/80pt Trebuchet MS, sans-serif;
+
+}
+div#subtitle
+{
+	font: 48pt/80pt Trebuchet MS, sans-serif;
+}
+div#xtxt
+{
+	font: 36pt/42pt Trebuchet MS, sans-serif;
+}
+div#btxt
+{
+	font: 30pt/36pt Trebuchet MS, sans-serif;
+}
+div#ltxt
+{
+	font: 24pt/30pt Trebuchet MS, sans-serif;
+}
+div#mtxt
+{
+	font: 20pt/24pt Trebuchet MS, sans-serif;
+	color: #000046;
+	text-align: left
+}
+div#stxt
+{
+	font: 14pt/18pt Trebuchet MS, sans-serif;
+}
+div#tinytxt
+{
+	font: 8pt/12pt Trebuchet MS, sans-serif;
+	color: #000046;
+	text-align: left
+}
+div#ittytxt
+{
+	font: 6pt/10pt Trebuchet MS, sans-serif;
+}
+div#hidtxt
+{
+	font: 14pt/44pt Trebuchet MS, sans-serif;
+}
+div#invtxt
+{
+	font: 72pt/80pt Trebuchet MS, sans-serif;
+}
+
+div#posterA
+{
+	font: 288pt/320pt Trebuchet MS, sans-serif;
+	color: #000046;
+	text-align: center
+}
+div#posterB
+{
+	font: 216pt/240pt Trebuchet MS, sans-serif;
+}
+
+
+
+p.more
+{
+	font: 8pt/10pt Trebuchet MS, sans-serif;
+}
+
+
+
+.hidtxt
+{
+	font: 14pt/44pt Trebuchet MS, sans-serif;
+}
+.invtxt
+{
+	font: 72pt/80pt Trebuchet MS, sans-serif;
+}
+
+
+
+.posterA
+{
+	font: 288pt/320pt Trebuchet MS, sans-serif;
+}
+
+.posterB
+{
+	font: 216pt/240pt Trebuchet MS, sans-serif;
+}
+
+
+
+
+/* usage: pre class="lcode" .... */
+pre.lcode
+{
+	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+}
+pre.mcode
+{
+	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+}
+pre.scode
+{
+	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+}
+
+
+
+pre
+{
+	font-family: Consolas,monaco,monospace;
+	font-weight: bold;
+
+}
+
+
+
+
+
+
+

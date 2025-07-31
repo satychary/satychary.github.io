@@ -1,0 +1,25 @@
+
+#nav, #sidebar { display: none; }
+
+#content { width: 100%; margin: 0; float: none; }
+
+body { 
+background: white; 
+color: black;
+text-color: black;
+} 
+#conttttent { background: transparent; }
+
+table, figure {
+  page-break-inside: auto;
+}
+
+img {
+  min-width:50%;
+  max-width:50%;
+}
+
+p,ul,li,h1,h2,h3,h4,pre,hr,div, h1.title, h1.subtitleA, h1.subtitleB, h1.subtitleC, h1.st, h2.st, h3.st  {
+ color:      #333340; // black;
+ text-color: #333340; // black;
+}

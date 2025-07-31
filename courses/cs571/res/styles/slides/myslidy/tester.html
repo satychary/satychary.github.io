@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+
+<!-- ----------------------- -->
+<title>BBG</title>
+<!-- ----------------------- -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=" "/>
+<meta name="font-size-adjustment" content="-2" />
+
+ <!-- mine! -->
+<style type="text/css">
+@import "https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/myslides.css";
+</style>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/slidy.js" charset="utf-8" type="text/javascript"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/rollup.js" charset="utf-8" type="text/javascript"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/jsxgraphcore.js"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/SSS.js"></script>
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/strokeText.js"></script>
+
+<!-- printing: NO NEED for print.css - just set margins to .5", size red: 80%, 4-up on landscape -->
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/ASCIIMathML.js"></script>
+<!-- http://www.wjagray.co.uk/maths/ASCIIMathTutorial.html -->
+
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/slides/myslidy/bts/DigitalClock.js"></script>
+
+
+<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/default.min.css">
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/hljs/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/91263185/styles/bs-3-3-6/css/bootstrap.min.cssH">
+<script src="https://dl.dropboxusercontent.com/u/91263185/styles/bs-3-3-6/js/bootstrap.min.jsH"></script>
+
+
+
+</head>
+
+<body>
+
+
+<canvas style="margin-left:-12px;margin-bottom:-100px;" id='myCanvas' ></canvas>
+<script>setInterval("animateClock()", 1000);</script>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="center"> <!-- valign was 'center' -->
+<div id="tframe">
+<!-- ---------- -->
+<h1 class="title">"BBG"</h1>
+<h1 class="subtitleC">Browser-based graphics </h1>
+<h1 class="subtitleB">Dr. Saty Raghavachary</h1>
+<h1 class="subtitleC">Autodesk/USC</h1>
+<!-- ---------- -->
+</div>
+</td>
+</tr>
+</table>
+</div></div><!-- osframe, slide -->
+<!-- ******************************************** -->
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">TOC</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<ul>
+<li>'browsers'
+<li>non-CG applications
+<li>CG applications
+<li>beyond the browser?
+</ul>
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Web browsers</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Browsers have been around only since 1993.. 
+
+<p>The first browser was called <a href="http://www.w3.org/History/1994/WWW/Journals/CACM/screensnap2_24c.gif">WorldWideWeb</a>. 
+
+<p><a href="http://multimediaman.files.wordpress.com/2012/12/ncsa-mosaic.jpg">NCSA Mosaic</a> soon followed, and after that, <a href="http://content.answcdn.com/main/content/img/CDE/_NTSCAPE.GIF">Netscape</a>. 
+
+<p>While these early browsers DISPLAYED images (in .gif and .jpg formats) and soon after, videos (in QuickTime, Flash etc.), these were NOT platforms for *creating* them..
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">cpp.sh</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p><iframe width="875px" height="500px" src="http://cpp.sh/5jfv">
+</iframe>
+</p>
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">code!</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+
+<pre><code>
+
+
+int main() {
+}
+
+</code></pre>
+
+<pre style="font-family:consolas;font-size:20px;"><code>#include &lt;iostream>
+using namespace std;
+
+struct Node {
+    int  val=0;   // data
+    Node *next=NULL; // pointer 
+}; // Node
+
+int main() {
+    
+    Node first;
+    Node *head = &first; // head is a "pointer to a Node"
+    first.val = 100; 
+    cout << first.val << endl;
+    cout << first.next << endl; // would be 0, ie. NULL
+    head->val++;
+    cout << head->val << endl;
+    
+    Node second;
+    head->next = &second; // same as: first.next = &second more text for fun fun fun
+    second.val = 200; // same as head->next->val = 200;
+    cout << second.val << endl;
+    head->next->val++;
+    cout << head->next->val << endl;
+} // main()
+</code></pre>
+
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser apps</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Over time, browsers kept getting more and more sophisticated in their rendering capabilities. 
+
+<p>Along with this, Java and Javascript (both associated with browsers almost from the start) kept getting increasingly powerful.
+
+<p>Difference between Java and Javascript? Night and day..
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser apps</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>These days, what used to be standalone ("native") programs commonly run on browsers. Two examples: <a href="pics/GMail.jpg">email clients</a>, and <a href="pics/GoogleDoc.jpg">word processors</a>. 
+
+<p>But the focus of this talk is on *creating* *graphics* right here in the browser..
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Kinds of graphics</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Here is a classification of graphics creatable by computer:
+<ul>
+<li><a href="pics/intro-snes.png">2D: pixels</a>
+<li><a href="pics/inkscape2.png">2D: vectors</a>
+<li><a href="pics/car.jpg">3D</a>
+<li><a href="clips/10_Sample_holder.ogv">"video"</a>
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 2D - pixels</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>To paint an image or manipulate photos, you'd normally use Photoshop.. <a href="clips/sumo.mp4">Here</a> is a browser-based program for doing so..  
+
+<p>You can use <a href="clips/drawto.mp4">this</a> (browser-based) program to share your creations with others:)
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 2D - vector</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Adobe Illustrator is commonly used to create 'vector' artwork (with clean, crisp lines). <a href="clips/svge.mp4">Here</a> is a BBG alternative.. 
+
+<p>Question - what does the saved file's format resemble? 
+
+<p><a href="clips/jsv.mp4">This</a> is another vector graphics program. 
+
+<p>You can use <a href="clips/ajaxa.mp4">this</a> program to create simple vector art *animations* (no need for Flash!)..
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 2D - text</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p><a href="clips/cooltext.mp4">This one</a> is not strictly browser-based, but it does use the browser as an interface to send data to a server for processing. 
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 2D - (math) typesetting</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>What if you wanted to typeset complex math equations? <a href="clips/am.mp4">This</a> is one of the best ways to do so.
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 3D - freeform modeling</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p><a href="clips/sculptgl.mp4">Here</a> is a FUN program that lets you 'sculpt' a ball of virtual clay, to create 3D meshes.
+
+<p><a href="clips/leo.mp4/">This</a> is another program for sculpting - here you can start with someone else's shape, and modify it. 
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 3D - 'CAD' modeling</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Computer Aided Design (CAD) used to require standalone programs such as AutoCAD, SolidWorks, etc. <a href="clips/tinkercad.mp4">No longer.</a>
+
+<p><a href="clips/3dtin.mp4">This</a> is a similar browser-based CAD program. 
+
+<p>With these, you can export your model to be 3D-printed!
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 3D printable models</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>3D-printables are usually triangle meshes in the .stl format. Sites such as <a href="clips/shapeways.mp4">Shapeways</a> and <a href="#">Cubify</a> serve as marketplaces for such 3D-printable meshes.
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 3D, educational</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Study of anatomy comes alive, when there is a 3D model to look at, including being able to focus on specific subsystems.
+
+<p><a href="clips/googleviewer.mp4">This</a> is the Google version; here is an <a href="clips/bdh.mp4">alternate</a> one. 
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: 3D, educational</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>Math is usually presented to students in a dull, complex, unintuitive and passive way. Understanding deepens when the formulae, equations and data come alive with the aid of graphics (both 2D and 3D). 
+
+<p><a href="clips/jsx.mp4">Here</a> is one such collection of "math apps" that invite interaction. 
+
+<p><a href="clips/demos.mp4">This one</a> (from Wolfram, makers of <a href="http://www.wolfram.com/mathematica/">Mathematica</a>) is a much more extensive collection, spanning almost every area of math, science, engineering, technology and the arts (in other words, <a href="http://en.wikipedia.org/wiki/STEAM_fields">STEAM</a>-y). 
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: renderers</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>A renderer is a 'software camera' - it turns scene descriptions (geometry etc.) into images (pixels).
+
+<p>Here are a couple of browser-based renderers: <a href="clips/scenejs.mp4">SceneJS</a>, <a href="clips/threejs.mp4">Three.js</a>.
+
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div class="slide">
+<div id="osframe">
+<div id="itframe"> <h1 class="st">Browser graphics: games!</h1></div>
+<div id="ilframe">
+<!-- ---------- -->
+<p>All this graphics capability needs to serve a great cause - games :)
+
+<p>* <a href="clips/unity.mp4">Unity3D</a> games
+
+<p>* <a href="clips/enchant.mp4">enchantjs</a> games..
+
+<p>* just Google 'HTML5 game'..
+
+
+<!-- ---------- -->
+</div>
+</div></div>
+<!-- ******************************************** -->
+
+
+
+</body>
+<script>hljs.initHighlightingOnLoad();</script>
+</html>
+
